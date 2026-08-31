@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.puffofficial.ftecore;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
@@ -9,8 +9,16 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
+import com.gregtechceu.gtceu.common.data.GTBlocks;
+import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
+import com.gregtechceu.gtceu.common.data.GTMaterialItems;
+import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
+import com.puffofficial.ftecore.common.machines.FTEPrimitiveMachines;
+import com.tterrag.registrate.Registrate;
+import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,15 +30,15 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(ExampleMod.MOD_ID)
+@Mod(FTECore.MOD_ID)
 @SuppressWarnings("removal")
-public class ExampleMod {
+public class FTECore {
 
-    public static final String MOD_ID = "examplemod";
+    public static final String MOD_ID = "ftecore";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(ExampleMod.MOD_ID);
+    public static GTRegistrate FTERegister = GTRegistrate.create(FTECore.MOD_ID);
 
-    public ExampleMod() {
+    public FTECore() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -49,7 +57,7 @@ public class ExampleMod {
         // we need to register our object like this!
         MinecraftForge.EVENT_BUS.register(this);
 
-        EXAMPLE_REGISTRATE.registerRegistrate();
+        FTERegister.registerRegistrate();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -80,8 +88,20 @@ public class ExampleMod {
      * 
      * @param event
      */
+
+    public static RegistryEntry<CreativeModeTab> FTE_CREATIVE_TAB = FTERegister
+            .defaultCreativeTab(FTECore.MOD_ID,
+                    builder -> builder
+                            .displayItems(new GTCreativeModeTabs.RegistrateDisplayItemsGenerator(FTECore.MOD_ID,FTERegister))
+                            .title(FTERegister.addLang("itemGroup",FTECore.id("creative_tab"),
+                                    "Flatter Than Ever: Core"))
+                            .icon(FTEPrimitiveMachines.PRIMITIVE_ASSEMBLER)
+                            .build())
+            .register();
+
+
     private void addMaterialRegistries(MaterialRegistryEvent event) {
-        GTCEuAPI.materialManager.createRegistry(ExampleMod.MOD_ID);
+        GTCEuAPI.materialManager.createRegistry(FTECore.MOD_ID);
     }
 
     /**
@@ -91,7 +111,7 @@ public class ExampleMod {
      * @param event
      */
     private void addMaterials(MaterialEvent event) {
-        // CustomMaterials.init();
+        FTEMaterials.register();
     }
 
     /**
@@ -120,7 +140,7 @@ public class ExampleMod {
      * @param event
      */
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
-        // CustomMachines.init();
+        FTEPrimitiveMachines.init();
     }
 
     /**

@@ -1,20 +1,21 @@
-package com.example.examplemod;
+package com.puffofficial.ftecore;
 
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
+import com.puffofficial.ftecore.common.data.materials.FTEElement;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 @GTAddon
-public class ExampleGTAddon implements IGTAddon {
+public class FTECoreGTAddon implements IGTAddon {
 
     @Override
     public GTRegistrate getRegistrate() {
-        return ExampleMod.EXAMPLE_REGISTRATE;
+        return FTECore.FTERegister;
     }
 
     @Override
@@ -22,7 +23,7 @@ public class ExampleGTAddon implements IGTAddon {
 
     @Override
     public String addonModId() {
-        return ExampleMod.MOD_ID;
+        return FTECore.MOD_ID;
     }
 
     @Override
@@ -37,7 +38,8 @@ public class ExampleGTAddon implements IGTAddon {
 
     @Override
     public void registerElements() {
-        // CustomElements.init();
+        IGTAddon.super.registerElements();
+        FTEElement.init();
     }
 
     // If you have custom ingredient types, uncomment this & change to match your capability.

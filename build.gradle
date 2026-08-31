@@ -129,13 +129,14 @@ legacyForge {
 }
 jar {
     manifest.attributes([
-            "MixinConfigs": "examplemod.mixins.json"
+            "MixinConfigs": "ftecore.mixins.json"
     ])
 }
 
 apply from: "$rootDir/gradle/scripts/spotless.gradle"
 
 dependencies {
+
     compileOnly("org.jetbrains:annotations:26.0.1")
 
     // Mixin
@@ -147,6 +148,11 @@ dependencies {
     modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     modRuntimeOnly("dev.emi:emi-forge:${emi_version}+${minecraft_version}")
     modRuntimeOnly("curse.maven:jade-324717:5390389")
+
+    // Botania, Patchouli
+    modImplementation("curse.maven:botania-225643:7649894")
+    modImplementation("curse.maven:patchouli-306770:7731017")
+    modImplementation("curse.maven:curios-309927:6418456")
 
     // GregTech and dependencies
     modImplementation("com.gregtechceu.gtceu:gtceu-${minecraft_version}:${gtceu_version}:slim") { transitive = false }
