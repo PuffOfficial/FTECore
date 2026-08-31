@@ -1,6 +1,7 @@
 package com.puffofficial.ftecore;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
+import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
@@ -95,7 +96,7 @@ public class FTECore {
                             .displayItems(new GTCreativeModeTabs.RegistrateDisplayItemsGenerator(FTECore.MOD_ID,FTERegister))
                             .title(FTERegister.addLang("itemGroup",FTECore.id("creative_tab"),
                                     "Flatter Than Ever: Core"))
-                            .icon(FTEPrimitiveMachines.PRIMITIVE_ASSEMBLER)
+                            .icon(FTEPrimitiveMachines.PRIMITIVE_POLARIZER[GTValues.ULV]::asStack)
                             .build())
             .register();
 

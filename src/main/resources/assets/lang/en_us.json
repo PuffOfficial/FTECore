@@ -1,5 +1,7 @@
 {
   "material.ftecore.puff_steel": "Puff's Steel",
   "material.ftecore.puff_gem": "Puff's Gem",
-  "material.ftecore.meth": "Methamphetamine"
+  "material.ftecore.meth": "Methamphetamine",
+
+  "gtfte.component.ulv_machine": "§8It's a primitive machine, recipes take twice as long."
 }
