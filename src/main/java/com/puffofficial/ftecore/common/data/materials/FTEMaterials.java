@@ -7,9 +7,10 @@ import com.puffofficial.ftecore.FTECore;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 
-
 public class FTEMaterials {
-    public static Material PUFF_STEEL,PUFF_GEM,METH;
+
+    public static Material PUFF_STEEL, PUFF_GEM, METH;
+
     public static void register() {
         PUFF_STEEL = new Material.Builder(FTECore.id("puff_steel"))
                 .ingot()

@@ -9,6 +9,7 @@ import com.gregtechceu.gtceu.api.machine.multiblock.MultiblockControllerMachine;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
 import com.gregtechceu.gtceu.api.registry.registrate.MultiblockMachineBuilder;
+
 import com.puffofficial.ftecore.FTECore;
 
 import java.util.Locale;
@@ -20,14 +21,14 @@ public class MachineUtils {
 
     public static MultiblockMachineDefinition[] TieredMultis(String name,
                                                              BiFunction<IMachineBlockEntity, Integer, MultiblockControllerMachine> factory,
-                                                             BiFunction<Integer, MultiblockMachineBuilder<?,?>, MultiblockMachineDefinition> builder,
+                                                             BiFunction<Integer, MultiblockMachineBuilder<?, ?>, MultiblockMachineDefinition> builder,
                                                              int... tiers) {
         return TieredMultis(FTECore.FTERegister, name, factory, builder, tiers);
     }
 
     public static MultiblockMachineDefinition[] TieredMultis(GTRegistrate registrate, String name,
                                                              BiFunction<IMachineBlockEntity, Integer, MultiblockControllerMachine> factory,
-                                                             BiFunction<Integer, MultiblockMachineBuilder<?,?>, MultiblockMachineDefinition> builder,
+                                                             BiFunction<Integer, MultiblockMachineBuilder<?, ?>, MultiblockMachineDefinition> builder,
                                                              int... tiers) {
         MultiblockMachineDefinition[] definitions = new MultiblockMachineDefinition[GTValues.TIER_COUNT];
         for (int tier : tiers) {
@@ -42,7 +43,7 @@ public class MachineUtils {
 
     public static MachineDefinition[] TieredMachines(String name,
                                                      BiFunction<IMachineBlockEntity, Integer, MetaMachine> factory,
-                                                     BiFunction<Integer, MachineBuilder<MachineDefinition,?>, MachineDefinition> builder,
+                                                     BiFunction<Integer, MachineBuilder<MachineDefinition, ?>, MachineDefinition> builder,
                                                      int... tiers) {
         MachineDefinition[] definitions = new MachineDefinition[GTValues.TIER_COUNT];
         for (int tier : tiers) {

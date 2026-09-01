@@ -9,13 +9,8 @@ import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
-
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
-import com.puffofficial.ftecore.common.CommonProxy;
-import com.puffofficial.ftecore.common.data.FTEBlocks;
-import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
-import com.puffofficial.ftecore.common.machines.FTEPrimitiveMachines;
-import com.tterrag.registrate.util.entry.RegistryEntry;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -27,6 +22,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import com.puffofficial.ftecore.common.CommonProxy;
+import com.puffofficial.ftecore.common.data.FTEBlocks;
+import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
+import com.puffofficial.ftecore.common.machines.FTEPrimitiveMachines;
+import com.tterrag.registrate.util.entry.RegistryEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -99,8 +99,9 @@ public class FTECore {
     public static RegistryEntry<CreativeModeTab> FTE_CREATIVE_TAB = FTERegister
             .defaultCreativeTab(FTECore.MOD_ID,
                     builder -> builder
-                            .displayItems(new GTCreativeModeTabs.RegistrateDisplayItemsGenerator(FTECore.MOD_ID,FTERegister))
-                            .title(FTERegister.addLang("itemGroup",FTECore.id("creative_tab"),
+                            .displayItems(
+                                    new GTCreativeModeTabs.RegistrateDisplayItemsGenerator(FTECore.MOD_ID, FTERegister))
+                            .title(FTERegister.addLang("itemGroup", FTECore.id("creative_tab"),
                                     "Flatter Than Ever: Core"))
                             .icon(FTEPrimitiveMachines.PRIMITIVE_POLARIZER[GTValues.ULV]::asStack)
                             .build())

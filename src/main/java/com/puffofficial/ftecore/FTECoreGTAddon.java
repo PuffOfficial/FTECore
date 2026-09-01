@@ -4,8 +4,9 @@ import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
-import com.puffofficial.ftecore.common.data.materials.FTEElement;
 import net.minecraft.data.recipes.FinishedRecipe;
+
+import com.puffofficial.ftecore.common.data.materials.FTEElement;
 
 import java.util.function.Consumer;
 
