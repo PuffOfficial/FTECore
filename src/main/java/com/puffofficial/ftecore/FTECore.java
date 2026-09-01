@@ -10,12 +10,11 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
-import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
-import com.gregtechceu.gtceu.common.data.GTMaterialItems;
+import com.puffofficial.ftecore.common.CommonProxy;
+import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
 import com.puffofficial.ftecore.common.machines.FTEPrimitiveMachines;
-import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -59,6 +58,13 @@ public class FTECore {
         MinecraftForge.EVENT_BUS.register(this);
 
         FTERegister.registerRegistrate();
+
+        CommonProxy.init();
+        init();
+    }
+
+    public static void init() {
+        FTEBlocks.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -99,7 +105,6 @@ public class FTECore {
                             .icon(FTEPrimitiveMachines.PRIMITIVE_POLARIZER[GTValues.ULV]::asStack)
                             .build())
             .register();
-
 
     private void addMaterialRegistries(MaterialRegistryEvent event) {
         GTCEuAPI.materialManager.createRegistry(FTECore.MOD_ID);
