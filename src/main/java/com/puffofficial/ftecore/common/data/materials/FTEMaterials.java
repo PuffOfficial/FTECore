@@ -4,10 +4,15 @@ import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 
 import com.puffofficial.ftecore.FTECore;
+import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 
 public class FTEMaterials {
+
+    static {
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.FTE_MATERIAL_CREATIVE_TAB);
+    }
 
     public static Material PUFF_STEEL, PUFF_GEM, METH;
 

@@ -17,7 +17,7 @@ public class FTEBlocks {
     public static void init() {}
 
     static {
-        FTECore.FTERegister.creativeModeTab(() -> FTECore.FTE_CREATIVE_TAB);
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.FTE_BLOCK_CREATIVE_TAB);
     }
 
     // All the casing stuff

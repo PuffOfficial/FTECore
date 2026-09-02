@@ -5,13 +5,19 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.SimpleTieredMachine;
+import com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.common.data.models.GTMachineModels;
+import com.gregtechceu.gtceu.common.machine.multiblock.part.MaintenanceHatchPartMachine;
 
+import com.puffofficial.ftecore.data.models.FTEMachineModels;
 import net.minecraft.network.chat.Component;
 
 import com.puffofficial.ftecore.FTECore;
+import com.puffofficial.ftecore.api.machine.multiblock.FTEPartAbility;
+import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTERecipeModifiers;
 
 import java.util.ArrayList;
@@ -25,7 +31,7 @@ import static com.puffofficial.ftecore.common.machines.MachineUtils.*;
 public class FTEPrimitiveMachines {
 
     static {
-        FTECore.FTERegister.creativeModeTab(() -> FTECore.FTE_CREATIVE_TAB);
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.FTE_MACHINE_CREATIVE_TAB);
     }
 
     private static MachineDefinition[] registerPrimitiveMachine(String Name, String Id, GTRecipeType RecipeType) {
@@ -65,6 +71,19 @@ public class FTEPrimitiveMachines {
             GTRecipeTypes.EXTRUDER_RECIPES);
     public static final MachineDefinition[] PRIMITIVE_FORGE_HAMMER = registerPrimitiveMachine("Forge Hammer",
             "forge_hammer", GTRecipeTypes.FORGE_HAMMER_RECIPES);
+
+    public static final MachineDefinition PRIMITIVE_MAINTENANCE_HATCH = FTECore.FTERegister
+            .machine("primitive_maintenance_hatch",
+                    (blockEntity) -> new MaintenanceHatchPartMachine(blockEntity, false))
+            .langValue("§8Primitive Maintenance Hatch")
+            .rotationState(RotationState.ALL)
+            .abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE)
+            .tooltips(Component.translatable("gtfte.components.primitive_maintenance"))
+            .modelProperty(GTMachineModelProperties.IS_FORMED, false)
+            .modelProperty(GTMachineModelProperties.IS_TAPED, false)
+            .model(FTEMachineModels.createPrimitiveMaintenanceModel(FTECore.id("block/machine/part/primitive_maintenance_hatch")))
+            .tier(GTValues.ULV)
+            .register();
 
     public static void init() {}
 }

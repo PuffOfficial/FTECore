@@ -1,7 +1,6 @@
 package com.puffofficial.ftecore;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
-import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
@@ -9,11 +8,9 @@ import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
-import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -26,7 +23,6 @@ import com.puffofficial.ftecore.common.CommonProxy;
 import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
 import com.puffofficial.ftecore.common.machines.FTEPrimitiveMachines;
-import com.tterrag.registrate.util.entry.RegistryEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -95,17 +91,6 @@ public class FTECore {
      * 
      * @param event
      */
-
-    public static RegistryEntry<CreativeModeTab> FTE_CREATIVE_TAB = FTERegister
-            .defaultCreativeTab(FTECore.MOD_ID,
-                    builder -> builder
-                            .displayItems(
-                                    new GTCreativeModeTabs.RegistrateDisplayItemsGenerator(FTECore.MOD_ID, FTERegister))
-                            .title(FTERegister.addLang("itemGroup", FTECore.id("creative_tab"),
-                                    "Flatter Than Ever: Core"))
-                            .icon(FTEPrimitiveMachines.PRIMITIVE_POLARIZER[GTValues.ULV]::asStack)
-                            .build())
-            .register();
 
     private void addMaterialRegistries(MaterialRegistryEvent event) {
         GTCEuAPI.materialManager.createRegistry(FTECore.MOD_ID);

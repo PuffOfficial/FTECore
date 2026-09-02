@@ -6,13 +6,14 @@ import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 
 import com.puffofficial.ftecore.FTECore;
+import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 
 public class FTEPrimitiveMultiblocks {
 
     public static void init() {}
 
     static {
-        FTECore.FTERegister.creativeModeTab(() -> FTECore.FTE_CREATIVE_TAB);
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.FTE_MACHINE_CREATIVE_TAB);
     }
 
     public static MultiblockMachineDefinition PRIMITIVE_BENDER = FTECore.FTERegister
