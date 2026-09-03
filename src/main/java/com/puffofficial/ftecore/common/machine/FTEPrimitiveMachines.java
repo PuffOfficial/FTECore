@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.common.machines;
+package com.puffofficial.ftecore.common.machine;
 
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
@@ -9,9 +9,9 @@ import com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-import com.gregtechceu.gtceu.common.data.models.GTMachineModels;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.MaintenanceHatchPartMachine;
 
+import com.puffofficial.ftecore.common.machine.multiblock.part.PrimitiveMaintenanceHatchPartMachine;
 import com.puffofficial.ftecore.data.models.FTEMachineModels;
 import net.minecraft.network.chat.Component;
 
@@ -26,7 +26,7 @@ import java.util.List;
 
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
-import static com.puffofficial.ftecore.common.machines.MachineUtils.*;
+import static com.puffofficial.ftecore.common.machine.MachineUtils.*;
 
 public class FTEPrimitiveMachines {
 
@@ -74,7 +74,7 @@ public class FTEPrimitiveMachines {
 
     public static final MachineDefinition PRIMITIVE_MAINTENANCE_HATCH = FTECore.FTERegister
             .machine("primitive_maintenance_hatch",
-                    (blockEntity) -> new MaintenanceHatchPartMachine(blockEntity, false))
+                    (blockEntity) -> new PrimitiveMaintenanceHatchPartMachine(blockEntity, false))
             .langValue("§8Primitive Maintenance Hatch")
             .rotationState(RotationState.ALL)
             .abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE)

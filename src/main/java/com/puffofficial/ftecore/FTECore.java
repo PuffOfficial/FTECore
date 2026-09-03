@@ -22,7 +22,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import com.puffofficial.ftecore.common.CommonProxy;
 import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
-import com.puffofficial.ftecore.common.machines.FTEPrimitiveMachines;
+import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

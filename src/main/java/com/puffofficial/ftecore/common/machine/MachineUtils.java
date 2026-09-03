@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.common.machines;
+package com.puffofficial.ftecore.common.machine;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;

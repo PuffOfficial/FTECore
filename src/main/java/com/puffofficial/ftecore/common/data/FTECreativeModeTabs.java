@@ -9,7 +9,7 @@ import net.minecraft.world.item.CreativeModeTab;
 
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
-import com.puffofficial.ftecore.common.machines.FTEPrimitiveMachines;
+import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 
 public class FTECreativeModeTabs {

@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.common.machines.multiblock;
+package com.puffofficial.ftecore.common.machine.multiblock;
 
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
