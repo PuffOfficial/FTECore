@@ -2,15 +2,25 @@ package com.puffofficial.ftecore.common.machine;
 
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.block.IMachineBlock;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
+import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.SimpleTieredMachine;
+import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
+import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties;
+import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
+import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.common.data.GTBlocks;
+import com.gregtechceu.gtceu.common.data.GTMachines;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.common.data.models.GTMachineModels;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.MaintenanceHatchPartMachine;
 
+import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.machine.multiblock.part.PrimitiveMaintenanceHatchPartMachine;
 import com.puffofficial.ftecore.data.models.FTEMachineModels;
 import net.minecraft.network.chat.Component;
@@ -19,12 +29,14 @@ import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.api.machine.multiblock.FTEPartAbility;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTERecipeModifiers;
+import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.gregtechceu.gtceu.api.GTValues.*;
+import static com.gregtechceu.gtceu.api.pattern.Predicates.blocks;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
 import static com.puffofficial.ftecore.common.machine.MachineUtils.*;
 
@@ -84,6 +96,35 @@ public class FTEPrimitiveMachines {
             .modelProperty(GTMachineModelProperties.IS_TAPED, false)
             .model(FTEMachineModels.createPrimitiveMaintenanceModel(FTECore.id("block/machine/part/primitive_maintenance_hatch")))
             .tier(GTValues.ULV)
+            .register();
+
+    public static MultiblockMachineDefinition PRIMITIVE_BENDER = FTECore.FTERegister
+            .multiblock("primitive_bender", WorkableElectricMultiblockMachine::new)
+            .langValue("§8Primitive Bender")
+            .recipeType(GTRecipeTypes.BENDER_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.OC_PERFECT_SUBTICK)
+            .rotationState(RotationState.NON_Y_AXIS)
+            .appearanceBlock(FTEBlocks.SOLID_WROUGHT_IRON_CASING)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("RRRR","####", "  # ")
+                    .aisle("RRRR","#  #", "####")
+                    .aisle("RRRR","##C#", "  # ")
+                    .where("C", Predicates.controller(blocks(definition.get())))
+                    .where("#", blocks(FTEBlocks.SOLID_WROUGHT_IRON_CASING.get())
+                            .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
+                            .or(Predicates.abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE).setExactLimit(1).setPreviewCount(1))
+                            .or(blocks(PartAbility.INPUT_ENERGY.getBlocks(GTValues.ULV).toArray(Block[]::new)).setMaxGlobalLimited(2).setPreviewCount(1))
+                    )
+                    .where("R", blocks(GTBlocks.FIREBOX_STEEL.get()))
+                    .where(" ", Predicates.any())
+                    .build())
+            .model(
+                    GTMachineModels.createWorkableCasingMachineModel(
+                            FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
+                            GTCEu.id("block/machines/bender")
+                    )
+            )
             .register();
 
     public static void init() {
