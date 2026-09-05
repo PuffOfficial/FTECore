@@ -3,6 +3,7 @@ package com.puffofficial.ftecore.common.data;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs.*;
 
 import net.minecraft.world.item.CreativeModeTab;
