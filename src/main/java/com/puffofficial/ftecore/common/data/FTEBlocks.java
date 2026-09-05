@@ -14,10 +14,8 @@ import com.tterrag.registrate.util.nullness.NonNullBiFunction;
 
 public class FTEBlocks {
 
-    public static void init() {}
-
     static {
-        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.FTE_BLOCK_CREATIVE_TAB);
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.BLOCKS);
     }
 
     // All the casing stuff
@@ -41,4 +39,6 @@ public class FTEBlocks {
                 .build()
                 .register();
     }
+
+    public static void init() {}
 }

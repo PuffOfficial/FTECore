@@ -43,7 +43,6 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
@@ -92,16 +91,11 @@ public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
     private final boolean isConfigurable;
     @Persisted
     private final NotifiableItemStackHandler itemStackHandler;
-    @Getter
     @Persisted
     @DescSynced
     private boolean isTaped;
-    @Getter
-    @Setter
     @Persisted
     protected int timeActive;
-    @Getter
-    @Persisted
     @DescSynced
     protected byte maintenanceProblems = startProblems();
     @Getter

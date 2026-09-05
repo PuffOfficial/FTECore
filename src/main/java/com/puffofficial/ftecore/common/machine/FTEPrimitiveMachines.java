@@ -31,12 +31,13 @@ import static com.puffofficial.ftecore.common.machine.MachineUtils.*;
 public class FTEPrimitiveMachines {
 
     static {
-        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.FTE_MACHINE_CREATIVE_TAB);
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MACHINES);
     }
+
 
     private static MachineDefinition[] registerPrimitiveMachine(String Name, String Id, GTRecipeType RecipeType) {
         List<Component> components = new ArrayList<>();
-        components.add(Component.translatable("gtfte.components.ulv_machine"));
+        components.add(Component.translatable("fte.components.ulv_machine"));
         components.addAll(Arrays.asList(workableTiered(GTValues.ULV, V[GTValues.ULV], V[GTValues.ULV] * 64, RecipeType,
                 defaultTankSizeFunction.applyAsInt(GTValues.ULV), true)));
 
@@ -55,21 +56,21 @@ public class FTEPrimitiveMachines {
                 ULV);
     }
 
-    public static final MachineDefinition[] PRIMITIVE_EXTRACTOR = registerPrimitiveMachine("Extractor", "extractor",
+    public static MachineDefinition[] PRIMITIVE_EXTRACTOR = registerPrimitiveMachine("Extractor", "extractor",
             GTRecipeTypes.EXTRACTOR_RECIPES);
-    public static final MachineDefinition[] PRIMITIVE_ASSEMBLER = registerPrimitiveMachine("Assembler", "assembler",
+    public static MachineDefinition[] PRIMITIVE_ASSEMBLER = registerPrimitiveMachine("Assembler", "assembler",
             GTRecipeTypes.ASSEMBLER_RECIPES);
-    public static final MachineDefinition[] PRIMITIVE_ARC_FURNACE = registerPrimitiveMachine("Arc Furnace",
+    public static MachineDefinition[] PRIMITIVE_ARC_FURNACE = registerPrimitiveMachine("Arc Furnace",
             "arc_furnace", GTRecipeTypes.ARC_FURNACE_RECIPES);
-    public static final MachineDefinition[] PRIMITIVE_WIREMILL = registerPrimitiveMachine("Wiremill", "wiremill",
+    public static MachineDefinition[] PRIMITIVE_WIREMILL = registerPrimitiveMachine("Wiremill", "wiremill",
             GTRecipeTypes.WIREMILL_RECIPES);
-    public static final MachineDefinition[] PRIMITIVE_POLARIZER = registerPrimitiveMachine("Polarizer", "polarizer",
+    public static MachineDefinition[] PRIMITIVE_POLARIZER = registerPrimitiveMachine("Polarizer", "polarizer",
             GTRecipeTypes.POLARIZER_RECIPES);
-    public static final MachineDefinition[] PRIMITIVE_ELECTROLYZER = registerPrimitiveMachine("Electrolyzer",
+    public static MachineDefinition[] PRIMITIVE_ELECTROLYZER = registerPrimitiveMachine("Electrolyzer",
             "electrolyzer", GTRecipeTypes.ELECTROLYZER_RECIPES);
-    public static final MachineDefinition[] PRIMITIVE_EXTRUDER = registerPrimitiveMachine("Extruder", "extruder",
+    public static MachineDefinition[] PRIMITIVE_EXTRUDER = registerPrimitiveMachine("Extruder", "extruder",
             GTRecipeTypes.EXTRUDER_RECIPES);
-    public static final MachineDefinition[] PRIMITIVE_FORGE_HAMMER = registerPrimitiveMachine("Forge Hammer",
+    public static MachineDefinition[] PRIMITIVE_FORGE_HAMMER = registerPrimitiveMachine("Forge Hammer",
             "forge_hammer", GTRecipeTypes.FORGE_HAMMER_RECIPES);
 
     public static final MachineDefinition PRIMITIVE_MAINTENANCE_HATCH = FTECore.FTERegister
@@ -78,7 +79,7 @@ public class FTEPrimitiveMachines {
             .langValue("§8Primitive Maintenance Hatch")
             .rotationState(RotationState.ALL)
             .abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE)
-            .tooltips(Component.translatable("gtfte.components.primitive_maintenance"))
+            .tooltips(Component.translatable("fte.components.primitive_maintenance"))
             .modelProperty(GTMachineModelProperties.IS_FORMED, false)
             .modelProperty(GTMachineModelProperties.IS_TAPED, false)
             .model(FTEMachineModels.createPrimitiveMaintenanceModel(FTECore.id("block/machine/part/primitive_maintenance_hatch")))

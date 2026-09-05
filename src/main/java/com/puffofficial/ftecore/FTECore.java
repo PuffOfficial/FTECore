@@ -20,7 +20,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import com.puffofficial.ftecore.common.CommonProxy;
-import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import org.apache.logging.log4j.LogManager;
@@ -54,13 +53,7 @@ public class FTECore {
         MinecraftForge.EVENT_BUS.register(this);
 
         FTERegister.registerRegistrate();
-
         CommonProxy.init();
-        init();
-    }
-
-    public static void init() {
-        FTEBlocks.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -97,16 +90,6 @@ public class FTECore {
     }
 
     /**
-     * You will also need this for registering custom materials
-     * Call init() from your Material class(es) here
-     * 
-     * @param event
-     */
-    private void addMaterials(MaterialEvent event) {
-        FTEMaterials.register();
-    }
-
-    /**
      * (Optional) Used to modify pre-existing materials from GregTech
      * 
      * @param event
@@ -133,6 +116,16 @@ public class FTECore {
      */
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
         FTEPrimitiveMachines.init();
+    }
+
+    /**
+     * You will also need this for registering custom materials
+     * Call init() from your Material class(es) here
+     *
+     * @param event
+     */
+    private void addMaterials(MaterialEvent event) {
+        FTEMaterials.init();
     }
 
     /**

@@ -11,12 +11,12 @@ import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag
 public class FTEMaterials {
 
     static {
-        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.FTE_MATERIAL_CREATIVE_TAB);
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }
 
-    public static Material PUFF_STEEL, PUFF_GEM, METH;
+    public static Material PUFF_STEEL, PUFF_GEM, LEGALLY_MORAL;
 
-    public static void register() {
+    public static void init() {
         PUFF_STEEL = new Material.Builder(FTECore.id("puff_steel"))
                 .ingot()
                 .color(0xccccff)
@@ -29,12 +29,12 @@ public class FTEMaterials {
                 .iconSet(MaterialIconSet.LAPIS)
                 .flags(GENERATE_PLATE, GENERATE_ROD)
                 .buildAndRegister();
-        METH = new Material.Builder(FTECore.id("meth"))
+        LEGALLY_MORAL = new Material.Builder(FTECore.id("meth"))
                 .dust()
                 .color(0x80bfff)
                 .secondaryColor(0xe6f2ff)
                 .iconSet(MaterialIconSet.DULL)
-                .element(FTEElement.HEISENBERGIUM)
+                .element(FTEElement.FLATTIUM)
                 .buildAndRegister();
     }
 }

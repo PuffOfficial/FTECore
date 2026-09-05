@@ -5,9 +5,9 @@ import com.gregtechceu.gtceu.common.data.GTElements;
 
 public class FTEElement {
 
-    public static Element HEISENBERGIUM;
+    public static Element FLATTIUM;
 
     public static void init() {
-        HEISENBERGIUM = GTElements.createAndRegister(15, 3, -1, "puff_gem", "heisenbergium", "Meth", false);
+        FLATTIUM = GTElements.createAndRegister(15, 3, -1, "puff_gem", "flattium", "Pu", false);
     }
 }

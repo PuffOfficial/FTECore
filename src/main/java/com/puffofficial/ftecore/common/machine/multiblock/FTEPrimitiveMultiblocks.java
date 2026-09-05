@@ -13,7 +13,7 @@ public class FTEPrimitiveMultiblocks {
     public static void init() {}
 
     static {
-        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.FTE_MACHINE_CREATIVE_TAB);
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MACHINES);
     }
 
     public static MultiblockMachineDefinition PRIMITIVE_BENDER = FTECore.FTERegister
