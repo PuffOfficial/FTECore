@@ -15,7 +15,7 @@ import com.puffofficial.ftecore.FTECore;
 import java.util.Locale;
 import java.util.function.BiFunction;
 
-// This horrible thing was made by Argx, I have NO idea how this works and why this works.
+// This horrible thing was made by Argx/Phoenixvine, I have NO idea how this works and why this works.
 
 public class MachineUtils {
 

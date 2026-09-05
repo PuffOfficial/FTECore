@@ -9,6 +9,10 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
+import com.puffofficial.ftecore.common.data.FTEBlocks;
+import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
+import com.puffofficial.ftecore.data.lang.FTELangHandler;
+import com.tterrag.registrate.providers.ProviderType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -19,7 +23,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-import com.puffofficial.ftecore.common.CommonProxy;
 import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import org.apache.logging.log4j.LogManager;
@@ -50,7 +53,15 @@ public class FTECore {
         MinecraftForge.EVENT_BUS.register(this);
 
         FTERegister.registerRegistrate();
-        CommonProxy.init();
+
+        FTECore.FTERegister.addDataGenerator(ProviderType.LANG, FTELangHandler::init);
+
+        init();
+    }
+
+    private void init() {
+        FTEBlocks.init();
+        FTECreativeModeTabs.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

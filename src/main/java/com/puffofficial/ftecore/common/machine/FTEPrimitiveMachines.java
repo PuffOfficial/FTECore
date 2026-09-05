@@ -86,5 +86,7 @@ public class FTEPrimitiveMachines {
             .tier(GTValues.ULV)
             .register();
 
-    public static void init() {}
+    public static void init() {
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
+    }
 }

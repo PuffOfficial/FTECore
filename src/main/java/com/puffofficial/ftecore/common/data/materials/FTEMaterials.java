@@ -17,6 +17,7 @@ public class FTEMaterials {
     public static Material PUFF_STEEL, PUFF_GEM, LEGALLY_MORAL;
 
     public static void init() {
+
         PUFF_STEEL = new Material.Builder(FTECore.id("puff_steel"))
                 .ingot()
                 .color(0xccccff)
@@ -29,7 +30,7 @@ public class FTEMaterials {
                 .iconSet(MaterialIconSet.LAPIS)
                 .flags(GENERATE_PLATE, GENERATE_ROD)
                 .buildAndRegister();
-        LEGALLY_MORAL = new Material.Builder(FTECore.id("meth"))
+        LEGALLY_MORAL = new Material.Builder(FTECore.id("legally_moral"))
                 .dust()
                 .color(0x80bfff)
                 .secondaryColor(0xe6f2ff)
