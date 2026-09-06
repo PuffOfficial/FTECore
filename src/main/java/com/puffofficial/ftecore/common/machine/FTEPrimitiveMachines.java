@@ -87,7 +87,7 @@ public class FTEPrimitiveMachines {
 
     public static final MachineDefinition PRIMITIVE_MAINTENANCE_HATCH = FTECore.FTERegister
             .machine("primitive_maintenance_hatch",
-                    (blockEntity) -> new PrimitiveMaintenanceHatchPartMachine(blockEntity, false))
+                    (blockEntity) -> new PrimitiveMaintenanceHatchPartMachine(blockEntity, true))
             .langValue("§8Primitive Maintenance Hatch")
             .rotationState(RotationState.ALL)
             .abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE)

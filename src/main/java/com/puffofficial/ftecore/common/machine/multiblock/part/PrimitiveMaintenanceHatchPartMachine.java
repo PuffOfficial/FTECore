@@ -25,6 +25,7 @@ import com.lowdragmc.lowdraglib.syncdata.annotation.DescSynced;
 import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
 import com.lowdragmc.lowdraglib.syncdata.field.ManagedFieldHolder;
 
+import lombok.Setter;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -91,11 +92,16 @@ public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
     private final boolean isConfigurable;
     @Persisted
     private final NotifiableItemStackHandler itemStackHandler;
+    @Getter
     @Persisted
     @DescSynced
     private boolean isTaped;
+    @Getter
+    @Setter
     @Persisted
     protected int timeActive;
+    @Getter
+    @Persisted
     @DescSynced
     protected byte maintenanceProblems = startProblems();
     @Getter
@@ -105,7 +111,7 @@ public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
     protected TickableSubscription maintenanceSubs;
 
     public PrimitiveMaintenanceHatchPartMachine(IMachineBlockEntity holder, boolean isConfigurable) {
-        super(holder, isConfigurable ? GTValues.HV : GTValues.LV);
+        super(holder, isConfigurable ? GTValues.HV : GTValues.ULV);
         this.isConfigurable = isConfigurable;
         this.itemStackHandler = createInventory();
         this.itemStackHandler.setFilter(itemStack -> itemStack.is(GTItems.BASIC_TAPE.get()));
