@@ -21,6 +21,7 @@ import com.gregtechceu.gtceu.common.data.models.GTMachineModels;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.MaintenanceHatchPartMachine;
 
 import com.puffofficial.ftecore.common.data.FTEBlocks;
+import com.puffofficial.ftecore.common.data.FTETooltips;
 import com.puffofficial.ftecore.common.machine.multiblock.part.PrimitiveMaintenanceHatchPartMachine;
 import com.puffofficial.ftecore.data.models.FTEMachineModels;
 import net.minecraft.network.chat.Component;
@@ -102,7 +103,7 @@ public class FTEPrimitiveMachines {
             .multiblock("primitive_bender", WorkableElectricMultiblockMachine::new)
             .langValue("§8Primitive Bender")
             .recipeType(GTRecipeTypes.BENDER_RECIPES)
-            .recipeModifiers(GTRecipeModifiers.OC_PERFECT_SUBTICK)
+            .recipeModifiers(GTRecipeModifiers.OC_PERFECT_SUBTICK, FTERecipeModifiers::primitiveMultiblockLogic)
             .rotationState(RotationState.NON_Y_AXIS)
             .appearanceBlock(FTEBlocks.SOLID_WROUGHT_IRON_CASING)
             .pattern(definition -> FactoryBlockPattern.start()
@@ -116,7 +117,7 @@ public class FTEPrimitiveMachines {
                             .or(Predicates.abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE).setExactLimit(1).setPreviewCount(1))
                             .or(blocks(PartAbility.INPUT_ENERGY.getBlocks(GTValues.ULV).toArray(Block[]::new)).setMaxGlobalLimited(2).setPreviewCount(1))
                     )
-                    .where("R", blocks(GTBlocks.FIREBOX_STEEL.get()))
+                    .where("R", blocks(FTEBlocks.WROUGHT_IRON_FIREBOX.get()))
                     .where(" ", Predicates.any())
                     .build())
             .model(
@@ -125,6 +126,7 @@ public class FTEPrimitiveMachines {
                             GTCEu.id("block/machines/bender")
                     )
             )
+            .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
             .register();
 
     public static void init() {
