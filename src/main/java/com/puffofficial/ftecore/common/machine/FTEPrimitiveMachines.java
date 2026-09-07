@@ -103,7 +103,7 @@ public class FTEPrimitiveMachines {
             .multiblock("primitive_bender", WorkableElectricMultiblockMachine::new)
             .langValue("§8Primitive Bender")
             .recipeType(GTRecipeTypes.BENDER_RECIPES)
-            .recipeModifiers(GTRecipeModifiers.OC_PERFECT_SUBTICK, FTERecipeModifiers::primitiveMultiblockLogic)
+            .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT, FTERecipeModifiers::primitiveMultiblockLogic)
             .rotationState(RotationState.NON_Y_AXIS)
             .appearanceBlock(FTEBlocks.SOLID_WROUGHT_IRON_CASING)
             .pattern(definition -> FactoryBlockPattern.start()
@@ -124,8 +124,95 @@ public class FTEPrimitiveMachines {
                     GTMachineModels.createWorkableCasingMachineModel(
                             FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
                             GTCEu.id("block/machines/bender")
+                    ))
+            .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
+            .register();
+
+    public static MultiblockMachineDefinition PRIMITIVE_ALLOY_SMELTER = FTECore.FTERegister
+            .multiblock("primitive_alloy_smelter", WorkableElectricMultiblockMachine::new)
+            .langValue("§8Primitive Alloy Smelter")
+            .recipeType(GTRecipeTypes.ALLOY_SMELTER_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT, FTERecipeModifiers::primitiveMultiblockLogic)
+            .rotationState(RotationState.NON_Y_AXIS)
+            .appearanceBlock(FTEBlocks.SOLID_WROUGHT_IRON_CASING)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("RRR","###", " # ")
+                    .aisle("RRR","# #", "###")
+                    .aisle("RRR","#C#", " # ")
+                    .where("C", Predicates.controller(blocks(definition.get())))
+                    .where("#", blocks(FTEBlocks.SOLID_WROUGHT_IRON_CASING.get())
+                            .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
+                            .or(Predicates.abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE).setExactLimit(1).setPreviewCount(1))
+                            .or(blocks(PartAbility.INPUT_ENERGY.getBlocks(GTValues.ULV).toArray(Block[]::new)).setMaxGlobalLimited(2).setPreviewCount(1))
                     )
-            )
+                    .where("R", blocks(FTEBlocks.WROUGHT_IRON_FIREBOX.get()))
+                    .where(" ", Predicates.any())
+                    .build())
+            .model(
+                    GTMachineModels.createWorkableCasingMachineModel(
+                            FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
+                            GTCEu.id("block/machines/alloy_smelter")
+                    ))
+            .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
+            .register();
+
+    public static MultiblockMachineDefinition PRIMITIVE_SMELTER = FTECore.FTERegister
+            .multiblock("primitive_smelter", WorkableElectricMultiblockMachine::new)
+            .langValue("§8Primitive Smelter")
+            .recipeType(GTRecipeTypes.FURNACE_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT, FTERecipeModifiers::primitiveMultiblockLogic)
+            .rotationState(RotationState.NON_Y_AXIS)
+            .appearanceBlock(FTEBlocks.SOLID_WROUGHT_IRON_CASING)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("RRR","###", " # ")
+                    .aisle("RRR","# #", " # ")
+                    .aisle("RRR","# #", " # ")
+                    .aisle("RRR","#C#", " # ")
+                    .where("C", Predicates.controller(blocks(definition.get())))
+                    .where("#", blocks(FTEBlocks.SOLID_WROUGHT_IRON_CASING.get())
+                            .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
+                            .or(Predicates.abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE).setExactLimit(1).setPreviewCount(1))
+                            .or(blocks(PartAbility.INPUT_ENERGY.getBlocks(GTValues.ULV).toArray(Block[]::new)).setMaxGlobalLimited(2).setPreviewCount(1))
+                    )
+                    .where("R", blocks(FTEBlocks.WROUGHT_IRON_FIREBOX.get()))
+                    .where(" ", Predicates.any())
+                    .build())
+            .model(
+                    GTMachineModels.createWorkableCasingMachineModel(
+                            FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
+                            GTCEu.id("block/machines/furnace")
+                    ))
+            .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
+            .register();
+
+    public static MultiblockMachineDefinition PRIMITIVE_LARGE_COMPRESSOR = FTECore.FTERegister
+            .multiblock("primitive_large_compressor", WorkableElectricMultiblockMachine::new)
+            .langValue("§8Primitive Large Compressor")
+            .recipeType(GTRecipeTypes.COMPRESSOR_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT, FTERecipeModifiers::primitiveMultiblockLogic)
+            .rotationState(RotationState.NON_Y_AXIS)
+            .appearanceBlock(FTEBlocks.SOLID_WROUGHT_IRON_CASING)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("RRR","###", "###")
+                    .aisle("RRR","# #", "###")
+                    .aisle("RRR","#C#", "###")
+                    .where("C", Predicates.controller(blocks(definition.get())))
+                    .where("#", blocks(FTEBlocks.SOLID_WROUGHT_IRON_CASING.get())
+                            .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
+                            .or(Predicates.abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE).setExactLimit(1).setPreviewCount(1))
+                            .or(blocks(PartAbility.INPUT_ENERGY.getBlocks(GTValues.ULV).toArray(Block[]::new)).setMaxGlobalLimited(2).setPreviewCount(1))
+                    )
+                    .where("R", blocks(FTEBlocks.WROUGHT_IRON_FIREBOX.get()))
+                    .where(" ", Predicates.any())
+                    .build())
+            .model(
+                    GTMachineModels.createWorkableCasingMachineModel(
+                            FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
+                            GTCEu.id("block/machines/compressor")
+                    ))
             .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
             .register();
 
