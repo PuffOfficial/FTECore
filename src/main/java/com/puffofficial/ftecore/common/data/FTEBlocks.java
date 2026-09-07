@@ -25,7 +25,7 @@ public class FTEBlocks {
 
     // All the casing stuff
     public static final BlockEntry<Block> SOLID_WROUGHT_IRON_CASING = createSimpleCasing(
-            "§8Solid Wrought Iron Casing", "solid_wrought_iron_casing", "solid_wrought_iron_casing", Blocks.IRON_BLOCK,
+            "§8Solid Wrought Iron Casing", "solid_wrought_iron_casing", "solid_wrought_iron_casing",
             BlockItem::new);
 
     // Fireboxes
@@ -33,11 +33,11 @@ public class FTEBlocks {
             "Wrought Iron Firebox", "wrought_iron_firebox", FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
             GTCEu.id("block/casings/firebox/machine_casing_firebox_steel"));
 
-    public static BlockEntry<Block> createSimpleCasing(String name, String id, String texture, Block initialProperty,
+    public static BlockEntry<Block> createSimpleCasing(String name, String id, String texture,
                                                        NonNullBiFunction<Block, Item.Properties, ? extends BlockItem> func) {
         return FTECore.FTERegister
                 .block(id, Block::new)
-                .initialProperties(() -> initialProperty)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
                 .tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .tag(CustomTags.MINEABLE_WITH_CONFIG_VALID_PICKAXE_WRENCH)
                 .properties(p -> p.isValidSpawn((state, level, pos, ent) -> false)
