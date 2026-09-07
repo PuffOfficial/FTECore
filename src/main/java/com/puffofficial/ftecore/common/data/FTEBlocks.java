@@ -26,18 +26,18 @@ public class FTEBlocks {
 
     // All the casing stuff
     public static final BlockEntry<Block> SOLID_WROUGHT_IRON_CASING = createSimpleCasing(
-            "§8Solid Wrought Iron Casing", "solid_wrought_iron_casing", "solid_wrought_iron_casing", BlockItem::new);
+            "§8Solid Wrought Iron Casing", "solid_wrought_iron_casing", "solid_wrought_iron_casing", Blocks.IRON_BLOCK, BlockItem::new);
 
     // Fireboxes
     public static final BlockEntry<ActiveBlock> WROUGHT_IRON_FIREBOX = createFirebox(
             "Wrought Iron Firebox", "wrought_iron_firebox", FTECore.id("block/casings/solid/solid_wrought_iron_casing"), GTCEu.id("block/casings/firebox/machine_casing_firebox_steel")
     );
 
-    public static BlockEntry<Block> createSimpleCasing(String name, String id, String texture,
+    public static BlockEntry<Block> createSimpleCasing(String name, String id, String texture, Block initialProperty,
                                                        NonNullBiFunction<Block, Item.Properties, ? extends BlockItem> func) {
         return FTECore.FTERegister
                 .block(id, Block::new)
-                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .initialProperties(() -> initialProperty)
                 .tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .tag(CustomTags.MINEABLE_WITH_CONFIG_VALID_PICKAXE_WRENCH)
                 .properties(p -> p.isValidSpawn((state, level, pos, ent) -> false)
@@ -52,7 +52,7 @@ public class FTEBlocks {
     }
 
     public static BlockEntry<ActiveBlock> createFirebox(String name, String id, ResourceLocation topTexture, ResourceLocation sideTexture) {
-        var block = FTECore.FTERegister
+        return FTECore.FTERegister
                 .block(id, ActiveBlock::new)
                 .initialProperties(() -> Blocks.IRON_BLOCK)
                 .properties(p -> p.isValidSpawn((state,level,pos,ent) -> false))
@@ -63,7 +63,6 @@ public class FTEBlocks {
                 .item(BlockItem::new)
                 .build()
                 .register();
-        return block;
     }
 
     public static void init() {}
