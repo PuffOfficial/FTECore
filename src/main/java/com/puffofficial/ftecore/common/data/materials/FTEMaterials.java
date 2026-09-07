@@ -17,7 +17,6 @@ public class FTEMaterials {
     public static Material PUFF_STEEL, PUFF_GEM, LEGALLY_MORAL;
 
     public static void init() {
-
         PUFF_STEEL = new Material.Builder(FTECore.id("puff_steel"))
                 .ingot()
                 .color(0xccccff)

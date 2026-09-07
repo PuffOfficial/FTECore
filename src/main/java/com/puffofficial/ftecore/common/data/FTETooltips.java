@@ -1,10 +1,10 @@
 package com.puffofficial.ftecore.common.data;
 
+import net.minecraft.network.chat.Component;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import net.minecraft.network.chat.Component;
 
 public class FTETooltips {
 
@@ -12,7 +12,7 @@ public class FTETooltips {
         List<Component> components = new ArrayList<>();
 
         components.add(Component.translatable("fte.components.ulv_multiblock"));
-        components.add(Component.translatable("fte.components.ulv_multiblock_parallels","§5"+parallelAmount));
+        components.add(Component.translatable("fte.components.ulv_multiblock_parallels", "§5" + parallelAmount));
 
         return components;
     }

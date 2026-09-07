@@ -9,6 +9,7 @@ public class FTELangHandler {
         provider.add("fte.components.primitive_maintenance", "§7Simple hatch for Primitive multiblock maintenance.");
 
         provider.add("fte.components.ulv_multiblock", "§7This machine can't accept energy hatches higher than ULV.");
-        provider.add("fte.components.ulv_multiblock_parallels", "§7This machine can process up to %s§7 recipes at once, if overclocked to §fLV§r.");
+        provider.add("fte.components.ulv_multiblock_parallels",
+                "§7This machine can process up to %s§7 recipes at once, if overclocked to §fLV§r.");
     }
 }

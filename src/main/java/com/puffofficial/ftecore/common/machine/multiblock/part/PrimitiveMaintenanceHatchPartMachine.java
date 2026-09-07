@@ -25,7 +25,6 @@ import com.lowdragmc.lowdraglib.syncdata.annotation.DescSynced;
 import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
 import com.lowdragmc.lowdraglib.syncdata.field.ManagedFieldHolder;
 
-import lombok.Setter;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -44,6 +43,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
@@ -58,7 +58,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
-                                         implements IMachineLife, IMaintenanceMachine, IInteractedMachine {
+                                                  implements IMachineLife, IMaintenanceMachine, IInteractedMachine {
 
     @Override
     public boolean isTaped() {
@@ -79,7 +79,6 @@ public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
     public byte getMaintenanceProblems() {
         return maintenanceProblems;
     }
-
 
     protected static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(
             PrimitiveMaintenanceHatchPartMachine.class, MultiblockPartMachine.MANAGED_FIELD_HOLDER);
