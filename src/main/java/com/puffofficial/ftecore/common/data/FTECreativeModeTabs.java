@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs.*;
 
+import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.minecraft.world.item.CreativeModeTab;
 
 import com.puffofficial.ftecore.FTECore;
@@ -20,7 +21,7 @@ public class FTECreativeModeTabs {
                     .displayItems(
                             new RegistrateDisplayItemsGenerator("fte_materials", FTECore.FTERegister))
                     .icon(
-                            () -> ChemicalHelper.get(TagPrefix.ingot, FTEMaterials.PUFF_STEEL))
+                            () -> ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Tungsten))
                     .title(FTECore.FTERegister.addLang(
                             "itemGroup", FTECore.id("materials"),
                             "Flatter Than Ever: Materials"))
