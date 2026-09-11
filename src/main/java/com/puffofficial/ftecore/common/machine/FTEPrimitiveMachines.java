@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
+import com.gregtechceu.gtceu.api.machine.SimpleGeneratorMachine;
 import com.gregtechceu.gtceu.api.machine.SimpleTieredMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
@@ -63,6 +64,24 @@ public class FTEPrimitiveMachines {
                         .register(),
                 ULV);
     }
+    private static MachineDefinition[] registerPrimitiveGenerator(String Name, String Id, GTRecipeType RecipeType) {
+        List<Component> components = new ArrayList<>();
+        components.addAll(Arrays.asList(workableTiered(GTValues.ULV, V[GTValues.ULV], V[GTValues.ULV] * 64, RecipeType,
+                defaultTankSizeFunction.applyAsInt(GTValues.ULV), true)));
+
+        return TieredMachines(Id,
+                (holder, tier) -> new SimpleGeneratorMachine(holder, tier, defaultTankSizeFunction),
+                (tier, builder) -> builder
+                        .langValue("§8Primitive " + Name)
+                        .editableUI(SimpleTieredMachine.EDITABLE_UI_CREATOR.apply(GTCEu.id(Id),
+                                RecipeType))
+                        .rotationState(RotationState.NON_Y_AXIS)
+                        .recipeType(RecipeType)
+                        .workableTieredHullModel(FTECore.id("block/machines/" + Id))
+                        .tooltips(components)
+                        .register(),
+                ULV);
+    }
 
     public static MachineDefinition[] PRIMITIVE_EXTRACTOR = registerPrimitiveMachine("Extractor", "extractor",
             GTRecipeTypes.EXTRACTOR_RECIPES);
@@ -100,6 +119,9 @@ public class FTEPrimitiveMachines {
                     .createPrimitiveMaintenanceModel(FTECore.id("block/machine/part/primitive_maintenance_hatch")))
             .tier(GTValues.ULV)
             .register();
+
+    public static MachineDefinition[] PRIMITIVE_HYDROKINETIC_DYNAMO = registerPrimitiveGenerator("Hydrokinetic dynamo",
+            "hydrokinetic_dynamo", FTERecipeTypes.HYDROKINETIC_DYNAMO_TYPE);
 
     public static MultiblockMachineDefinition PRIMITIVE_BENDER = FTECore.FTERegister
             .multiblock("primitive_bender", WorkableElectricMultiblockMachine::new)
