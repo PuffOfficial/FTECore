@@ -80,6 +80,12 @@ public class FTEPrimitiveMachines {
             GTRecipeTypes.EXTRUDER_RECIPES);
     public static MachineDefinition[] PRIMITIVE_FORGE_HAMMER = registerPrimitiveMachine("Forge Hammer",
             "forge_hammer", GTRecipeTypes.FORGE_HAMMER_RECIPES);
+    public static MachineDefinition[] PRIMITIVE_MACERATOR = registerPrimitiveMachine("Macerator",
+            "macerator", GTRecipeTypes.MACERATOR_RECIPES);
+    public static MachineDefinition[] PRIMITIVE_SIFTER = registerPrimitiveMachine("Sifter",
+            "sifter", GTRecipeTypes.SIFTER_RECIPES);
+    public static MachineDefinition[] PRIMITIVE_COMPRESSOR = registerPrimitiveMachine("Compressor",
+            "compressor", GTRecipeTypes.COMPRESSOR_RECIPES);
 
     public static final MachineDefinition PRIMITIVE_MAINTENANCE_HATCH = FTECore.FTERegister
             .machine("primitive_maintenance_hatch",
@@ -157,9 +163,9 @@ public class FTEPrimitiveMachines {
             .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
             .register();
 
-    public static MultiblockMachineDefinition PRIMITIVE_SMELTER = FTECore.FTERegister
-            .multiblock("primitive_smelter", WorkableElectricMultiblockMachine::new)
-            .langValue("§8Primitive Smelter")
+    public static MultiblockMachineDefinition PRIMITIVE_ELECTRIC_FURNACE = FTECore.FTERegister
+            .multiblock("primitive_electric_furnace", WorkableElectricMultiblockMachine::new)
+            .langValue("§8Primitive Electric Furnace")
             .recipeType(GTRecipeTypes.FURNACE_RECIPES)
             .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT, FTERecipeModifiers::primitiveMultiblockLogic)
             .rotationState(RotationState.NON_Y_AXIS)

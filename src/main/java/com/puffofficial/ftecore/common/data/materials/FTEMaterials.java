@@ -14,27 +14,37 @@ public class FTEMaterials {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }
 
-    public static Material PUFF_STEEL, PUFF_GEM, LEGALLY_MORAL;
+    public static Material CERAMIC;
+    public static Material LIVING_STEEL, VERDANT_COPPER, ROOT_IRON;
 
     public static void init() {
-        PUFF_STEEL = new Material.Builder(FTECore.id("puff_steel"))
+        CERAMIC = new Material.Builder(FTECore.id("ceramic"))
                 .ingot()
-                .color(0xccccff)
+                .color(0x9b6045).secondaryColor(0x83513c)
+                .iconSet(FTEIconsets.CERAMIC)
+                .flags(GENERATE_PLATE,DISABLE_MATERIAL_RECIPES)
+                .buildAndRegister();
+
+        LIVING_STEEL = new Material.Builder(FTECore.id("living_steel"))
+                .ingot()
+                .color(0x244120).secondaryColor(0x3d3d3d)
+                .iconSet(MaterialIconSet.METALLIC)
+                .flags(GENERATE_PLATE)
+                .formula("Fe")
+                .buildAndRegister();
+        VERDANT_COPPER = new Material.Builder(FTECore.id("verdant_copper"))
+                .ingot()
+                .color(0x7eea73).secondaryColor(0x244120)
                 .iconSet(MaterialIconSet.BRIGHT)
-                .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_DENSE)
+                .flags(GENERATE_PLATE)
+                .formula("Cu(C6H10O5)2")
                 .buildAndRegister();
-        PUFF_GEM = new Material.Builder(FTECore.id("puff_gem"))
-                .gem()
-                .color(0xccccff)
-                .iconSet(MaterialIconSet.LAPIS)
-                .flags(GENERATE_PLATE, GENERATE_ROD)
-                .buildAndRegister();
-        LEGALLY_MORAL = new Material.Builder(FTECore.id("legally_moral"))
-                .dust()
-                .color(0x80bfff)
-                .secondaryColor(0xe6f2ff)
-                .iconSet(MaterialIconSet.DULL)
-                .element(FTEElement.FLATTIUM)
+        ROOT_IRON = new Material.Builder(FTECore.id("root_iron"))
+                .ingot()
+                .color(0x244120).secondaryColor(0x3d3d3d)
+                .iconSet(MaterialIconSet.METALLIC)
+                .flags(GENERATE_PLATE)
+                .formula("Fe(C6H10O5)2")
                 .buildAndRegister();
     }
 }
