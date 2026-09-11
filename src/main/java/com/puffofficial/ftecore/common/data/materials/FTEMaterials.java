@@ -36,7 +36,7 @@ public class FTEMaterials {
                 .ingot()
                 .color(0x7eea73).secondaryColor(0x244120)
                 .iconSet(MaterialIconSet.BRIGHT)
-                .flags(GENERATE_PLATE)
+                .flags(GENERATE_PLATE,GENERATE_FINE_WIRE)
                 .formula("Cu(C6H10O5)2")
                 .buildAndRegister();
         ROOT_IRON = new Material.Builder(FTECore.id("root_iron"))
