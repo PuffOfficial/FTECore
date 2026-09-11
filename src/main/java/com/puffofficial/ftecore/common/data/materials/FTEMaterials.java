@@ -41,7 +41,7 @@ public class FTEMaterials {
                 .buildAndRegister();
         ROOT_IRON = new Material.Builder(FTECore.id("root_iron"))
                 .ingot()
-                .color(0x244120).secondaryColor(0x3d3d3d)
+                .color(0xa98c54).secondaryColor(0x2f2718)
                 .iconSet(MaterialIconSet.METALLIC)
                 .flags(GENERATE_PLATE)
                 .formula("Fe(C6H10O5)2")
