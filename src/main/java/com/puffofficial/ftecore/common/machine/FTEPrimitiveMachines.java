@@ -44,66 +44,65 @@ public class FTEPrimitiveMachines {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MACHINES);
     }
 
-    private static MachineDefinition[] registerPrimitiveMachine(String Name, String Id, GTRecipeType RecipeType) {
+    private static MachineDefinition registerPrimitiveMachine(String Name, String Id, GTRecipeType RecipeType) {
         List<Component> components = new ArrayList<>();
         components.add(Component.translatable("fte.components.ulv_machine"));
         components.addAll(Arrays.asList(workableTiered(GTValues.ULV, V[GTValues.ULV], V[GTValues.ULV] * 64, RecipeType,
                 defaultTankSizeFunction.applyAsInt(GTValues.ULV), true)));
 
-        return TieredMachines(Id,
-                (holder, tier) -> new SimpleTieredMachine(holder, tier, defaultTankSizeFunction),
-                (tier, builder) -> builder
-                        .langValue("§8Primitive " + Name)
-                        .editableUI(SimpleTieredMachine.EDITABLE_UI_CREATOR.apply(GTCEu.id(Id),
-                                RecipeType))
-                        .rotationState(RotationState.NON_Y_AXIS)
-                        .recipeType(RecipeType)
-                        .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT, FTERecipeModifiers::ulvMachineLogic)
-                        .workableTieredHullModel(GTCEu.id("block/machines/" + Id))
-                        .tooltips(components)
-                        .register(),
-                ULV);
+        return FTECore.FTERegister
+                .machine("ulv_"+Id,
+                        (holder) -> new SimpleTieredMachine(holder, GTValues.ULV, defaultTankSizeFunction))
+                .langValue("§8Primitive "+Name)
+                .editableUI(SimpleTieredMachine.EDITABLE_UI_CREATOR.apply(GTCEu.id(Id),
+                        RecipeType))
+                .rotationState(RotationState.NON_Y_AXIS)
+                .tooltips(components)
+                .recipeType(RecipeType)
+                .workableTieredHullModel(GTCEu.id("block/machines/" + Id))
+                .tier(GTValues.ULV)
+                .register();
     }
-    private static MachineDefinition[] registerPrimitiveGenerator(String Name, String Id, GTRecipeType RecipeType) {
+
+    private static MachineDefinition registerPrimitiveGenerator(String Name, String Id, GTRecipeType RecipeType) {
         List<Component> components = new ArrayList<>();
+        components.add(Component.translatable("fte.components.hydrokinetic_dynamo"));
         components.addAll(Arrays.asList(workableTiered(GTValues.ULV, V[GTValues.ULV], V[GTValues.ULV] * 64, RecipeType,
-                defaultTankSizeFunction.applyAsInt(GTValues.ULV), true)));
+                defaultTankSizeFunction.applyAsInt(GTValues.ULV), false)));
 
-        return TieredMachines(Id,
-                (holder, tier) -> new SimpleGeneratorMachine(holder, tier, defaultTankSizeFunction),
-                (tier, builder) -> builder
-                        .langValue("§8Primitive " + Name)
-                        .editableUI(SimpleTieredMachine.EDITABLE_UI_CREATOR.apply(GTCEu.id(Id),
-                                RecipeType))
-                        .rotationState(RotationState.NON_Y_AXIS)
-                        .recipeType(RecipeType)
-                        .workableTieredHullModel(FTECore.id("block/machines/" + Id))
-                        .tooltips(components)
-                        .register(),
-                ULV);
+        return FTECore.FTERegister
+                .machine("ulv_"+Id,
+                        (holder) -> new SimpleGeneratorMachine(holder, GTValues.ULV, defaultTankSizeFunction))
+                .langValue("§8Primitive "+Name)
+                .rotationState(RotationState.NON_Y_AXIS)
+                .tooltips(components)
+                .recipeType(RecipeType)
+                .workableTieredHullModel(FTECore.id("block/machines/" + Id))
+                .tier(GTValues.ULV)
+                .register();
     }
 
-    public static MachineDefinition[] PRIMITIVE_EXTRACTOR = registerPrimitiveMachine("Extractor", "extractor",
+    public static MachineDefinition PRIMITIVE_EXTRACTOR = registerPrimitiveMachine("Extractor", "extractor",
             GTRecipeTypes.EXTRACTOR_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_ASSEMBLER = registerPrimitiveMachine("Assembler", "assembler",
+    public static MachineDefinition PRIMITIVE_ASSEMBLER = registerPrimitiveMachine("Assembler", "assembler",
             GTRecipeTypes.ASSEMBLER_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_ARC_FURNACE = registerPrimitiveMachine("Arc Furnace",
+    public static MachineDefinition PRIMITIVE_ARC_FURNACE = registerPrimitiveMachine("Arc Furnace",
             "arc_furnace", GTRecipeTypes.ARC_FURNACE_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_WIREMILL = registerPrimitiveMachine("Wiremill", "wiremill",
+    public static MachineDefinition PRIMITIVE_WIREMILL = registerPrimitiveMachine("Wiremill", "wiremill",
             GTRecipeTypes.WIREMILL_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_POLARIZER = registerPrimitiveMachine("Polarizer", "polarizer",
+    public static MachineDefinition PRIMITIVE_POLARIZER = registerPrimitiveMachine("Polarizer", "polarizer",
             GTRecipeTypes.POLARIZER_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_ELECTROLYZER = registerPrimitiveMachine("Electrolyzer",
+    public static MachineDefinition PRIMITIVE_ELECTROLYZER = registerPrimitiveMachine("Electrolyzer",
             "electrolyzer", GTRecipeTypes.ELECTROLYZER_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_EXTRUDER = registerPrimitiveMachine("Extruder", "extruder",
+    public static MachineDefinition PRIMITIVE_EXTRUDER = registerPrimitiveMachine("Extruder", "extruder",
             GTRecipeTypes.EXTRUDER_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_FORGE_HAMMER = registerPrimitiveMachine("Forge Hammer",
+    public static MachineDefinition PRIMITIVE_FORGE_HAMMER = registerPrimitiveMachine("Forge Hammer",
             "forge_hammer", GTRecipeTypes.FORGE_HAMMER_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_MACERATOR = registerPrimitiveMachine("Macerator",
+    public static MachineDefinition PRIMITIVE_MACERATOR = registerPrimitiveMachine("Macerator",
             "macerator", GTRecipeTypes.MACERATOR_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_SIFTER = registerPrimitiveMachine("Sifter",
+    public static MachineDefinition PRIMITIVE_SIFTER = registerPrimitiveMachine("Sifter",
             "sifter", GTRecipeTypes.SIFTER_RECIPES);
-    public static MachineDefinition[] PRIMITIVE_COMPRESSOR = registerPrimitiveMachine("Compressor",
+    public static MachineDefinition PRIMITIVE_COMPRESSOR = registerPrimitiveMachine("Compressor",
             "compressor", GTRecipeTypes.COMPRESSOR_RECIPES);
 
     public static final MachineDefinition PRIMITIVE_MAINTENANCE_HATCH = FTECore.FTERegister
@@ -120,7 +119,7 @@ public class FTEPrimitiveMachines {
             .tier(GTValues.ULV)
             .register();
 
-    public static MachineDefinition[] PRIMITIVE_HYDROKINETIC_DYNAMO = registerPrimitiveGenerator("Hydrokinetic dynamo",
+    public static MachineDefinition PRIMITIVE_HYDROKINETIC_DYNAMO = registerPrimitiveGenerator("Hydrokinetic Dynamo",
             "hydrokinetic_dynamo", FTERecipeTypes.HYDROKINETIC_DYNAMO_TYPE);
 
     public static MultiblockMachineDefinition PRIMITIVE_BENDER = FTECore.FTERegister

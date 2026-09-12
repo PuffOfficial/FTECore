@@ -33,7 +33,7 @@ public class FTECreativeModeTabs {
                     .displayItems(
                             new RegistrateDisplayItemsGenerator("fte_machines", FTECore.FTERegister))
                     .icon(
-                            () -> FTEPrimitiveMachines.PRIMITIVE_POLARIZER[GTValues.ULV].asStack())
+                            () -> FTEPrimitiveMachines.PRIMITIVE_POLARIZER.asStack())
                     .title(FTECore.FTERegister.addLang(
                             "itemGroup", FTECore.id("machines"),
                             "Flatter Than Ever: Machines"))
@@ -57,7 +57,7 @@ public class FTECreativeModeTabs {
                             .displayItems(
                                     new RegistrateDisplayItemsGenerator("fte_items", FTECore.FTERegister))
                             .icon(
-                                    FTEBlocks.SOLID_WROUGHT_IRON_CASING::asStack)
+                                    FTEItems.ELECTRIC_MOTOR_ULV::asStack)
                             .title(FTECore.FTERegister.addLang(
                                     "itemGroup", FTECore.id("items"),
                                     "Flatter Than Ever: Items"))
