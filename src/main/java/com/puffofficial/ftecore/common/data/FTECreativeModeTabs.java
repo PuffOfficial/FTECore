@@ -51,6 +51,18 @@ public class FTECreativeModeTabs {
                             "Flatter Than Ever: Blocks"))
                     .build())
             .register();
+    // Items
+    public static RegistryEntry<CreativeModeTab> ITEMS = FTECore.FTERegister.defaultCreativeTab("fte_items",
+                    builder -> builder
+                            .displayItems(
+                                    new RegistrateDisplayItemsGenerator("fte_items", FTECore.FTERegister))
+                            .icon(
+                                    FTEBlocks.SOLID_WROUGHT_IRON_CASING::asStack)
+                            .title(FTECore.FTERegister.addLang(
+                                    "itemGroup", FTECore.id("items"),
+                                    "Flatter Than Ever: Items"))
+                            .build())
+            .register();
 
     public static void init() {}
 }
