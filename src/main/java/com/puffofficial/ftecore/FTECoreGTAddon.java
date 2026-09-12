@@ -2,8 +2,12 @@ package com.puffofficial.ftecore;
 
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
+import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
+import com.puffofficial.ftecore.common.data.FTECovers;
+import com.puffofficial.ftecore.common.recipes.FTERecipes;
+import com.puffofficial.ftecore.common.recipes.ULVRecipes;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import com.puffofficial.ftecore.common.data.materials.FTEElement;
@@ -34,7 +38,8 @@ public class FTECoreGTAddon implements IGTAddon {
 
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
-        // CustomRecipes.init(provider);
+        ULVRecipes.init(provider);
+        FTERecipes.init(provider);
     }
 
     @Override
@@ -43,17 +48,11 @@ public class FTECoreGTAddon implements IGTAddon {
         FTEElement.init();
     }
 
-    // If you have custom ingredient types, uncomment this & change to match your capability.
-    // KubeJS WILL REMOVE YOUR RECIPES IF THESE ARE NOT REGISTERED.
-    /*
-     * public static final ContentJS<Double> PRESSURE_IN = new ContentJS<>(NumberComponent.ANY_DOUBLE,
-     * CustomRecipeCapabilities.PRESSURE, false);
-     * public static final ContentJS<Double> PRESSURE_OUT = new ContentJS<>(NumberComponent.ANY_DOUBLE,
-     * CustomRecipeCapabilities.PRESSURE, true);
-     * 
-     * @Override
-     * public void registerRecipeKeys(KJSRecipeKeyEvent event) {
-     * event.registerKey(CustomRecipeCapabilities.PRESSURE, Pair.of(PRESSURE_IN, PRESSURE_OUT));
-     * }
-     */
+    @Override
+    public void registerCovers() {
+        for (var cover : FTECovers.ALL_COVERS) {
+            GTRegistries.COVERS.register(cover.getId(), cover);
+        }
+    }
+
 }
