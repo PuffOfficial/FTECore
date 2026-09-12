@@ -37,6 +37,15 @@ public class ULVRecipes {
                 'B', new MaterialEntry(wireGtSingle, Lead),
                 'C', new MaterialEntry(rod, Copper),
                 'D', Items.REDSTONE);
+
+        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("ulv_electric_motor_assembler")
+                .inputItems(cableGtSingle, RedAlloy, 2)
+                .inputItems(wireGtSingle, Lead, 4)
+                .inputItems(rod, Copper, 2)
+                .inputItems(Items.REDSTONE)
+                .outputItems(FTEItems.ELECTRIC_MOTOR_ULV)
+                .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
+
         VanillaRecipeHelper.addShapedRecipe(provider, "ulv_electric_piston", FTEItems.ELECTRIC_PISTON_ULV.asStack(),
                 "EEE",
                 "ADD",
@@ -46,6 +55,16 @@ public class ULVRecipes {
                 'C', new MaterialEntry(gear, WroughtIron),
                 'D', new MaterialEntry(rod, Copper),
                 'E', new MaterialEntry(plate, Copper));
+
+        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("ulv_electric_piston_assembler")
+                .inputItems(rod, Copper, 2)
+                .inputItems(cableGtSingle, RedAlloy, 2)
+                .inputItems(plate, Copper, 3)
+                .inputItems(gear, WroughtIron)
+                .inputItems(FTEItems.ELECTRIC_MOTOR_ULV)
+                .outputItems(FTEItems.ELECTRIC_PISTON_ULV)
+                .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
+
         VanillaRecipeHelper.addShapedRecipe(provider, "ulv_conveyor_module", FTEItems.CONVEYOR_MODULE_ULV.asStack(),
                 "CCC",
                 "BAB",
@@ -53,6 +72,15 @@ public class ULVRecipes {
                 'A', new MaterialEntry(cableGtSingle, RedAlloy),
                 'B', FTEItems.ELECTRIC_MOTOR_ULV,
                 'C', new MaterialEntry(plate, Rubber));
+
+        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("ulv_conveyor_module_assembler")
+                .inputItems(cableGtSingle, RedAlloy)
+                .inputItems(FTEItems.ELECTRIC_MOTOR_ULV.asStack(2))
+                .circuitMeta(1)
+                .inputFluids(Rubber, 864)
+                .outputItems(FTEItems.CONVEYOR_MODULE_ULV)
+                .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
+
         VanillaRecipeHelper.addShapedRecipe(provider, "ulv_electric_pump", FTEItems.ELECTRIC_PUMP_ULV.asStack(),
                 "EFB",
                 "sDw",
@@ -63,6 +91,17 @@ public class ULVRecipes {
                 'D', new MaterialEntry(pipeNormalFluid, Potin),
                 'E', new MaterialEntry(rotor, Copper),
                 'F', new MaterialEntry(screw, Copper));
+
+        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("ulv_electric_pump_assembler")
+                .inputItems(cableGtSingle, RedAlloy)
+                .inputItems(pipeNormalFluid, Potin)
+                .inputItems(screw, Copper)
+                .inputItems(rotor, Copper)
+                .inputItems(ring, Rubber, 2)
+                .inputItems(FTEItems.ELECTRIC_MOTOR_ULV)
+                .outputItems(FTEItems.ELECTRIC_PUMP_ULV)
+                .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
+
         VanillaRecipeHelper.addShapedRecipe(provider, "ulv_robot_arm", FTEItems.ROBOT_ARM_ULV.asStack(),
                 "AAA",
                 "BDB",
@@ -72,6 +111,15 @@ public class ULVRecipes {
                 'C', FTEItems.ELECTRIC_PISTON_ULV,
                 'D', new MaterialEntry(rod, Potin),
                 'E', CustomTags.ULV_CIRCUITS);
+
+        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("ulv_robot_arm_assembler")
+                .inputItems(cableGtSingle, RedAlloy, 3)
+                .inputItems(rod, Copper, 2)
+                .inputItems(FTEItems.ELECTRIC_MOTOR_ULV.asStack(2))
+                .inputItems(FTEItems.ELECTRIC_PISTON_ULV)
+                .inputItems(CustomTags.ULV_CIRCUITS)
+                .outputItems(FTEItems.ROBOT_ARM_ULV)
+                .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
         // Wrought Iron Components
         VanillaRecipeHelper.addShapedRecipe(provider, "solid_wrought_iron_casing", FTEBlocks.SOLID_WROUGHT_IRON_CASING.asStack(2),
                 "BhB",
