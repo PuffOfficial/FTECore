@@ -7,6 +7,7 @@ import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
+import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
 public class FTEMaterials {
 
@@ -14,7 +15,7 @@ public class FTEMaterials {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }
 
-    public static Material Ceramic;
+    public static Material Ceramic, AndesiteAlloy;
     public static Material LivingSteel, VerdantCopper, RootIron;
 
     public static void init() {
@@ -23,6 +24,14 @@ public class FTEMaterials {
                 .color(0x9b6045).secondaryColor(0x83513c)
                 .iconSet(FTEIconsets.CERAMIC)
                 .flags(GENERATE_PLATE, DISABLE_MATERIAL_RECIPES)
+                .buildAndRegister();
+        AndesiteAlloy = new Material.Builder(FTECore.id("andesite_alloy"))
+                .ingot()
+                .color(0x6a6a6a).secondaryColor(0x4b5f4f)
+                .iconSet(MaterialIconSet.METALLIC)
+                .flags(GENERATE_PLATE,GENERATE_ROD,GENERATE_FRAME)
+                .formula("ZnFe2(Mg3Si2H4O9)4(KNO3)")
+                .components(Zinc, 1, Iron, 2, Andesite, 2)
                 .buildAndRegister();
 
         LivingSteel = new Material.Builder(FTECore.id("living_steel"))
