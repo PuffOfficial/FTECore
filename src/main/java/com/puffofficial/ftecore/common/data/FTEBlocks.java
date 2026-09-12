@@ -25,7 +25,7 @@ public class FTEBlocks {
 
     // All the casing stuff
     public static final BlockEntry<Block> SOLID_WROUGHT_IRON_CASING = createSimpleCasing(
-            "§8Solid Wrought Iron Casing", "solid_wrought_iron_casing", "solid_wrought_iron_casing",
+            "Solid Wrought Iron Casing", "solid_wrought_iron_casing", "solid_wrought_iron_casing",
             BlockItem::new);
 
     // Fireboxes
