@@ -1,9 +1,12 @@
 package com.puffofficial.ftecore.common.recipes;
 
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
+import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialEntry;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 
+import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
@@ -29,5 +32,21 @@ public class FTERecipes {
                 .inputFluids(Oxygen, 250)
                 .outputItems(ingot, Ceramic)
                 .duration(600).EUt(GTValues.VA[GTValues.ULV]).save(provider);
+
+        // Alloys
+        VanillaRecipeHelper.addShapelessRecipe(provider, "andesite_alloy_by_hand", ChemicalHelper.get(dust,AndesiteAlloy,5),
+                new MaterialEntry(dust, Zinc),
+                new MaterialEntry(dust, Andesite),
+                new MaterialEntry(dust, Andesite),
+                new MaterialEntry(dust, Iron),
+                new MaterialEntry(dust, Iron));
+
+        GTRecipeTypes.MIXER_RECIPES.recipeBuilder("andesite_alloy")
+                .inputItems(dust, Andesite, 2)
+                .inputItems(dust, Iron, 2)
+                .inputItems(dust, Zinc)
+                .circuitMeta(5)
+                .outputItems(dust, AndesiteAlloy, 5)
+                .duration(400).EUt(GTValues.VA[GTValues.LV]).save(provider);
     }
 }
