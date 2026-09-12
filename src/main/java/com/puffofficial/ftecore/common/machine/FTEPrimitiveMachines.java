@@ -51,9 +51,9 @@ public class FTEPrimitiveMachines {
                 defaultTankSizeFunction.applyAsInt(GTValues.ULV), true)));
 
         return FTECore.FTERegister
-                .machine("ulv_"+Id,
+                .machine("ulv_" + Id,
                         (holder) -> new SimpleTieredMachine(holder, GTValues.ULV, defaultTankSizeFunction))
-                .langValue("§8Primitive "+Name)
+                .langValue("§8Primitive " + Name)
                 .editableUI(SimpleTieredMachine.EDITABLE_UI_CREATOR.apply(GTCEu.id(Id),
                         RecipeType))
                 .rotationState(RotationState.NON_Y_AXIS)
@@ -71,9 +71,9 @@ public class FTEPrimitiveMachines {
                 defaultTankSizeFunction.applyAsInt(GTValues.ULV), false)));
 
         return FTECore.FTERegister
-                .machine("ulv_"+Id,
+                .machine("ulv_" + Id,
                         (holder) -> new SimpleGeneratorMachine(holder, GTValues.ULV, defaultTankSizeFunction))
-                .langValue("§8Primitive "+Name)
+                .langValue("§8Primitive " + Name)
                 .rotationState(RotationState.NON_Y_AXIS)
                 .tooltips(components)
                 .recipeType(RecipeType)

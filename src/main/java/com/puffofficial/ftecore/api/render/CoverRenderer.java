@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.client.renderer.cover.ICoverRenderer;
 import com.gregtechceu.gtceu.client.renderer.cover.IOCoverRenderer;
 
 public class CoverRenderer {
+
     public static ICoverRenderer ROBOT_ARM_RENDERER = new IOCoverRenderer(
             GTCEu.id("block/cover/arm"),
             null,

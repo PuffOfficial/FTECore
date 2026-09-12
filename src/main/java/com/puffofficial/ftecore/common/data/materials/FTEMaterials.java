@@ -22,7 +22,7 @@ public class FTEMaterials {
                 .ingot()
                 .color(0x9b6045).secondaryColor(0x83513c)
                 .iconSet(FTEIconsets.CERAMIC)
-                .flags(GENERATE_PLATE,DISABLE_MATERIAL_RECIPES)
+                .flags(GENERATE_PLATE, DISABLE_MATERIAL_RECIPES)
                 .buildAndRegister();
 
         LivingSteel = new Material.Builder(FTECore.id("living_steel"))
@@ -36,7 +36,7 @@ public class FTEMaterials {
                 .ingot()
                 .color(0x7eea73).secondaryColor(0x244120)
                 .iconSet(MaterialIconSet.BRIGHT)
-                .flags(GENERATE_PLATE,GENERATE_FINE_WIRE)
+                .flags(GENERATE_PLATE, GENERATE_FINE_WIRE)
                 .formula("Cu(C6H10O5)2")
                 .buildAndRegister();
         RootIron = new Material.Builder(FTECore.id("root_iron"))

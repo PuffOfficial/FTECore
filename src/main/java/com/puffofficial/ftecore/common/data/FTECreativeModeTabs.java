@@ -1,15 +1,13 @@
 package com.puffofficial.ftecore.common.data;
 
-import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs.*;
-
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+
 import net.minecraft.world.item.CreativeModeTab;
 
 import com.puffofficial.ftecore.FTECore;
-import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 
@@ -53,15 +51,15 @@ public class FTECreativeModeTabs {
             .register();
     // Items
     public static RegistryEntry<CreativeModeTab> ITEMS = FTECore.FTERegister.defaultCreativeTab("fte_items",
-                    builder -> builder
-                            .displayItems(
-                                    new RegistrateDisplayItemsGenerator("fte_items", FTECore.FTERegister))
-                            .icon(
-                                    FTEItems.ELECTRIC_MOTOR_ULV::asStack)
-                            .title(FTECore.FTERegister.addLang(
-                                    "itemGroup", FTECore.id("items"),
-                                    "Flatter Than Ever: Items"))
-                            .build())
+            builder -> builder
+                    .displayItems(
+                            new RegistrateDisplayItemsGenerator("fte_items", FTECore.FTERegister))
+                    .icon(
+                            FTEItems.ELECTRIC_MOTOR_ULV::asStack)
+                    .title(FTECore.FTERegister.addLang(
+                            "itemGroup", FTECore.id("items"),
+                            "Flatter Than Ever: Items"))
+                    .build())
             .register();
 
     public static void init() {}
