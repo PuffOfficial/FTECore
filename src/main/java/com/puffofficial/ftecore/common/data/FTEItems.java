@@ -24,6 +24,11 @@ public class FTEItems {
             .lang("ULV Electric Motor")
             .tag(CustomTags.ELECTRIC_MOTORS)
             .register();
+    public static ItemEntry<Item> ELECTRIC_PISTON_ULV = FTECore.FTERegister.item("ulv_electric_piston",Item::new)
+            .lang("ULV Electric Piston")
+            .tag(CustomTags.ELECTRIC_MOTORS)
+            .register();
+
 
     public static  ItemEntry<ComponentItem> ROBOT_ARM_ULV = FTECore.FTERegister.item("ulv_robot_arm", ComponentItem::create)
             .lang("ULV Robot Arm")
@@ -45,7 +50,7 @@ public class FTEItems {
             .tag(CustomTags.CONVEYOR_MODULES)
             .register();
 
-    public static  ItemEntry<ComponentItem> PUMP_ULV = FTECore.FTERegister.item("ulv_electric_pump", ComponentItem::create)
+    public static  ItemEntry<ComponentItem> ELECTRIC_PUMP_ULV = FTECore.FTERegister.item("ulv_electric_pump", ComponentItem::create)
             .lang("ULV Electric Pump")
             .onRegister(attach(new CoverPlaceBehavior(FTECovers.ULV_PUMP)))
             .onRegister(attach(new TooltipBehavior(lines -> {
