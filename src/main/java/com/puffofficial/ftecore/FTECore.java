@@ -9,6 +9,7 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
+import com.puffofficial.ftecore.common.data.FTEItems;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -63,6 +64,7 @@ public class FTECore {
     private void init() {
         FTEBlocks.init();
         FTECreativeModeTabs.init();
+        FTEItems.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
