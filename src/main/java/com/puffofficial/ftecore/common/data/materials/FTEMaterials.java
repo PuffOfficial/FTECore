@@ -14,32 +14,32 @@ public class FTEMaterials {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }
 
-    public static Material CERAMIC;
-    public static Material LIVING_STEEL, VERDANT_COPPER, ROOT_IRON;
+    public static Material Ceramic;
+    public static Material LivingSteel, VerdantCopper, RootIron;
 
     public static void init() {
-        CERAMIC = new Material.Builder(FTECore.id("ceramic"))
+        Ceramic = new Material.Builder(FTECore.id("ceramic"))
                 .ingot()
                 .color(0x9b6045).secondaryColor(0x83513c)
                 .iconSet(FTEIconsets.CERAMIC)
                 .flags(GENERATE_PLATE,DISABLE_MATERIAL_RECIPES)
                 .buildAndRegister();
 
-        LIVING_STEEL = new Material.Builder(FTECore.id("living_steel"))
+        LivingSteel = new Material.Builder(FTECore.id("living_steel"))
                 .ingot()
                 .color(0x244120).secondaryColor(0x3d3d3d)
                 .iconSet(MaterialIconSet.METALLIC)
                 .flags(GENERATE_PLATE)
                 .formula("Fe")
                 .buildAndRegister();
-        VERDANT_COPPER = new Material.Builder(FTECore.id("verdant_copper"))
+        VerdantCopper = new Material.Builder(FTECore.id("verdant_copper"))
                 .ingot()
                 .color(0x7eea73).secondaryColor(0x244120)
                 .iconSet(MaterialIconSet.BRIGHT)
                 .flags(GENERATE_PLATE,GENERATE_FINE_WIRE)
                 .formula("Cu(C6H10O5)2")
                 .buildAndRegister();
-        ROOT_IRON = new Material.Builder(FTECore.id("root_iron"))
+        RootIron = new Material.Builder(FTECore.id("root_iron"))
                 .ingot()
                 .color(0xa98c54).secondaryColor(0x2f2718)
                 .iconSet(MaterialIconSet.METALLIC)
