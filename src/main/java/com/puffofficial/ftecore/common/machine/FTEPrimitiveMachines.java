@@ -167,7 +167,7 @@ public class FTEPrimitiveMachines {
                     .where("C", Predicates.controller(blocks(definition.get())))
                     .where("#", blocks(FTEBlocks.SOLID_WROUGHT_IRON_CASING.get())
                             .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(1)
-                                    .setPreviewCount(1))
+                                    .setPreviewCount(2))
                             .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(1)
                                     .setPreviewCount(1))
                             .or(Predicates.abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE).setExactLimit(1)

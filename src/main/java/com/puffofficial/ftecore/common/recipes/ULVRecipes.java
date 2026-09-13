@@ -8,13 +8,12 @@ import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 
-import com.puffofficial.ftecore.common.data.FTEBlocks;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
+import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTEItems;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 
@@ -23,7 +22,6 @@ import java.util.function.Consumer;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.puffofficial.ftecore.common.data.materials.FTEMaterials.*;
-
 
 public class ULVRecipes {
 
@@ -121,7 +119,8 @@ public class ULVRecipes {
                 .outputItems(FTEItems.ROBOT_ARM_ULV)
                 .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
         // Wrought Iron Components
-        VanillaRecipeHelper.addShapedRecipe(provider, "solid_wrought_iron_casing", FTEBlocks.SOLID_WROUGHT_IRON_CASING.asStack(2),
+        VanillaRecipeHelper.addShapedRecipe(provider, "solid_wrought_iron_casing",
+                FTEBlocks.SOLID_WROUGHT_IRON_CASING.asStack(2),
                 "BhB",
                 "BAB",
                 "BwB",

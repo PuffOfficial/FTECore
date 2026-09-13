@@ -14,5 +14,7 @@ public class FTELangHandler {
                 "§7This machine can process up to %s§7 recipes at once, if overclocked to §fLV§r.");
 
         provider.add("gtceu.hydrokinetic_dynamo", "Hydrokinetic Dynamo");
+
+        provider.add("tagprefix.bedrock", "Bedrock %s Ore");
     }
 }

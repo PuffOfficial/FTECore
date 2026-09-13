@@ -15,8 +15,8 @@ public class FTETagPrefix {
             .langValue("%s Bedrock Ore")
             .registerOre(
                     Blocks.BEDROCK::defaultBlockState, () -> GTMaterials.Stone, BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(15.0F,15.0F),
-                    ResourceLocation.withDefaultNamespace("block/bedrock"),false,false,false);
+                            .mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(15.0F, 15.0F),
+                    ResourceLocation.withDefaultNamespace("block/bedrock"), false, false, false);
 
     public static void init() {}
 }

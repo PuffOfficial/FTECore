@@ -29,7 +29,7 @@ public class FTEMaterials {
                 .ingot()
                 .color(0x6a6a6a).secondaryColor(0x4b5f4f)
                 .iconSet(MaterialIconSet.METALLIC)
-                .flags(GENERATE_PLATE,GENERATE_ROD,GENERATE_FRAME)
+                .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_FRAME)
                 .formula("ZnFe2(Mg3Si2H4O9)4(KNO3)")
                 .components(Zinc, 1, Iron, 2, Andesite, 2)
                 .buildAndRegister();
