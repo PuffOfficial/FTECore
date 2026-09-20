@@ -9,6 +9,7 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
+import com.puffofficial.ftecore.api.tag.FTETagPrefixes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -19,7 +20,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-import com.puffofficial.ftecore.api.tag.FTETagPrefix;
 import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTEItems;
@@ -66,7 +66,7 @@ public class FTECore {
         FTEBlocks.init();
         FTECreativeModeTabs.init();
         FTEItems.init();
-        FTETagPrefix.init();
+        FTETagPrefixes.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -80,73 +80,32 @@ public class FTECore {
         LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
     }
 
-    /**
-     * Create a ResourceLocation in the format "modid:path"
-     *
-     * @param path
-     * @return ResourceLocation with the namespace of your mod
-     */
+
     public static ResourceLocation id(String path) {
         return new ResourceLocation(MOD_ID, path);
     }
-
-    /**
-     * Create a material manager for your mod using GT's API.
-     * You MUST have this if you have custom materials.
-     * Remember to register them not to GT's namespace, but your own.
-     * 
-     * @param event
-     */
 
     private void addMaterialRegistries(MaterialRegistryEvent event) {
         GTCEuAPI.materialManager.createRegistry(FTECore.MOD_ID);
     }
 
-    /**
-     * (Optional) Used to modify pre-existing materials from GregTech
-     * 
-     * @param event
-     */
+
     private void modifyMaterials(PostMaterialEvent event) {
         // CustomMaterials.modify();
     }
 
-    /**
-     * Used to register your own new RecipeTypes.
-     * Call init() from your RecipeType class(es) here
-     * 
-     * @param event
-     */
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
         FTERecipeTypes.init();
     }
 
-    /**
-     * Used to register your own new machines.
-     * Call init() from your Machine class(es) here
-     * 
-     * @param event
-     */
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
         FTEPrimitiveMachines.init();
     }
 
-    /**
-     * You will also need this for registering custom materials
-     * Call init() from your Material class(es) here
-     *
-     * @param event
-     */
     private void addMaterials(MaterialEvent event) {
         FTEMaterials.init();
     }
 
-    /**
-     * Used to register your own new sounds
-     * Call init from your Sound class(es) here
-     * 
-     * @param event
-     */
     public void registerSounds(GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry> event) {
         // CustomSounds.init();
     }

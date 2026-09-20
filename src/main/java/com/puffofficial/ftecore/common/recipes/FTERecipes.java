@@ -32,22 +32,5 @@ public class FTERecipes {
                 .inputFluids(Oxygen, 250)
                 .outputItems(ingot, Ceramic)
                 .duration(600).EUt(GTValues.VA[GTValues.ULV]).save(provider);
-
-        // Alloys
-        VanillaRecipeHelper.addShapelessRecipe(provider, "andesite_alloy_by_hand",
-                ChemicalHelper.get(dust, AndesiteAlloy, 5),
-                new MaterialEntry(dust, Zinc),
-                new MaterialEntry(dust, Andesite),
-                new MaterialEntry(dust, Andesite),
-                new MaterialEntry(dust, Iron),
-                new MaterialEntry(dust, Iron));
-
-        GTRecipeTypes.MIXER_RECIPES.recipeBuilder("andesite_alloy")
-                .inputItems(dust, Andesite, 2)
-                .inputItems(dust, Iron, 2)
-                .inputItems(dust, Zinc)
-                .circuitMeta(5)
-                .outputItems(dust, AndesiteAlloy, 5)
-                .duration(400).EUt(GTValues.VA[GTValues.LV]).save(provider);
     }
 }

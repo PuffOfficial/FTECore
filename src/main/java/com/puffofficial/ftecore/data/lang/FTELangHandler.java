@@ -15,6 +15,6 @@ public class FTELangHandler {
 
         provider.add("gtceu.hydrokinetic_dynamo", "Hydrokinetic Dynamo");
 
-        provider.add("tagprefix.bedrock", "Bedrock %s Ore");
+        provider.add("tagprefix.fuel_rod", "%s Fuel Rod");
     }
 }

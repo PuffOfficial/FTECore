@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
+import com.puffofficial.ftecore.common.recipes.Alloys;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import com.puffofficial.ftecore.common.data.FTECovers;
@@ -40,6 +41,7 @@ public class FTECoreGTAddon implements IGTAddon {
     public void addRecipes(Consumer<FinishedRecipe> provider) {
         ULVRecipes.init(provider);
         FTERecipes.init(provider);
+        Alloys.init(provider);
     }
 
     @Override
