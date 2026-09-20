@@ -5,7 +5,6 @@
   "minVersion": "0.8",
   "refmap": "mixins.xx.refmap.json",
   "mixins": [
-
   ],
   "client": [
   ],
