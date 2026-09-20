@@ -5,11 +5,11 @@ import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
-import com.puffofficial.ftecore.common.recipes.Alloys;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import com.puffofficial.ftecore.common.data.FTECovers;
 import com.puffofficial.ftecore.common.data.materials.FTEElement;
+import com.puffofficial.ftecore.common.recipes.Alloys;
 import com.puffofficial.ftecore.common.recipes.FTERecipes;
 import com.puffofficial.ftecore.common.recipes.ULVRecipes;
 

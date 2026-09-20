@@ -8,8 +8,8 @@ import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
-import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty.*;
+import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.puffofficial.ftecore.api.materials.MaterialFlags.*;
 
 public class FTEMaterials {
@@ -72,7 +72,7 @@ public class FTEMaterials {
                 .ingot()
                 .liquid()
                 .color(0x7e6f82).secondaryColor(0x355e67).iconSet(MaterialIconSet.METALLIC)
-                .flags(GENERATE_PLATE,GENERATE_FRAME,GENERATE_ROD)
+                .flags(GENERATE_PLATE, GENERATE_FRAME, GENERATE_ROD)
                 .formula("WNiCu")
                 .components(Tungsten, 1, Nickel, 1, Copper, 1)
                 .buildAndRegister();
@@ -80,7 +80,7 @@ public class FTEMaterials {
                 .ingot()
                 .blastTemp(4800, GasTier.HIGH, GTValues.VA[GTValues.EV], 780)
                 .color(0x402e55).secondaryColor(0x130c1b).iconSet(MaterialIconSet.DULL)
-                .flags(GENERATE_PLATE,GENERATE_FRAME,GENERATE_ROD)
+                .flags(GENERATE_PLATE, GENERATE_FRAME, GENERATE_ROD)
                 .formula("TiNc2")
                 .components(Nocturium, 2, Titanium, 1)
                 .buildAndRegister();

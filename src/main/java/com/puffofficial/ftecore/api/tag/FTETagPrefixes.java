@@ -3,6 +3,7 @@ package com.puffofficial.ftecore.api.tag;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+
 import com.puffofficial.ftecore.api.materials.FTEMaterialIconType;
 import com.puffofficial.ftecore.api.materials.MaterialFlags;
 import com.puffofficial.ftecore.api.materials.PropertyKeys;
@@ -11,9 +12,11 @@ import java.util.function.Predicate;
 
 @SuppressWarnings("unused")
 public class FTETagPrefixes {
+
     public static void init() {}
 
     public static class Conditions {
+
         public static final Predicate<Material> hasFuelRodProperty = mat -> mat.hasProperty(PropertyKeys.FUEL_ROD);
     }
 
@@ -27,5 +30,4 @@ public class FTETagPrefixes {
             .generateItem(true)
             .maxStackSize(1)
             .generationCondition(mat -> mat.hasFlag(MaterialFlags.FUEL_ROD));
-
 }

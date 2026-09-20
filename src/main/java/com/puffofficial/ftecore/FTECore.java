@@ -9,7 +9,6 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
-import com.puffofficial.ftecore.api.tag.FTETagPrefixes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -20,6 +19,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import com.puffofficial.ftecore.api.tag.FTETagPrefixes;
 import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTEItems;
@@ -80,7 +80,6 @@ public class FTECore {
         LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
     }
 
-
     public static ResourceLocation id(String path) {
         return new ResourceLocation(MOD_ID, path);
     }
@@ -88,7 +87,6 @@ public class FTECore {
     private void addMaterialRegistries(MaterialRegistryEvent event) {
         GTCEuAPI.materialManager.createRegistry(FTECore.MOD_ID);
     }
-
 
     private void modifyMaterials(PostMaterialEvent event) {
         // CustomMaterials.modify();
