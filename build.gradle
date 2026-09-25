@@ -149,10 +149,13 @@ dependencies {
     modRuntimeOnly("dev.emi:emi-forge:${emi_version}+${minecraft_version}")
     modRuntimeOnly("curse.maven:jade-324717:5390389")
 
-    // Botania, Patchouli
-    //modImplementation("curse.maven:botania-225643:7649894")
-    //modImplementation("curse.maven:patchouli-306770:7731017")
-    //modImplementation("curse.maven:curios-309927:6418456")
+    // Botania, Patchouli, Curios API
+    modImplementation("curse.maven:botania-225643:7649894")
+    modImplementation("curse.maven:patchouli-306770:7731017")
+    modImplementation("curse.maven:curios-309927:6418456")
+
+    // Avaritia
+    modImplementation("curse.maven:re-avaritia-623969:7647188")
 
     // GregTech and dependencies
     modImplementation("com.gregtechceu.gtceu:gtceu-${minecraft_version}:${gtceu_version}:slim") { transitive = false }
