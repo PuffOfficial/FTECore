@@ -24,6 +24,9 @@ import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTEItems;
 import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
+import com.puffofficial.ftecore.common.data.materials.lines.BotaniaMaterials;
+import com.puffofficial.ftecore.common.data.materials.lines.ChemistryMaterials;
+import com.puffofficial.ftecore.common.data.materials.lines.RootsMaterials;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
 import com.puffofficial.ftecore.data.lang.FTELangHandler;
@@ -88,9 +91,7 @@ public class FTECore {
         GTCEuAPI.materialManager.createRegistry(FTECore.MOD_ID);
     }
 
-    private void modifyMaterials(PostMaterialEvent event) {
-        // CustomMaterials.modify();
-    }
+    private void modifyMaterials(PostMaterialEvent event) {}
 
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
         FTERecipeTypes.init();
@@ -101,6 +102,9 @@ public class FTECore {
     }
 
     private void addMaterials(MaterialEvent event) {
+        ChemistryMaterials.init();
+        BotaniaMaterials.init();
+        RootsMaterials.init();
         FTEMaterials.init();
     }
 

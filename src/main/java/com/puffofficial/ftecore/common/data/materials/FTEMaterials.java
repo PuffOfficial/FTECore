@@ -11,6 +11,7 @@ import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag
 import static com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.puffofficial.ftecore.api.materials.MaterialFlags.*;
+import static com.puffofficial.ftecore.common.data.materials.lines.BotaniaMaterials.*;
 
 public class FTEMaterials {
 
@@ -19,7 +20,6 @@ public class FTEMaterials {
     }
 
     public static Material Ceramic, AndesiteAlloy, Nocturium;
-    public static Material LivingSteel, VerdantCopper, RootIron;
     public static Material RadiationResistantAlloy, TitaniumNoctite, StargateAlloy, SiliconCarbide;
 
     public static void init() {
@@ -46,28 +46,6 @@ public class FTEMaterials {
                 .formula("Nc")
                 .buildAndRegister();
 
-        LivingSteel = new Material.Builder(FTECore.id("living_steel"))
-                .ingot()
-                .color(0x244120).secondaryColor(0x3d3d3d)
-                .iconSet(MaterialIconSet.METALLIC)
-                .flags(GENERATE_PLATE)
-                .formula("Fe")
-                .buildAndRegister();
-        VerdantCopper = new Material.Builder(FTECore.id("verdant_copper"))
-                .ingot()
-                .color(0x7eea73).secondaryColor(0x244120)
-                .iconSet(MaterialIconSet.BRIGHT)
-                .flags(GENERATE_PLATE, GENERATE_FINE_WIRE)
-                .formula("Cu(C6H10O5)2")
-                .buildAndRegister();
-        RootIron = new Material.Builder(FTECore.id("root_iron"))
-                .ingot()
-                .color(0xa98c54).secondaryColor(0x2f2718)
-                .iconSet(MaterialIconSet.METALLIC)
-                .flags(GENERATE_PLATE)
-                .formula("Fe(C6H10O5)2")
-                .buildAndRegister();
-
         RadiationResistantAlloy = new Material.Builder(FTECore.id("radiation_resistant_alloy"))
                 .ingot()
                 .liquid()
@@ -83,6 +61,20 @@ public class FTEMaterials {
                 .flags(GENERATE_PLATE, GENERATE_FRAME, GENERATE_ROD)
                 .formula("TiNc2")
                 .components(Nocturium, 2, Titanium, 1)
+                .buildAndRegister();
+        StargateAlloy = new Material.Builder(FTECore.id("stargate_alloy"))
+                .ingot()
+                .color(0x8eb2ba).secondaryColor(0x355e67).iconSet(MaterialIconSet.METALLIC)
+                .blastTemp(3600, GasTier.MID, GTValues.VA[GTValues.EV], 1300)
+                .flags(GENERATE_PLATE, GENERATE_FRAME, GENERATE_ROD, GENERATE_SMALL_GEAR, GENERATE_DENSE)
+                .components(Titanium, 2, Molybdenum, 1, Steel, 12, Manasteel, 2)
+                .buildAndRegister();
+        SiliconCarbide = new Material.Builder(FTECore.id("silicon_carbide"))
+                .ingot()
+                .color(0x5b5b5b).secondaryColor(0x3c4952).iconSet(MaterialIconSet.DULL)
+                .blastTemp(1200, GasTier.LOW, GTValues.VA[GTValues.LV], 400)
+                .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_DENSE)
+                .components(Silicon, 1, Carbon, 1)
                 .buildAndRegister();
     }
 }
