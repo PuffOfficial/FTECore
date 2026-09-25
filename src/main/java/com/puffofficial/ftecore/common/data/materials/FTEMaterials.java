@@ -4,8 +4,12 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
+import com.puffofficial.ftecore.common.data.FTEItems;
+import committee.nova.mods.avaritia.init.registry.ModBlocks;
+import committee.nova.mods.avaritia.init.registry.ModItems;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty.*;
@@ -19,8 +23,8 @@ public class FTEMaterials {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }
 
-    public static Material Ceramic, AndesiteAlloy, Nocturium;
-    public static Material RadiationResistantAlloy, TitaniumNoctite, StargateAlloy, SiliconCarbide;
+    public static Material Ceramic, Nocturium, Infinity;
+    public static Material AndesiteAlloy, RadiationResistantAlloy, TitaniumNoctite, StargateAlloy, SiliconCarbide;
 
     public static void init() {
         Ceramic = new Material.Builder(FTECore.id("ceramic"))
@@ -43,8 +47,31 @@ public class FTEMaterials {
                 .color(0x00f7e5).secondaryColor(0x171717)
                 .iconSet(MaterialIconSet.METALLIC)
                 .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_FRAME, FUEL_ROD)
-                .formula("Nc")
+                .element(FTEElements.Nocturium)
                 .buildAndRegister();
+
+        Infinity = new Material.Builder(FTECore.id("infinity"))
+                .ingot()
+                .iconSet(FTEIconsets.INFINITY)
+                .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_FRAME, GENERATE_DENSE, GENERATE_GEAR, GENERATE_SMALL_GEAR)
+                .element(FTEElements.Infinity)
+                .buildAndRegister();
+        TagPrefix.ingot.setIgnored(Infinity, ModItems.infinity_ingot);
+        TagPrefix.nugget.setIgnored(Infinity, ModItems.infinity_nugget);
+        TagPrefix.block.setIgnored(Infinity, ModBlocks.infinity);
+
+        TagPrefix.plate.setIgnored(Infinity, () -> FTEItems.INFINITY_PLATE);
+        TagPrefix.plateDouble.setIgnored(Infinity, () -> FTEItems.INFINITY_DOUBLE_PLATE);
+        TagPrefix.rod.setIgnored(Infinity, () -> FTEItems.INFINITY_ROD);
+        TagPrefix.gear.setIgnored(Infinity, () -> FTEItems.INFINITY_GEAR);
+        TagPrefix.gearSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_GEAR);
+        TagPrefix.dust.setIgnored(Infinity, () -> FTEItems.INFINITY_DUST);
+        TagPrefix.dustSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_DUST);
+        TagPrefix.dustTiny.setIgnored(Infinity, () -> FTEItems.INFINITY_TINY_DUST);
+        TagPrefix.bolt.setIgnored(Infinity, () -> FTEItems.INFINITY_BOLT);
+        TagPrefix.screw.setIgnored(Infinity, () -> FTEItems.INFINITY_SCREW);
+        TagPrefix.ring.setIgnored(Infinity, () -> FTEItems.INFINITY_RING);
+        TagPrefix.plateDense.setIgnored(Infinity, () -> FTEItems.INFINITY_DENSE_PLATE);
 
         RadiationResistantAlloy = new Material.Builder(FTECore.id("radiation_resistant_alloy"))
                 .ingot()

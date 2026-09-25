@@ -1,5 +1,6 @@
 package com.puffofficial.ftecore.common.data;
 
+import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.item.ComponentItem;
 import com.gregtechceu.gtceu.api.item.IComponentItem;
 import com.gregtechceu.gtceu.api.item.component.IItemComponent;
@@ -9,6 +10,9 @@ import com.gregtechceu.gtceu.common.item.TooltipBehavior;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
 
+import com.tterrag.registrate.providers.DataGenContext;
+import com.tterrag.registrate.providers.RegistrateItemModelProvider;
+import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 
@@ -68,6 +72,19 @@ public class FTEItems {
         return item -> item.attachComponents(components);
     }
 
+    public static ItemEntry<Item> INFINITY_PLATE = makeMaterialItem("infinity_plate", "Infinity Plate");
+    public static ItemEntry<Item> INFINITY_DOUBLE_PLATE = makeMaterialItem("infinity_double_plate", "Double Infinity Plate");
+    public static ItemEntry<Item> INFINITY_ROD = makeMaterialItem("infinity_rod", "Infinity Rod");
+    public static ItemEntry<Item> INFINITY_GEAR = makeMaterialItem("infinity_plate", "Infinity Plate");
+    public static ItemEntry<Item> INFINITY_SMALL_GEAR = makeMaterialItem("infinity_small_gear", "Small Infinity Gear");
+    public static ItemEntry<Item> INFINITY_BOLT = makeMaterialItem("infinity_bolt", "Infinity Bolt");
+    public static ItemEntry<Item> INFINITY_SCREW = makeMaterialItem("infinity_screw", "Infinity Screw");
+    public static ItemEntry<Item> INFINITY_DUST = makeMaterialItem("infinity_dust", "Infinity Dust");
+    public static ItemEntry<Item> INFINITY_SMALL_DUST = makeMaterialItem("infinity_small_dust", "Infinity Small Dust");
+    public static ItemEntry<Item> INFINITY_TINY_DUST = makeMaterialItem("infinity_tiny_dust", "Infinity Tiny Dust");
+    public static ItemEntry<Item> INFINITY_RING = makeMaterialItem("infinity_ring", "Infinity Ring");
+    public static ItemEntry<Item> INFINITY_DENSE_PLATE = makeMaterialItem("infinity_dense_plate", "Dense Infinity Plate");
+
     private static Component itemRateTooltip(int tier) {
         var itemsPerSecond = ConveyorCover.CONVEYOR_SCALING.applyAsInt(tier);
         return itemsPerSecond > 64 ?
@@ -78,6 +95,14 @@ public class FTEItems {
     private static Component ulvFluidRateTooltip() {
         return Component.translatable("gtceu.universal.tooltip.fluid_transfer_rate",
                 FormattingUtil.formatNumbers(32));
+    }
+
+    private static ItemEntry<Item> makeMaterialItem(String name, String lang) {
+        return FTECore.FTERegister
+                .item(name, Item::new)
+                .lang(lang)
+                .model(NonNullBiConsumer.noop())
+                .register();
     }
 
     public static void init() {}
