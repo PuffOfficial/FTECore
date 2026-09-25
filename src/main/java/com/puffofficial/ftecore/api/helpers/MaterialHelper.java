@@ -22,19 +22,10 @@ public class MaterialHelper {
                 .buildAndRegister();
     }
 
-    public static Material registerFluidChemical(String name, String formula, int color, int temperature) {
+    public static Material registerFluidChemical(String name, int color, int temperature) {
         return new Material.Builder(FTECore.id(name))
                 .liquid(temperature)
                 .color(color).iconSet(MaterialIconSet.DULL)
-                .formula(formula)
-                .buildAndRegister();
-    }
-
-    public static Material registerGasChemical(String name, String formula, int color) {
-        return new Material.Builder(FTECore.id(name))
-                .gas()
-                .color(color).iconSet(MaterialIconSet.DULL)
-                .formula(formula)
                 .buildAndRegister();
     }
 
@@ -45,18 +36,10 @@ public class MaterialHelper {
                 .buildAndRegister();
     }
 
-    public static Material registerGasChemical(String name, int color, int temperature) {
-        return new Material.Builder(FTECore.id(name))
-                .gas(temperature)
-                .color(color).iconSet(MaterialIconSet.DULL)
-                .buildAndRegister();
-    }
-
-    public static Material registerDustChemical(String name, String formula, int color, int secondaryColor) {
+    public static Material registerDustChemical(String name, int color, int secondaryColor) {
         return new Material.Builder(FTECore.id(name))
                 .dust()
                 .color(color).secondaryColor(secondaryColor).iconSet(MaterialIconSet.DULL)
-                .formula(formula)
                 .buildAndRegister();
     }
 
@@ -68,12 +51,43 @@ public class MaterialHelper {
                 .buildAndRegister();
     }
 
-    public static Material registerDustChemical(String name, String formula, int color, Object... components) {
+    public static Material registerDustChemical(String name, String formula, int color, int secondaryColor) {
+        return new Material.Builder(FTECore.id(name))
+                .dust()
+                .color(color).secondaryColor(secondaryColor).iconSet(MaterialIconSet.DULL)
+                .formula(formula)
+                .buildAndRegister();
+    }
+
+    public static Material registerDustChemical(String name, int color, Object... components) {
         return new Material.Builder(FTECore.id(name))
                 .dust()
                 .color(color).iconSet(MaterialIconSet.DULL)
-                .formula(formula)
                 .components(components)
+                .buildAndRegister();
+    }
+
+    public static Material registerMixture(String name, int color, Object... components) {
+        return new Material.Builder(FTECore.id(name))
+                .fluid()
+                .color(color).iconSet(MaterialIconSet.DULL)
+                .components(components)
+                .buildAndRegister();
+    }
+
+    public static Material registerFuel(String name, String displayName, int color) {
+        return new Material.Builder(FTECore.id(name))
+                .fluid()
+                .langValue(displayName)
+                .color(color).iconSet(MaterialIconSet.DULL)
+                .buildAndRegister();
+    }
+
+    public static Material registerFuel(String name, String displayName, int color, int temperature) {
+        return new Material.Builder(FTECore.id(name))
+                .liquid(temperature)
+                .langValue(displayName)
+                .color(color).iconSet(MaterialIconSet.DULL)
                 .buildAndRegister();
     }
 }
