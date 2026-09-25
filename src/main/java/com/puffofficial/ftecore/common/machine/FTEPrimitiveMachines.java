@@ -36,7 +36,6 @@ import java.util.List;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.blocks;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
-import static com.puffofficial.ftecore.common.machine.MachineUtils.*;
 
 public class FTEPrimitiveMachines {
 

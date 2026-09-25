@@ -8,7 +8,7 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import com.puffofficial.ftecore.common.data.FTECovers;
-import com.puffofficial.ftecore.common.data.materials.FTEElement;
+import com.puffofficial.ftecore.common.data.materials.FTEElements;
 import com.puffofficial.ftecore.common.recipes.Alloys;
 import com.puffofficial.ftecore.common.recipes.FTERecipes;
 import com.puffofficial.ftecore.common.recipes.ULVRecipes;
@@ -33,11 +33,6 @@ public class FTECoreGTAddon implements IGTAddon {
     }
 
     @Override
-    public void registerTagPrefixes() {
-        // CustomTagPrefixes.init();
-    }
-
-    @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
         ULVRecipes.init(provider);
         FTERecipes.init(provider);
@@ -47,7 +42,7 @@ public class FTECoreGTAddon implements IGTAddon {
     @Override
     public void registerElements() {
         IGTAddon.super.registerElements();
-        FTEElement.init();
+        FTEElements.init();
     }
 
     @Override
