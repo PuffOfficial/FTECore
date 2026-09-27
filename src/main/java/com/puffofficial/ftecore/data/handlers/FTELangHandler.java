@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.data.lang;
+package com.puffofficial.ftecore.data.handlers;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 

@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.init;
+package com.puffofficial.ftecore.data.events;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
