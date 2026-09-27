@@ -3,8 +3,9 @@ package com.puffofficial.ftecore.common.data.materials;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
+import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTEItems;
@@ -13,6 +14,7 @@ import committee.nova.mods.avaritia.init.registry.ModItems;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty.*;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.puffofficial.ftecore.api.materials.MaterialFlags.*;
 import static com.puffofficial.ftecore.common.data.materials.lines.BotaniaMaterials.*;
@@ -23,8 +25,9 @@ public class FTEMaterials {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }
 
-    public static Material Ceramic, Nocturium, Infinity;
+    public static Material Ceramic, Nocturium, Infinity, ArtificialAmethyst, Unbreakium;
     public static Material AndesiteAlloy, RadiationResistantAlloy, TitaniumNoctite, StargateAlloy, SiliconCarbide;
+    public static Material Pyrotheum, Cryotheum, Aerotheum, Petrotheum;
 
     public static void init() {
         Ceramic = new Material.Builder(FTECore.id("ceramic"))
@@ -41,13 +44,29 @@ public class FTEMaterials {
                 .formula("ZnFe2(Mg3Si2H4O9)4(KNO3)")
                 .components(Zinc, 1, Iron, 2, Andesite, 2)
                 .buildAndRegister();
-
+        ArtificialAmethyst = new Material.Builder(FTECore.id("artificial_amethyst"))
+                .gem()
+                .color(0xc796f6).secondaryColor(0x7a3f7f).iconSet(MaterialIconSet.RUBY)
+                .flags(GENERATE_PLATE)
+                .formula("(SiO2)4Fe")
+                .buildAndRegister();
         Nocturium = new Material.Builder(FTECore.id("nocturium"))
                 .ingot()
                 .color(0x00f7e5).secondaryColor(0x171717)
                 .iconSet(MaterialIconSet.METALLIC)
                 .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_FRAME, FUEL_ROD)
                 .element(FTEElements.Nocturium)
+                .buildAndRegister();
+        Unbreakium = new Material.Builder(FTECore.id("unbreakium"))
+                .ingot()
+                .langValue("<neon p=8 r=2 a=0.15><grad from=#744a92 to=#1E90FF hue uni>Unbreakable™</grad></neon>")
+                .color(0x744a92).secondaryColor(0x000000)
+                .iconSet(MaterialIconSet.DULL)
+                .flags(DISABLE_MATERIAL_RECIPES)
+                .toolStats(ToolProperty.Builder
+                        .of(1.8F, 1.7F, 65535, 3, GTToolType.WRENCH, GTToolType.SCREWDRIVER, GTToolType.WIRE_CUTTER,
+                                GTToolType.CROWBAR)
+                        .magnetic().unbreakable().build())
                 .buildAndRegister();
 
         Infinity = new Material.Builder(FTECore.id("infinity"))
@@ -56,22 +75,21 @@ public class FTEMaterials {
                 .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_FRAME, GENERATE_DENSE, GENERATE_GEAR, GENERATE_SMALL_GEAR)
                 .element(FTEElements.Infinity)
                 .buildAndRegister();
-        TagPrefix.ingot.setIgnored(Infinity, ModItems.infinity_ingot);
-        TagPrefix.nugget.setIgnored(Infinity, ModItems.infinity_nugget);
-        TagPrefix.block.setIgnored(Infinity, ModBlocks.infinity);
-
-        TagPrefix.plate.setIgnored(Infinity, () -> FTEItems.INFINITY_PLATE);
-        TagPrefix.plateDouble.setIgnored(Infinity, () -> FTEItems.INFINITY_DOUBLE_PLATE);
-        TagPrefix.rod.setIgnored(Infinity, () -> FTEItems.INFINITY_ROD);
-        TagPrefix.gear.setIgnored(Infinity, () -> FTEItems.INFINITY_GEAR);
-        TagPrefix.gearSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_GEAR);
-        TagPrefix.dust.setIgnored(Infinity, () -> FTEItems.INFINITY_DUST);
-        TagPrefix.dustSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_DUST);
-        TagPrefix.dustTiny.setIgnored(Infinity, () -> FTEItems.INFINITY_TINY_DUST);
-        TagPrefix.bolt.setIgnored(Infinity, () -> FTEItems.INFINITY_BOLT);
-        TagPrefix.screw.setIgnored(Infinity, () -> FTEItems.INFINITY_SCREW);
-        TagPrefix.ring.setIgnored(Infinity, () -> FTEItems.INFINITY_RING);
-        TagPrefix.plateDense.setIgnored(Infinity, () -> FTEItems.INFINITY_DENSE_PLATE);
+        ingot.setIgnored(Infinity, ModItems.infinity_ingot);
+        nugget.setIgnored(Infinity, ModItems.infinity_nugget);
+        block.setIgnored(Infinity, ModBlocks.infinity);
+        plate.setIgnored(Infinity, () -> FTEItems.INFINITY_PLATE);
+        plateDouble.setIgnored(Infinity, () -> FTEItems.INFINITY_DOUBLE_PLATE);
+        rod.setIgnored(Infinity, () -> FTEItems.INFINITY_ROD);
+        gear.setIgnored(Infinity, () -> FTEItems.INFINITY_GEAR);
+        gearSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_GEAR);
+        dust.setIgnored(Infinity, () -> FTEItems.INFINITY_DUST);
+        dustSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_DUST);
+        dustTiny.setIgnored(Infinity, () -> FTEItems.INFINITY_TINY_DUST);
+        bolt.setIgnored(Infinity, () -> FTEItems.INFINITY_BOLT);
+        screw.setIgnored(Infinity, () -> FTEItems.INFINITY_SCREW);
+        ring.setIgnored(Infinity, () -> FTEItems.INFINITY_RING);
+        plateDense.setIgnored(Infinity, () -> FTEItems.INFINITY_DENSE_PLATE);
 
         RadiationResistantAlloy = new Material.Builder(FTECore.id("radiation_resistant_alloy"))
                 .ingot()
@@ -102,6 +120,35 @@ public class FTEMaterials {
                 .blastTemp(1200, GasTier.LOW, GTValues.VA[GTValues.LV], 400)
                 .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_DENSE)
                 .components(Silicon, 1, Carbon, 1)
+                .buildAndRegister();
+
+        Pyrotheum = new Material.Builder(FTECore.id("pyrotheum"))
+                .dust()
+                .liquid()
+                .color(0xfed14b).secondaryColor(0xfe874b).iconSet(FTEIconsets.PRIMAL)
+                .ignoredTagPrefixes(dustSmall, dustTiny)
+                .langValue("<grad from=#ff8742 to=#ffbd42 hue uni>Blazing Pyrotheum</grad>")
+                .buildAndRegister();
+        Cryotheum = new Material.Builder(FTECore.id("cryotheum"))
+                .dust()
+                .liquid()
+                .color(0xb6e7ff).secondaryColor(0x59b4e2).iconSet(FTEIconsets.PRIMAL)
+                .ignoredTagPrefixes(dustSmall, dustTiny)
+                .langValue("<grad from=#54d7ff to=#5496ff hue uni>Gelid Cryotheum</grad>")
+                .buildAndRegister();
+        Aerotheum = new Material.Builder(FTECore.id("aerotheum"))
+                .dust()
+                .liquid()
+                .color(0xffed89).secondaryColor(0xe1dca0).iconSet(FTEIconsets.PRIMAL)
+                .ignoredTagPrefixes(dustSmall, dustTiny)
+                .langValue("<grad from=#a8a04a to=#fff694 hue uni>Zypherean Aerotheum</grad>")
+                .buildAndRegister();
+        Petrotheum = new Material.Builder(FTECore.id("petrotheum"))
+                .dust()
+                .liquid()
+                .color(0xffed89).secondaryColor(0xe1dca0).iconSet(FTEIconsets.PRIMAL)
+                .ignoredTagPrefixes(dustSmall, dustTiny)
+                .langValue("<grad from=#261e1b to=#2e2e2e hue uni>Tectonic Petrotheum</grad>")
                 .buildAndRegister();
     }
 }
