@@ -20,7 +20,8 @@ public class ChemistryMaterials {
     public static Material CavumTenebraeAir, UnitasAir, AbydosAir, ChulakAir, RimaAir;
     public static Material PolysulfideRubber, DichlorodiethylFormal, EthyleneChlorohydrin, PolysulfideHermetic,
             SodiumDisulfide, Soot;
-    public static Material PolylacticAcid, LacticAcid, EthylhexanoicAcid, Propylene, TinDioxide, RawStarch, Starch, StannousOctoate;
+    public static Material PolylacticAcid, LacticAcid, EthylhexanoicAcid, Propylene, TinDioxide, RawStarch, Starch,
+            StannousOctoate;
     public static Material SaltMixture;
     public static Material GravelSlurry, SandSlurry, DirtSlurry, NetherrackSlurry, EndstoneSlurry;
     public static Material NetherImbuedLava, ManaFusedLPG;
@@ -67,14 +68,14 @@ public class ChemistryMaterials {
                 .buildAndRegister();
 
         StannousOctoate = registerDustChemical("stannous_octoate", "Sn(C7H15CO2)", 0xFFFACD, 0x454322);
-        TinDioxide = registerDustChemical("tin_dioxide", "SnO2",0xF8F8FF);
-        RawStarch  = registerDustChemical("raw_starch", 0xa7d19d, 0xa66b49);
+        TinDioxide = registerDustChemical("tin_dioxide", "SnO2", 0xF8F8FF);
+        RawStarch = registerDustChemical("raw_starch", 0xa7d19d, 0xa66b49);
         Starch = registerDustChemical("starch", 0xd4d4d4, 0xa66b49);
 
         // Mixtures/Slurries
         SaltMixture = registerMixture("salt_mixture", 0x4854da, SaltWater, 1, RockSalt, 1);
 
-        GravelSlurry = registerFluidChemical("gravel_slurry",0x645b5b);
+        GravelSlurry = registerFluidChemical("gravel_slurry", 0x645b5b);
         SandSlurry = registerFluidChemical("sand_slurry", 0xd1ba8a);
         DirtSlurry = registerFluidChemical("dirt_slurry", 0x593d29);
         NetherrackSlurry = registerFluidChemical("netherrack_slurry", 0x411616);
