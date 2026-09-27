@@ -24,12 +24,14 @@ import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTEItems;
 import com.puffofficial.ftecore.common.data.materials.FTEMaterials;
+import com.puffofficial.ftecore.common.data.materials.lines.AspectMaterials;
 import com.puffofficial.ftecore.common.data.materials.lines.BotaniaMaterials;
 import com.puffofficial.ftecore.common.data.materials.lines.ChemistryMaterials;
 import com.puffofficial.ftecore.common.data.materials.lines.RootsMaterials;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
-import com.puffofficial.ftecore.data.lang.FTELangHandler;
+import com.puffofficial.ftecore.data.handlers.FTELangHandler;
+import com.puffofficial.ftecore.data.handlers.FTETagHandler;
 import com.tterrag.registrate.providers.ProviderType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -61,6 +63,7 @@ public class FTECore {
         FTERegister.registerRegistrate();
 
         FTECore.FTERegister.addDataGenerator(ProviderType.LANG, FTELangHandler::init);
+        FTECore.FTERegister.addDataGenerator(ProviderType.ITEM_TAGS, FTETagHandler::itemInit);
 
         init();
     }
@@ -102,6 +105,7 @@ public class FTECore {
     }
 
     private void addMaterials(MaterialEvent event) {
+        AspectMaterials.init();
         ChemistryMaterials.init();
         BotaniaMaterials.init();
         RootsMaterials.init();
