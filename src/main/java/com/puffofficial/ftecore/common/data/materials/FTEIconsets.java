@@ -4,6 +4,8 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 
 public class FTEIconsets {
 
+    public static final MaterialIconSet PRIMAL = new MaterialIconSet("primal", MaterialIconSet.DULL);
+
     public static final MaterialIconSet CERAMIC = new MaterialIconSet("ceramic", MaterialIconSet.DULL);
     public static final MaterialIconSet INFINITY = new MaterialIconSet("infinity", MaterialIconSet.METALLIC);
 
