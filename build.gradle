@@ -157,6 +157,9 @@ dependencies {
     // Avaritia
     modImplementation("curse.maven:re-avaritia-623969:7647188")
 
+    // Text Animator
+    modImplementation("curse.maven:text-animator-881778:7379635")
+
     // GregTech and dependencies
     modImplementation("com.gregtechceu.gtceu:gtceu-${minecraft_version}:${gtceu_version}:slim") { transitive = false }
     modImplementation("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
