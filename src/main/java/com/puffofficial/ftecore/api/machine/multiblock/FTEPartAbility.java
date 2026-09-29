@@ -10,4 +10,6 @@ public class FTEPartAbility {
     public static final Map<String, PartAbility> VALUES = new HashMap<>();
 
     public static final PartAbility PRIMITIVE_MAINTENANCE = new PartAbility("primitive_maintenance");
+    public static final PartAbility VENTIlATION = new PartAbility("ventilation");
+    public static final PartAbility HEAT_VENT = new PartAbility("heat_vent");
 }

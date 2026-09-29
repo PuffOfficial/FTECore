@@ -9,7 +9,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 
 import com.puffofficial.ftecore.common.data.FTECovers;
 import com.puffofficial.ftecore.common.data.materials.FTEElements;
-import com.puffofficial.ftecore.common.recipes.Alloys;
+import com.puffofficial.ftecore.common.recipes.AlloyRecipes;
 import com.puffofficial.ftecore.common.recipes.AspectRecipes;
 import com.puffofficial.ftecore.common.recipes.FTERecipes;
 import com.puffofficial.ftecore.common.recipes.ULVRecipes;
@@ -37,7 +37,7 @@ public class FTECoreGTAddon implements IGTAddon {
     public void addRecipes(Consumer<FinishedRecipe> provider) {
         ULVRecipes.init(provider);
         FTERecipes.init(provider);
-        Alloys.init(provider);
+        AlloyRecipes.init(provider);
         AspectRecipes.init(provider);
     }
 

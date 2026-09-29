@@ -10,12 +10,11 @@ import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
 
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.puffofficial.ftecore.common.data.materials.FTEMaterials.*;
 
-public class Alloys {
+public class AlloyRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
         // Alloys

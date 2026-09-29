@@ -2,6 +2,7 @@ package com.puffofficial.ftecore.common.data;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
+import com.gregtechceu.gtceu.api.machine.multiblock.CoilWorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import com.gregtechceu.gtceu.api.recipe.content.ContentModifier;
@@ -9,12 +10,6 @@ import com.gregtechceu.gtceu.api.recipe.modifier.ModifierFunction;
 import com.gregtechceu.gtceu.api.recipe.modifier.ParallelLogic;
 
 public class FTERecipeModifiers {
-
-    public static ModifierFunction ulvMachineLogic(MetaMachine machine, GTRecipe recipe) {
-        return ModifierFunction.builder()
-                .durationMultiplier(2)
-                .build();
-    }
 
     public static ModifierFunction primitiveMultiblockLogic(MetaMachine machine, GTRecipe recipe) {
         if (!(machine instanceof WorkableElectricMultiblockMachine electricMulti)) return ModifierFunction.NULL;
@@ -30,5 +25,30 @@ public class FTERecipeModifiers {
         } else {
             return ModifierFunction.builder().build();
         }
+    }
+
+    public static ModifierFunction defaultParallel(MetaMachine machine, GTRecipe recipe, int parallelCount)  {
+        int parallels = ParallelLogic.getParallelAmountWithoutEU(machine, recipe, 4);
+        return ModifierFunction.builder()
+                .modifyAllContents(ContentModifier.multiplier(parallels))
+                .parallels(parallels)
+                .build();
+    }
+
+    public static ModifierFunction alchemicalCrucibleLogic(MetaMachine machine, GTRecipe recipe) {
+        if (!(machine instanceof CoilWorkableElectricMultiblockMachine coilMachine)) return ModifierFunction.NULL;
+
+        int temperature = coilMachine.getCoilType().getCoilTemperature() + (75*Math.max(0, coilMachine.getTier() - GTValues.MV));
+
+        if (!(recipe.data.getBoolean("min_temp")) || !(recipe.data.getBoolean("max_temp"))) return ModifierFunction.NULL;
+
+        int minTemp = recipe.data.getInt("min_temp");
+        int maxTemp = recipe.data.getInt("max_temp");
+
+        if (!(minTemp > temperature) || !(maxTemp < temperature)) {
+            return ModifierFunction.NULL;
+        }
+
+        return ModifierFunction.IDENTITY;
     }
 }

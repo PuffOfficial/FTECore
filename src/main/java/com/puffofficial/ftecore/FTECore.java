@@ -9,9 +9,9 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
-import net.minecraft.client.Minecraft;
+import com.puffofficial.ftecore.common.machine.FTEMachines;
+import com.puffofficial.ftecore.common.machine.FTEMultiblock;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -77,13 +77,10 @@ public class FTECore {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            LOGGER.info("Hello from common setup! This is *after* registries are done, so we can do this:");
-            LOGGER.info("Look, I found a {}!", Items.DIAMOND);
         });
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
-        LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
     }
 
     public static ResourceLocation id(String path) {
@@ -102,6 +99,11 @@ public class FTECore {
 
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
         FTEPrimitiveMachines.init();
+        FTEMachines.init();
+
+        FTEMultiblock.init();
+
+        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }
 
     private void addMaterials(MaterialEvent event) {

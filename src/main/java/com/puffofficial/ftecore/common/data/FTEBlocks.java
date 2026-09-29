@@ -27,6 +27,9 @@ public class FTEBlocks {
     public static final BlockEntry<Block> SOLID_WROUGHT_IRON_CASING = createSimpleCasing(
             "Solid Wrought Iron Casing", "solid_wrought_iron_casing", "solid_wrought_iron_casing",
             BlockItem::new);
+    public static final BlockEntry<Block> CORRUPTION_PROOF_TITANIUM_NOCTITE_CASING = createSimpleCasing(
+            "Corruption Proof Titanium Noctite Casing", "corruption_proof_titanium_noctite_casing", "corruption_proof_titanium_noctite_casing",
+            BlockItem::new);
 
     // Fireboxes
     public static final BlockEntry<ActiveBlock> WROUGHT_IRON_FIREBOX = createFirebox(

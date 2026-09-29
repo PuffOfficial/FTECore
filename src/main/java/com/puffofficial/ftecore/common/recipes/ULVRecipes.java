@@ -13,7 +13,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
-import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTEItems;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 
@@ -21,7 +20,6 @@ import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static com.puffofficial.ftecore.common.data.materials.FTEMaterials.*;
 
 public class ULVRecipes {
 
@@ -118,36 +116,6 @@ public class ULVRecipes {
                 .inputItems(CustomTags.ULV_CIRCUITS)
                 .outputItems(FTEItems.ROBOT_ARM_ULV)
                 .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
-        // Wrought Iron Components
-        VanillaRecipeHelper.addShapedRecipe(provider, "solid_wrought_iron_casing",
-                FTEBlocks.SOLID_WROUGHT_IRON_CASING.asStack(2),
-                "BhB",
-                "BAB",
-                "BwB",
-                'A', new MaterialEntry(frameGt, AndesiteAlloy),
-                'B', new MaterialEntry(plate, WroughtIron));
-
-        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("solid_wrought_iron_casing_assembler")
-                .inputItems(plate, WroughtIron, 6)
-                .inputItems(frameGt, AndesiteAlloy)
-                .circuitMeta(6)
-                .outputItems(FTEBlocks.SOLID_WROUGHT_IRON_CASING, 2)
-                .duration(50).EUt(GTValues.VH[GTValues.LV]).save(provider);
-
-        VanillaRecipeHelper.addShapedRecipe(provider, "wrought_iron_firebox", FTEBlocks.WROUGHT_IRON_FIREBOX.asStack(2),
-                "BAB",
-                "ACA",
-                "BAB",
-                'A', new MaterialEntry(rod, WroughtIron),
-                'B', new MaterialEntry(plate, WroughtIron),
-                'C', new MaterialEntry(frameGt, AndesiteAlloy));
-
-        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("wrought_iron_firebox")
-                .inputItems(plate, WroughtIron, 3)
-                .inputItems(frameGt, AndesiteAlloy)
-                .inputItems(rod, WroughtIron, 3)
-                .outputItems(FTEBlocks.WROUGHT_IRON_FIREBOX, 2)
-                .duration(100).EUt(GTValues.VA[GTValues.LV]).save(provider);
         // Primitive Generator
         VanillaRecipeHelper.addShapedRecipe(provider, "ulv_hydrokinetic_dynamo",
                 FTEPrimitiveMachines.PRIMITIVE_HYDROKINETIC_DYNAMO.asStack(),
@@ -315,5 +283,15 @@ public class ULVRecipes {
                 'B', CustomTags.ULV_CIRCUITS,
                 'C', new MaterialEntry(wireGtQuadruple, RedAlloy),
                 'D', new MaterialEntry(cableGtSingle, RedAlloy));
+        VanillaRecipeHelper.addShapedRecipe(provider, "ulv_large_compressor",
+                FTEPrimitiveMachines.PRIMITIVE_LARGE_COMPRESSOR.asStack(),
+                "BDB",
+                "CAC",
+                "EBE",
+                'A', GTMachines.HULL[GTValues.ULV].asStack(),
+                'B', CustomTags.ULV_CIRCUITS,
+                'C', FTEItems.ELECTRIC_PUMP_ULV.asStack(),
+                'D', new MaterialEntry(plate, WroughtIron),
+                'E', new MaterialEntry(cableGtSingle, RedAlloy));
     }
 }

@@ -33,7 +33,7 @@ public class ColorHandler {
         consumer.register(
                 (state, world, pos, tintIndex) -> {
                     float time = ClientTickHandler.ticksInGame + ClientTickHandler.partialTicks;
-                    return Mth.hsvToRgb(time * 5 % 360 / 360F, 0.4F, 0.9F);
+                    return Mth.hsvToRgb(time * 5 % 360 / 360F, 0.25F, 1F);
                 },
                 ChemicalHelper.getBlock(block, Gaia));
     }

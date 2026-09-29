@@ -1,9 +1,9 @@
 package com.puffofficial.ftecore.common.recipes;
 
+import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
-import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-
+import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -19,15 +19,20 @@ public class AspectRecipes {
         for (Material aspect : AspectMaterials.Aspects) {
             List<MaterialStack> aspectComponents = aspect.getMaterialComponents();
             List<FluidStack> inputAspects = new ArrayList<>();
-
             if (aspectComponents.size() >= 2) {
                 for (MaterialStack component : aspectComponents) {
                     inputAspects.add(component.material().getFluid(50));
                 }
-                GTRecipeTypes.CHEMICAL_RECIPES.recipeBuilder(aspect.getName() + "_synthetyzing")
+
+                FTERecipeTypes.ALCHEMICAl_MIXER_TYPE.recipeBuilder(aspect.getName() + "_synthetyzing")
                         .inputFluids(inputAspects.toArray(new FluidStack[0]))
                         .outputFluids(aspect.getFluid(100))
-                        .duration(60).save(provider);
+                        .EUt(GTValues.VHA[GTValues.HV]).duration(100).save(provider);
+
+                FTERecipeTypes.ALCHEMICAL_SEPARATOR_TYPE.recipeBuilder(aspect.getName() + "_separation")
+                        .inputFluids(aspect.getFluid(100))
+                        .inputFluids(inputAspects.toArray(new FluidStack[0]))
+                        .EUt(GTValues.VHA[GTValues.HV]).duration(100).save(provider);
             }
         }
     }

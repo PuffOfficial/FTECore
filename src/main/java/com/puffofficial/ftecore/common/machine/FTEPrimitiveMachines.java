@@ -246,7 +246,5 @@ public class FTEPrimitiveMachines {
             .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
             .register();
 
-    public static void init() {
-        FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
-    }
+    public static void init() {}
 }
