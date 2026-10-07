@@ -3,11 +3,12 @@ package com.puffofficial.ftecore.common.recipes;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
-import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
+
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraftforge.fluids.FluidStack;
 
 import com.puffofficial.ftecore.common.data.materials.lines.AspectMaterials;
+import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class AspectRecipes {
 
                 FTERecipeTypes.ALCHEMICAL_SEPARATOR_TYPE.recipeBuilder(aspect.getName() + "_separation")
                         .inputFluids(aspect.getFluid(100))
-                        .inputFluids(inputAspects.toArray(new FluidStack[0]))
+                        .outputFluids(inputAspects.toArray(new FluidStack[0]))
                         .EUt(GTValues.VHA[GTValues.HV]).duration(100).save(provider);
             }
         }
