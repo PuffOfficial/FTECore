@@ -52,7 +52,7 @@ public class AspectMaterials {
         Motus = registerAspect("motus", 0xa2a3c1, Ordo, 1, Aer, 1);
         Permutatio = registerAspect("permutatio", 0x5f8c65, Ordo, 1, Perditio, 1);
         Potentia = registerAspect("potentia", 0xcffffa, Ordo, 1, Ignis, 1);
-        Tempestas = registerAspect("tempestas", 0xfdfcf8, Aer, 1, Perditio, 1);
+        Tempestas = registerAspect("tempestas", 0xfdfcf8, Aer, 1, Aqua, 1);
         Vacuos = registerAspect("vacuos", 0x847f79, Aer, 1, Perditio, 1);
         Venenum = registerAspect("venenum", 0x81dd00, Aqua, 1, Perditio, 1);
         Victus = registerAspect("victus", 0xd10005, Aqua, 1, Terra, 1);
