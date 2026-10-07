@@ -27,20 +27,31 @@ public class FTERecipeModifiers {
         }
     }
 
-    public static ModifierFunction defaultParallel(MetaMachine machine, GTRecipe recipe, int parallelCount)  {
-        int parallels = ParallelLogic.getParallelAmountWithoutEU(machine, recipe, 4);
+    public static ModifierFunction defaultParallelWithoutEu(MetaMachine machine, GTRecipe recipe, int parallelCount) {
+        int parallels = ParallelLogic.getParallelAmountWithoutEU(machine, recipe, parallelCount);
         return ModifierFunction.builder()
                 .modifyAllContents(ContentModifier.multiplier(parallels))
                 .parallels(parallels)
                 .build();
     }
 
+    public static ModifierFunction defaultParallel(MetaMachine machine, GTRecipe recipe, int parallelCount) {
+        int parallels = ParallelLogic.getParallelAmount(machine, recipe, parallelCount);
+        return ModifierFunction.builder()
+                .modifyAllContents(ContentModifier.multiplier(parallels))
+                .parallels(parallels)
+                .build();
+    }
+
+
     public static ModifierFunction alchemicalCrucibleLogic(MetaMachine machine, GTRecipe recipe) {
         if (!(machine instanceof CoilWorkableElectricMultiblockMachine coilMachine)) return ModifierFunction.NULL;
 
-        int temperature = coilMachine.getCoilType().getCoilTemperature() + (75*Math.max(0, coilMachine.getTier() - GTValues.MV));
+        int temperature = coilMachine.getCoilType().getCoilTemperature() +
+                (75 * Math.max(0, coilMachine.getTier() - GTValues.MV));
 
-        if (!(recipe.data.getBoolean("min_temp")) || !(recipe.data.getBoolean("max_temp"))) return ModifierFunction.NULL;
+        if (!(recipe.data.getBoolean("min_temp")) || !(recipe.data.getBoolean("max_temp")))
+            return ModifierFunction.NULL;
 
         int minTemp = recipe.data.getInt("min_temp");
         int maxTemp = recipe.data.getInt("max_temp");
