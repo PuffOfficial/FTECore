@@ -43,7 +43,6 @@ public class FTERecipeModifiers {
                 .build();
     }
 
-
     public static ModifierFunction alchemicalCrucibleLogic(MetaMachine machine, GTRecipe recipe) {
         if (!(machine instanceof CoilWorkableElectricMultiblockMachine coilMachine)) return ModifierFunction.NULL;
 

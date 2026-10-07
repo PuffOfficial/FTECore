@@ -11,12 +11,13 @@ import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.models.GTMachineModels;
 
+import net.minecraft.world.level.block.Blocks;
+
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.api.machine.multiblock.FTEPartAbility;
 import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
-import net.minecraft.world.level.block.Blocks;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -66,25 +67,26 @@ public class FTEMultiblocks {
             .rotationState(RotationState.NON_Y_AXIS)
             .appearanceBlock(GTBlocks.TREATED_WOOD_PLANK)
             .pattern(definition -> FactoryBlockPattern.start()
-                            .aisle("a   a", "ccccc", "d e d", "deeed", "aevea", " eee ", "  e  ", "     ")
-                            .aisle("     ", "c e c", " e e ", "e   e", "e   e", "e   e", " e e ", "  e  ")
-                            .aisle("     ", "ceeec", "e   e", "e   e", "v   v", "e   e", "e   e", " efe ")
-                            .aisle("     ", "c e c", " e e ", "e   e", "e   e", "e   e", " e e ", "  e  ")
-                            .aisle("a   a", "ccccc", "d e d", "deeed", "aeOea", " eee ", "  e  ", "     ")
-                            .where("O", Predicates.controller(Predicates.blocks(definition.get())))
-                            .where("a", Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get()))
-                            .where("c", Predicates.blocks(GTBlocks.STEEL_HULL.get()))
-                            .where("d", Predicates.blocks(ChemicalHelper.getBlock(frameGt, Steel)))
-                            .where("e", Predicates.blocks(FTEBlocks.PORCELAIN_BRICKS.get())
-                                    .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setExactLimit(1).setPreviewCount(1))
-                                    .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setExactLimit(1).setPreviewCount(1))
-                                    .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setExactLimit(1).setPreviewCount(1))
-                                    .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setExactLimit(1).setPreviewCount(1))
-                                    .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMaxGlobalLimited(2).setPreviewCount(1)))
-                            .where("v", Predicates.abilities(FTEPartAbility.VENTIlATION))
-                            .where("f", Predicates.abilities(PartAbility.MUFFLER))
-                            .where(" ", Predicates.any())
-                            .build())
+                    .aisle("a   a", "ccccc", "d e d", "deeed", "aevea", " eee ", "  e  ", "     ")
+                    .aisle("     ", "c e c", " e e ", "e   e", "e   e", "e   e", " e e ", "  e  ")
+                    .aisle("     ", "ceeec", "e   e", "e   e", "v   v", "e   e", "e   e", " efe ")
+                    .aisle("     ", "c e c", " e e ", "e   e", "e   e", "e   e", " e e ", "  e  ")
+                    .aisle("a   a", "ccccc", "d e d", "deeed", "aeOea", " eee ", "  e  ", "     ")
+                    .where("O", Predicates.controller(Predicates.blocks(definition.get())))
+                    .where("a", Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get()))
+                    .where("c", Predicates.blocks(GTBlocks.STEEL_HULL.get()))
+                    .where("d", Predicates.blocks(ChemicalHelper.getBlock(frameGt, Steel)))
+                    .where("e", Predicates.blocks(FTEBlocks.PORCELAIN_BRICKS.get())
+                            .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setExactLimit(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setExactLimit(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setExactLimit(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setExactLimit(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMaxGlobalLimited(2)
+                                    .setPreviewCount(1)))
+                    .where("v", Predicates.abilities(FTEPartAbility.VENTIlATION))
+                    .where("f", Predicates.abilities(PartAbility.MUFFLER))
+                    .where(" ", Predicates.any())
+                    .build())
             .model(
                     GTMachineModels.createWorkableCasingMachineModel(
                             FTECore.id("block/porcelain_bricks"),
@@ -104,12 +106,16 @@ public class FTEMultiblocks {
                     .aisle("#C#", "#R#", "#R#", "#R#", "###")
                     .where("C", Predicates.controller(Predicates.blocks(definition.get())))
                     .where("#", Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get())
-                            .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
-                            .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(1).setPreviewCount(1))
-                            .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1).setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(1)
+                                    .setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(1)
+                                    .setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1)
+                                    .setPreviewCount(1))
                             .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1).setPreviewCount(1))
                             .or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1))
-                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMaxGlobalLimited(1).setPreviewCount(1)))
+                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMaxGlobalLimited(1)
+                                    .setPreviewCount(1)))
                     .where("R", Predicates.blocks(GTBlocks.CASING_TEMPERED_GLASS.get()))
                     .where("V", Predicates.abilities(FTEPartAbility.VENTIlATION))
                     .where("G", Predicates.blocks(Blocks.GRASS_BLOCK)
@@ -120,8 +126,7 @@ public class FTEMultiblocks {
                             .or(Predicates.blocks(Blocks.JUNGLE_SAPLING))
                             .or(Predicates.blocks(Blocks.CHERRY_SAPLING))
                             .or(Predicates.blocks(Blocks.DARK_OAK_SAPLING))
-                            .or(Predicates.blocks(Blocks.BIRCH_SAPLING))
-                    )
+                            .or(Predicates.blocks(Blocks.BIRCH_SAPLING)))
                     .where(" ", Predicates.air())
                     .build())
             .model(

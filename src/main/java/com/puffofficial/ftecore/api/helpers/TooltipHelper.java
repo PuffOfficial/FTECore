@@ -18,7 +18,8 @@ public class TooltipHelper {
         if (isWithEu) {
             textComponent = Component.translatable("fte.components.tooltip.default_parallels", "§5" + parallelAmount);
         } else {
-            textComponent = Component.translatable("fte.components.tooltip.default_parallels_without_eu", "§5" + parallelAmount);
+            textComponent = Component.translatable("fte.components.tooltip.default_parallels_without_eu",
+                    "§5" + parallelAmount);
         }
 
         return textComponent;

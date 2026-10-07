@@ -17,7 +17,8 @@ public class FTELangHandler {
         provider.add("fte.components.tooltip.alchemical_mixer", "§7Mixing magic stuff");
         provider.add("fte.components.tooltip.alchemical_separator", "§7Separating magic stuff, obviously");
 
-        provider.add("fte.components.tooltip.default_parallels_without_eu", "§5Default Parallels:§r %s §7(No EU multiplier)§r");
+        provider.add("fte.components.tooltip.default_parallels_without_eu",
+                "§5Default Parallels:§r %s §7(No EU multiplier)§r");
         provider.add("fte.components.tooltip.default_parallels", "§5Default Parallels:§r %s §7(With EU multiplier)§r");
         // Multiblock Data
         provider.add("fte.components.display.temperature", "Max Temperature: %sK");

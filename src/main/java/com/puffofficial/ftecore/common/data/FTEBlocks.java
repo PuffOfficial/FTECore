@@ -7,10 +7,10 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.MapColor;
 
 import com.puffofficial.ftecore.FTECore;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.minecraft.world.level.material.MapColor;
 
 import static com.gregtechceu.gtceu.common.registry.GTRegistration.REGISTRATE;
 import static com.puffofficial.ftecore.api.helpers.BlockHelper.*;
