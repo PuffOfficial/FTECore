@@ -21,11 +21,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.Block;
 
 import com.puffofficial.ftecore.FTECore;
+import com.puffofficial.ftecore.api.helpers.TooltipHelper;
 import com.puffofficial.ftecore.api.machine.multiblock.FTEPartAbility;
 import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTERecipeModifiers;
-import com.puffofficial.ftecore.common.data.FTETooltips;
 import com.puffofficial.ftecore.common.machine.multiblock.part.PrimitiveMaintenanceHatchPartMachine;
 import com.puffofficial.ftecore.data.models.FTEMachineModels;
 
@@ -149,7 +149,7 @@ public class FTEPrimitiveMachines {
                     GTMachineModels.createWorkableCasingMachineModel(
                             FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
                             GTCEu.id("block/machines/bender")))
-            .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
+            .tooltips(TooltipHelper.primitiveMultiblockTooltips(4))
             .register();
 
     public static MultiblockMachineDefinition PRIMITIVE_ALLOY_SMELTER = FTECore.FTERegister
@@ -180,7 +180,7 @@ public class FTEPrimitiveMachines {
                     GTMachineModels.createWorkableCasingMachineModel(
                             FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
                             GTCEu.id("block/machines/alloy_smelter")))
-            .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
+            .tooltips(TooltipHelper.primitiveMultiblockTooltips(4))
             .register();
 
     public static MultiblockMachineDefinition PRIMITIVE_ELECTRIC_FURNACE = FTECore.FTERegister
@@ -212,7 +212,7 @@ public class FTEPrimitiveMachines {
                     GTMachineModels.createWorkableCasingMachineModel(
                             FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
                             GTCEu.id("block/machines/furnace")))
-            .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
+            .tooltips(TooltipHelper.primitiveMultiblockTooltips(4))
             .register();
 
     public static MultiblockMachineDefinition PRIMITIVE_LARGE_COMPRESSOR = FTECore.FTERegister
@@ -243,7 +243,7 @@ public class FTEPrimitiveMachines {
                     GTMachineModels.createWorkableCasingMachineModel(
                             FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
                             GTCEu.id("block/machines/compressor")))
-            .tooltips(FTETooltips.primitiveMultiblockTooltips(4))
+            .tooltips(TooltipHelper.primitiveMultiblockTooltips(4))
             .register();
 
     public static void init() {}
