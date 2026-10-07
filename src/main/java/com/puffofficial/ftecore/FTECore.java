@@ -9,8 +9,7 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
-import com.puffofficial.ftecore.common.machine.FTEMachines;
-import com.puffofficial.ftecore.common.machine.FTEMultiblock;
+import com.puffofficial.ftecore.common.machine.multiblock.FTEMultiblocks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,8 +27,10 @@ import com.puffofficial.ftecore.common.data.materials.lines.AspectMaterials;
 import com.puffofficial.ftecore.common.data.materials.lines.BotaniaMaterials;
 import com.puffofficial.ftecore.common.data.materials.lines.ChemistryMaterials;
 import com.puffofficial.ftecore.common.data.materials.lines.RootsMaterials;
+import com.puffofficial.ftecore.common.machine.FTEMachines;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
+import com.puffofficial.ftecore.common.machine.multiblock.AlchemicalMultiblocks;
 import com.puffofficial.ftecore.data.handlers.FTELangHandler;
 import com.puffofficial.ftecore.data.handlers.FTETagHandler;
 import com.tterrag.registrate.providers.ProviderType;
@@ -76,12 +77,10 @@ public class FTECore {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-        });
+        event.enqueueWork(() -> {});
     }
 
-    private void clientSetup(final FMLClientSetupEvent event) {
-    }
+    private void clientSetup(final FMLClientSetupEvent event) {}
 
     public static ResourceLocation id(String path) {
         return new ResourceLocation(MOD_ID, path);
@@ -101,7 +100,8 @@ public class FTECore {
         FTEPrimitiveMachines.init();
         FTEMachines.init();
 
-        FTEMultiblock.init();
+        FTEMultiblocks.init();
+        AlchemicalMultiblocks.init();
 
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }

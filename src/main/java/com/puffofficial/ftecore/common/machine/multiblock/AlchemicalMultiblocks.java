@@ -1,5 +1,6 @@
-package com.puffofficial.ftecore.common.machine;
+package com.puffofficial.ftecore.common.machine.multiblock;
 
+import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
@@ -12,19 +13,24 @@ import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.models.GTMachineModels;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
+
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.Style;
+
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.api.helpers.TooltipHelper;
 import com.puffofficial.ftecore.api.machine.multiblock.FTEPartAbility;
 import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTERecipeModifiers;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.Style;
+import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
+
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 
-public class FTEMultiblock {
+public class AlchemicalMultiblocks {
+
     static {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MACHINES);
     }
@@ -60,15 +66,16 @@ public class FTEMultiblock {
                             FTECore.id("block/casings/solid/corruption_proof_titanium_noctite_casing"),
                             FTECore.id("block/machines/multiblock/alchemical_crucible")))
             .additionalDisplay((controller, components) -> {
-                        if (controller instanceof CoilWorkableElectricMultiblockMachine coilMachine && controller.isFormed()) {
+                if (controller instanceof CoilWorkableElectricMultiblockMachine coilMachine && controller.isFormed()) {
 
-                            MutableComponent temp = Component.literal(FormattingUtil.formatNumbers(
-                                    coilMachine.getCoilType().getCoilTemperature() + (75*Math.max(0, coilMachine.getTier() - GTValues.MV)))).setStyle(Style.EMPTY.withColor(ChatFormatting.RED));
+                    MutableComponent temp = Component.literal(FormattingUtil.formatNumbers(
+                            coilMachine.getCoilType().getCoilTemperature() +
+                                    (75 * Math.max(0, coilMachine.getTier() - GTValues.MV))))
+                            .setStyle(Style.EMPTY.withColor(ChatFormatting.RED));
 
-                            components.add(Component.translatable("fte.components.display.temperature", temp));
-                        }
-                    }
-            )
+                    components.add(Component.translatable("fte.components.display.temperature", temp));
+                }
+            })
             .register();
 
     public static MultiblockMachineDefinition ALCHEMICAL_MIXER = FTECore.FTERegister
@@ -76,10 +83,10 @@ public class FTEMultiblock {
             .langValue("Alchemical Mixer")
             .tooltips(
                     Component.translatable("fte.components.tooltip.alchemical_mixer"),
-                    TooltipHelper.defaultParallelTooltip(16)
-            )
+                    TooltipHelper.defaultParallelTooltip(16, false))
             .recipeType(FTERecipeTypes.ALCHEMICAl_MIXER_TYPE)
-            .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT, (machine, recipe) -> FTERecipeModifiers.defaultParallel(machine, recipe, 16))
+            .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT,
+                    (machine, recipe) -> FTERecipeModifiers.defaultParallelWithoutEu(machine, recipe, 16))
             .rotationState(RotationState.NON_Y_AXIS)
             .appearanceBlock(FTEBlocks.CORRUPTION_PROOF_TITANIUM_NOCTITE_CASING)
             .pattern(definition -> FactoryBlockPattern.start()
@@ -89,7 +96,8 @@ public class FTEMultiblock {
                     .where("C", Predicates.controller(blocks(definition.get())))
                     .where("#", blocks(FTEBlocks.CORRUPTION_PROOF_TITANIUM_NOCTITE_CASING.get())
                             .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1))
-                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMaxGlobalLimited(2).setPreviewCount(1)))
+                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMaxGlobalLimited(2)
+                                    .setPreviewCount(1)))
                     .where("S", Predicates.abilities(FTEPartAbility.HEAT_VENT))
                     .where("I", Predicates.abilities(PartAbility.IMPORT_FLUIDS_1X))
                     .where("O", Predicates.abilities(PartAbility.EXPORT_FLUIDS))
@@ -99,7 +107,7 @@ public class FTEMultiblock {
             .model(
                     GTMachineModels.createWorkableCasingMachineModel(
                             FTECore.id("block/casings/solid/corruption_proof_titanium_noctite_casing"),
-                            FTECore.id("block/machines/multiblock/alchemical_crucible")))
+                            GTCEu.id("block/machines/chemical_reactor")))
             .register();
 
     public static MultiblockMachineDefinition ALCHEMICAL_SEPARATOR = FTECore.FTERegister
@@ -107,10 +115,10 @@ public class FTEMultiblock {
             .langValue("Alchemical Separator")
             .tooltips(
                     Component.translatable("fte.components.tooltip.alchemical_separator"),
-                    TooltipHelper.defaultParallelTooltip(16)
-            )
+                    TooltipHelper.defaultParallelTooltip(16, false))
             .recipeType(FTERecipeTypes.ALCHEMICAL_SEPARATOR_TYPE)
-            .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT, (machine, recipe) -> FTERecipeModifiers.defaultParallel(machine, recipe, 16))
+            .recipeModifiers(GTRecipeModifiers.OC_NON_PERFECT,
+                    (machine, recipe) -> FTERecipeModifiers.defaultParallelWithoutEu(machine, recipe, 16))
             .rotationState(RotationState.NON_Y_AXIS)
             .appearanceBlock(FTEBlocks.CORRUPTION_PROOF_TITANIUM_NOCTITE_CASING)
             .pattern(definition -> FactoryBlockPattern.start()
@@ -120,7 +128,8 @@ public class FTEMultiblock {
                     .where("C", Predicates.controller(blocks(definition.get())))
                     .where("#", blocks(FTEBlocks.CORRUPTION_PROOF_TITANIUM_NOCTITE_CASING.get())
                             .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1))
-                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMaxGlobalLimited(2).setPreviewCount(1)))
+                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMaxGlobalLimited(2)
+                                    .setPreviewCount(1)))
                     .where("S", Predicates.abilities(FTEPartAbility.HEAT_VENT))
                     .where("I", Predicates.abilities(PartAbility.IMPORT_FLUIDS_1X))
                     .where("O", Predicates.abilities(PartAbility.EXPORT_FLUIDS))
@@ -130,7 +139,7 @@ public class FTEMultiblock {
             .model(
                     GTMachineModels.createWorkableCasingMachineModel(
                             FTECore.id("block/casings/solid/corruption_proof_titanium_noctite_casing"),
-                            FTECore.id("block/machines/multiblock/alchemical_crucible")))
+                            GTCEu.id("block/machines/extractor")))
             .register();
 
     public static void init() {}

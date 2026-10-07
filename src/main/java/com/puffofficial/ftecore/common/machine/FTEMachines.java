@@ -6,11 +6,13 @@ import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.part.MultiblockPartMachine;
 import com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.api.machine.multiblock.FTEPartAbility;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 
 public class FTEMachines {
+
     static {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MACHINES);
     }
