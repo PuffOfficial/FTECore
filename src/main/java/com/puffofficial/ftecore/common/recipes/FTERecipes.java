@@ -1,17 +1,17 @@
 package com.puffofficial.ftecore.common.recipes;
 
 import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialEntry;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
-import com.puffofficial.ftecore.common.data.FTEBlocks;
-import com.puffofficial.ftecore.common.data.materials.lines.AspectMaterials;
+
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+
+import com.puffofficial.ftecore.common.data.FTEBlocks;
+import com.puffofficial.ftecore.common.data.materials.lines.AspectMaterials;
 
 import java.util.function.Consumer;
 
