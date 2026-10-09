@@ -213,7 +213,7 @@ public class ULVRecipes {
                 "BCB",
                 'A', GTMachines.HULL[GTValues.ULV].asStack(),
                 'B', CustomTags.ULV_CIRCUITS,
-                'C', GTItems.ITEM_FILTER,
+                'C', Blocks.WHITE_WOOL,
                 'D', FTEItems.ELECTRIC_PISTON_ULV,
                 'E', new MaterialEntry(cableGtSingle, RedAlloy));
         VanillaRecipeHelper.addShapedRecipe(provider, "ulv_arc_furnace",
