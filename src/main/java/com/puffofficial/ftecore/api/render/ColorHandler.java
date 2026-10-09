@@ -9,7 +9,7 @@ import vazkii.botania.client.render.ColorHandler.BlockHandlerConsumer;
 import vazkii.botania.client.render.ColorHandler.ItemHandlerConsumer;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.puffofficial.ftecore.common.data.materials.lines.BotaniaMaterials.*;
+import static com.puffofficial.ftecore.common.materials.lines.BotaniaMaterials.*;
 
 public class ColorHandler {
 

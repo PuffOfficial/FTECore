@@ -9,6 +9,10 @@ import com.gregtechceu.gtceu.api.recipe.content.ContentModifier;
 import com.gregtechceu.gtceu.api.recipe.modifier.ModifierFunction;
 import com.gregtechceu.gtceu.api.recipe.modifier.ParallelLogic;
 
+import net.minecraft.network.chat.Component;
+
+import org.apache.commons.lang3.Range;
+
 public class FTERecipeModifiers {
 
     public static ModifierFunction primitiveMultiblockLogic(MetaMachine machine, GTRecipe recipe) {
@@ -49,16 +53,21 @@ public class FTERecipeModifiers {
         int temperature = coilMachine.getCoilType().getCoilTemperature() +
                 (75 * Math.max(0, coilMachine.getTier() - GTValues.MV));
 
-        if (!(recipe.data.getBoolean("min_temp")) || !(recipe.data.getBoolean("max_temp")))
-            return ModifierFunction.NULL;
-
         int minTemp = recipe.data.getInt("min_temp");
         int maxTemp = recipe.data.getInt("max_temp");
 
-        if (!(minTemp > temperature) || !(maxTemp < temperature)) {
-            return ModifierFunction.NULL;
+        Range<Integer> tempRange = Range.between(minTemp, maxTemp);
+
+        if (tempRange.contains(temperature)) {
+            return ModifierFunction.IDENTITY;
         }
 
-        return ModifierFunction.IDENTITY;
+        if (temperature < minTemp) {
+            return ModifierFunction.cancel(Component.translatable("fte.components.display.error_temp_low"));
+        } else if (temperature > maxTemp) {
+            return ModifierFunction.cancel(Component.translatable("fte.components.display.error_temp_high"));
+        }
+
+        return ModifierFunction.NULL;
     }
 }

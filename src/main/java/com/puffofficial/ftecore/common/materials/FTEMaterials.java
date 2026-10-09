@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.common.data.materials;
+package com.puffofficial.ftecore.common.materials;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
@@ -17,7 +17,7 @@ import static com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastP
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.puffofficial.ftecore.api.materials.MaterialFlags.*;
-import static com.puffofficial.ftecore.common.data.materials.lines.BotaniaMaterials.*;
+import static com.puffofficial.ftecore.common.materials.lines.BotaniaMaterials.*;
 
 public class FTEMaterials {
 
@@ -28,6 +28,7 @@ public class FTEMaterials {
     public static Material Ceramic, Nocturium, Infinity, ArtificialAmethyst, Unbreakium;
     public static Material AndesiteAlloy, RadiationResistantAlloy, TitaniumNoctite, StargateAlloy, SiliconCarbide;
     public static Material Pyrotheum, Cryotheum, Aerotheum, Petrotheum;
+    public static Material Thaumium, AlchemicalBronze, VoidMetal;
 
     public static void init() {
         Ceramic = new Material.Builder(FTECore.id("ceramic"))
@@ -149,6 +150,37 @@ public class FTEMaterials {
                 .color(0xffed89).secondaryColor(0xe1dca0).iconSet(FTEIconsets.PRIMAL)
                 .ignoredTagPrefixes(dustSmall, dustTiny)
                 .langValue("<grad from=#261e1b to=#2e2e2e hue uni>Tectonic Petrotheum</grad>")
+                .buildAndRegister();
+
+        AlchemicalBronze = new Material.Builder(FTECore.id("alchemical_bronze"))
+                .ingot()
+                .iconSet(MaterialIconSet.BRIGHT)
+                .color(0xe6ab7d).secondaryColor(0x6a3d39).langValue("Alchemical Bronze")
+                .flags(GENERATE_PLATE, GENERATE_DENSE, GENERATE_FOIL, GENERATE_ROD, GENERATE_RING)
+                .buildAndRegister();
+        Thaumium = new Material.Builder(FTECore.id("thaumium"))
+                .ingot()
+                .iconSet(MaterialIconSet.METALLIC)
+                .color(0x7d6694).secondaryColor(0x4c2f69).langValue("Thaumium")
+                .flags(GENERATE_PLATE,
+                        GENERATE_ROD,
+                        GENERATE_FINE_WIRE,
+                        GENERATE_FOIL,
+                        GENERATE_FRAME,
+                        GENERATE_ROTOR,
+                        GENERATE_RING,
+                        GENERATE_SMALL_GEAR,
+                        GENERATE_GEAR,
+                        GENERATE_SPRING,
+                        GENERATE_BOLT_SCREW,
+                        GENERATE_ROUND)
+                .buildAndRegister();
+
+        VoidMetal = new Material.Builder(FTECore.id("void_metal"))
+                .ingot()
+                .iconSet(MaterialIconSet.METALLIC)
+                .color(0x2f1d40).secondaryColor(0x000000).langValue("Void Metal")
+                .flags(GENERATE_PLATE, GENERATE_DENSE, GENERATE_FOIL, GENERATE_ROD, GENERATE_RING)
                 .buildAndRegister();
     }
 }

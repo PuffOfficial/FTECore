@@ -17,7 +17,7 @@ import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 
 public class RecipeHelper {
 
-    public static void registerAlloySmelterRecipe(Consumer<FinishedRecipe> provider, MaterialStack output, int eut,
+    public static void registerAlloySmelterRecipe(Consumer<FinishedRecipe> provider, int eut, MaterialStack output,
                                                   MaterialStack[] inputs) {
         GTRecipeTypes.ALLOY_SMELTER_RECIPES
                 .recipeBuilder(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
@@ -41,6 +41,12 @@ public class RecipeHelper {
                 .inputItems(dust, inputs[0].material(), (int) inputs[0].amount())
                 .inputItems(dust, inputs[1].material(), (int) inputs[1].amount())
                 .outputItems(ingot, output.material(), (int) output.amount())
+                .duration((int) output.amount() * 50).EUt(eut).save(provider);
+
+        GTRecipeTypes.MIXER_RECIPES.recipeBuilder(output.material().getName() + "_mixer_alloying")
+                .inputItems(dust, inputs[0].material(), (int) inputs[0].amount())
+                .inputItems(dust, inputs[1].material(), (int) inputs[1].amount())
+                .outputItems(dust, output.material(), (int) output.amount())
                 .duration((int) output.amount() * 50).EUt(eut).save(provider);
     }
 

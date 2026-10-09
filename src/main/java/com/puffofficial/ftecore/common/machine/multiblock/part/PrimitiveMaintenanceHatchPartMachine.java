@@ -57,7 +57,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-
+@SuppressWarnings("all")
 public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
                                                   implements IMachineLife, IMaintenanceMachine, IInteractedMachine {
 

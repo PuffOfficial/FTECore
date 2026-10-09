@@ -11,14 +11,14 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
 import com.puffofficial.ftecore.common.data.FTEBlocks;
-import com.puffofficial.ftecore.common.data.materials.lines.AspectMaterials;
+import com.puffofficial.ftecore.common.materials.lines.AspectMaterials;
 
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static com.puffofficial.ftecore.common.data.materials.FTEMaterials.*;
-import static com.puffofficial.ftecore.common.data.materials.lines.BotaniaMaterials.*;
+import static com.puffofficial.ftecore.common.materials.FTEMaterials.*;
+import static com.puffofficial.ftecore.common.materials.lines.BotaniaMaterials.*;
 
 public class FTERecipes {
 
@@ -35,8 +35,6 @@ public class FTERecipes {
                 .inputFluids(Oxygen, 250)
                 .outputItems(ingot, Ceramic)
                 .duration(600).EUt(GTValues.VA[GTValues.ULV]).save(provider);
-
-        // Casings
 
         // Wrought Iron
         VanillaRecipeHelper.addShapedRecipe(provider, "solid_wrought_iron_casing",

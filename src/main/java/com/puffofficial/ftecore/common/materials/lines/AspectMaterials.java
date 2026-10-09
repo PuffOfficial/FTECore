@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.common.data.materials.lines;
+package com.puffofficial.ftecore.common.materials.lines;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;

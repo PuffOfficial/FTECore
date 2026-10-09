@@ -7,7 +7,7 @@ import net.minecraftforge.common.Tags;
 import com.tterrag.registrate.providers.RegistrateItemTagsProvider;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.puffofficial.ftecore.common.data.materials.FTEMaterials.*;
+import static com.puffofficial.ftecore.common.materials.FTEMaterials.*;
 
 @SuppressWarnings("DataFlowIssue")
 public class FTETagHandler {

@@ -7,12 +7,17 @@ import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraftforge.fluids.FluidStack;
 
-import com.puffofficial.ftecore.common.data.materials.lines.AspectMaterials;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
+import com.puffofficial.ftecore.common.materials.lines.AspectMaterials;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.ingot;
+import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
+import static com.puffofficial.ftecore.common.materials.FTEMaterials.*;
+import static com.puffofficial.ftecore.common.materials.lines.AspectMaterials.*;
 
 public class AspectRecipes {
 
@@ -36,5 +41,13 @@ public class AspectRecipes {
                         .EUt(GTValues.VHA[GTValues.HV]).duration(100).save(provider);
             }
         }
+
+        FTERecipeTypes.ALCHEMICAL_CRUCIBLE_TYPE.recipeBuilder("thaumium_ingot")
+                .inputItems(ingot, TungstenSteel)
+                .inputFluids(Praecantatio.getFluid(100), Vitreus.getFluid(50))
+                .outputItems(ingot, Thaumium)
+                .addData("min_temp", 3000)
+                .addData("max_temp", 6400)
+                .duration(300).EUt(GTValues.VHA[GTValues.EV]).save(provider);
     }
 }

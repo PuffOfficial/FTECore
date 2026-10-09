@@ -1,12 +1,12 @@
-package com.puffofficial.ftecore.common.data.materials.lines;
+package com.puffofficial.ftecore.common.materials.lines;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
-import com.puffofficial.ftecore.common.data.materials.FTEElements;
-import com.puffofficial.ftecore.common.data.materials.FTEIconsets;
+import com.puffofficial.ftecore.common.materials.FTEElements;
+import com.puffofficial.ftecore.common.materials.FTEIconsets;
 import vazkii.botania.common.block.BotaniaBlocks;
 import vazkii.botania.common.item.BotaniaItems;
 

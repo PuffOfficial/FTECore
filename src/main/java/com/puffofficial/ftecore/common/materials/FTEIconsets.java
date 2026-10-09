@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.common.data.materials;
+package com.puffofficial.ftecore.common.materials;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 

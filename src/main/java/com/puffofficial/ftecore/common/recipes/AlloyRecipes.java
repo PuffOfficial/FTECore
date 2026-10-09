@@ -10,7 +10,7 @@ import com.puffofficial.ftecore.api.helpers.RecipeHelper;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static com.puffofficial.ftecore.common.data.materials.FTEMaterials.*;
+import static com.puffofficial.ftecore.common.materials.FTEMaterials.*;
 
 public class AlloyRecipes {
 
@@ -19,9 +19,8 @@ public class AlloyRecipes {
                 new MaterialStack(AndesiteAlloy, 5),
                 new MaterialStack(Zinc, 1), new MaterialStack(Andesite, 2), new MaterialStack(Iron, 2));
 
-        RecipeHelper.registerAlloySmelterRecipe(provider,
+        RecipeHelper.registerAlloySmelterRecipe(provider, GTValues.VHA[GTValues.EV],
                 new MaterialStack(TitaniumNoctite, 3),
-                GTValues.VHA[GTValues.EV],
                 new MaterialStack[] { new MaterialStack(Titanium, 1), new MaterialStack(Nocturium, 2) });
     }
 }

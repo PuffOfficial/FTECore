@@ -8,7 +8,7 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import com.puffofficial.ftecore.common.data.FTECovers;
-import com.puffofficial.ftecore.common.data.materials.FTEElements;
+import com.puffofficial.ftecore.common.materials.FTEElements;
 import com.puffofficial.ftecore.common.recipes.AlloyRecipes;
 import com.puffofficial.ftecore.common.recipes.AspectRecipes;
 import com.puffofficial.ftecore.common.recipes.FTERecipes;

@@ -12,7 +12,6 @@ import net.minecraft.world.level.material.MapColor;
 import com.puffofficial.ftecore.FTECore;
 import com.tterrag.registrate.util.entry.BlockEntry;
 
-import static com.gregtechceu.gtceu.common.registry.GTRegistration.REGISTRATE;
 import static com.puffofficial.ftecore.api.helpers.BlockHelper.*;
 
 public class FTEBlocks {
@@ -35,7 +34,7 @@ public class FTEBlocks {
             "Wrought Iron Firebox", "wrought_iron_firebox", FTECore.id("block/casings/solid/solid_wrought_iron_casing"),
             GTCEu.id("block/casings/firebox/machine_casing_firebox_steel"));
 
-    public static final BlockEntry<Block> PORCELAIN_BRICKS = REGISTRATE
+    public static final BlockEntry<Block> PORCELAIN_BRICKS = FTECore.FTERegister
             .block("porcelain_bricks", Block::new)
             .initialProperties(() -> Blocks.BRICKS)
             .lang("Porcelain Bricks")

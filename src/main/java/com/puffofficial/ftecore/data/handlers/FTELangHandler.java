@@ -22,9 +22,12 @@ public class FTELangHandler {
         provider.add("fte.components.tooltip.default_parallels", "§5Default Parallels:§r %s §7(With EU multiplier)§r");
         // Multiblock Data
         provider.add("fte.components.display.temperature", "Max Temperature: %sK");
+
+        provider.add("fte.components.display.error_temp_low", "Temperature too low");
+        provider.add("fte.components.display.error_temp_high", "Temperature too high");
         // Recipe Data
         provider.add("fte.components.data.temperature_range",
-                "Temperature: <grad from=#5fff54 to=#d0e864 hue uni>%sK</grad> - </grad>K-<grad from=#ff8254 to=#9e1818 hue sp=5.0 uni>%s</grad>K");
+                "Temperature: <grad from=#5fff54 to=#d0e864 hue uni>%s</grad>K - <grad from=#ff8254 to=#9e1818 hue sp=5.0 uni>%s</grad>K");
         // Recipes
         provider.add("gtceu.hydrokinetic_dynamo", "Hydrokinetic Dynamo");
         // Tagprefixes
