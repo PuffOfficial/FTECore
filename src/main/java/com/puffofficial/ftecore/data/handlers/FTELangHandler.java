@@ -27,7 +27,7 @@ public class FTELangHandler {
         provider.add("fte.components.display.error_temp_high", "Temperature too high");
         // Recipe Data
         provider.add("fte.components.data.temperature_range",
-                "Temperature: <grad from=#5fff54 to=#d0e864 hue uni>%s</grad>K - <grad from=#ff8254 to=#9e1818 hue sp=5.0 uni>%s</grad>K");
+                "Temp: <grad from=#5fff54 to=#d0e864 hue uni>%s</grad>K - <grad from=#ff8254 to=#9e1818 hue sp=5.0 uni>%s</grad>K");
         // Recipes
         provider.add("gtceu.hydrokinetic_dynamo", "Hydrokinetic Dynamo");
         // Tagprefixes
