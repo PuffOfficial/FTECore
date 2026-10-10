@@ -6,6 +6,7 @@ import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 
+import com.puffofficial.ftecore.FTECore;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
@@ -24,20 +25,20 @@ public class FTERecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
         // Ceramic stuff
-        GTRecipeTypes.PRIMITIVE_BLAST_FURNACE_RECIPES.recipeBuilder("ceramic_plate")
+        GTRecipeTypes.PRIMITIVE_BLAST_FURNACE_RECIPES.recipeBuilder(FTECore.id("ceramic_plate"))
                 .inputItems(ingot, Ceramic)
                 .inputItems(ItemTags.COALS, 2)
                 .notConsumable(GTItems.SHAPE_MOLD_PLATE)
                 .outputItems(plate, Ceramic)
                 .duration(1200).save(provider);
-        GTRecipeTypes.ARC_FURNACE_RECIPES.recipeBuilder("ceramic_ingot")
+        GTRecipeTypes.ARC_FURNACE_RECIPES.recipeBuilder(FTECore.id("ceramic_ingot"))
                 .inputItems(Items.CLAY_BALL)
                 .inputFluids(Oxygen, 250)
                 .outputItems(ingot, Ceramic)
                 .duration(600).EUt(GTValues.VA[GTValues.ULV]).save(provider);
 
         // Wrought Iron
-        VanillaRecipeHelper.addShapedRecipe(provider, "solid_wrought_iron_casing",
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("solid_wrought_iron_casing"),
                 FTEBlocks.SOLID_WROUGHT_IRON_CASING.asStack(2),
                 "BhB",
                 "BAB",
@@ -45,14 +46,14 @@ public class FTERecipes {
                 'A', new MaterialEntry(frameGt, AndesiteAlloy),
                 'B', new MaterialEntry(plate, WroughtIron));
 
-        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("solid_wrought_iron_casing_assembler")
+        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(FTECore.id("solid_wrought_iron_casing_assembler"))
                 .inputItems(plate, WroughtIron, 6)
                 .inputItems(frameGt, AndesiteAlloy)
                 .circuitMeta(6)
                 .outputItems(FTEBlocks.SOLID_WROUGHT_IRON_CASING, 2)
                 .duration(50).EUt(GTValues.VH[GTValues.LV]).save(provider);
 
-        VanillaRecipeHelper.addShapedRecipe(provider, "wrought_iron_firebox", FTEBlocks.WROUGHT_IRON_FIREBOX.asStack(2),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("wrought_iron_firebox"), FTEBlocks.WROUGHT_IRON_FIREBOX.asStack(2),
                 "BAB",
                 "ACA",
                 "BAB",
@@ -60,7 +61,7 @@ public class FTERecipes {
                 'B', new MaterialEntry(plate, WroughtIron),
                 'C', new MaterialEntry(frameGt, AndesiteAlloy));
 
-        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder("wrought_iron_firebox")
+        GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(FTECore.id("wrought_iron_firebox"))
                 .inputItems(plate, WroughtIron, 3)
                 .inputItems(frameGt, AndesiteAlloy)
                 .inputItems(rod, WroughtIron, 3)
@@ -68,7 +69,7 @@ public class FTERecipes {
                 .duration(100).EUt(GTValues.VA[GTValues.LV]).save(provider);
 
         // Titanium Noctite
-        GTRecipeTypes.ASSEMBLY_LINE_RECIPES.recipeBuilder("titanium_noctium_casing")
+        GTRecipeTypes.ASSEMBLY_LINE_RECIPES.recipeBuilder(FTECore.id("titanium_noctium_casing"))
                 .inputItems(plate, TitaniumNoctite, 6)
                 .inputItems(rod, Gaia, 2)
                 .inputItems(screw, RhodiumPlatedPalladium, 24)

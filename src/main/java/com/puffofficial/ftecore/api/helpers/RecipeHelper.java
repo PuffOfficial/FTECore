@@ -7,6 +7,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 
+import com.puffofficial.ftecore.FTECore;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
@@ -24,30 +25,30 @@ public class RecipeHelper {
     public static void registerAlloySmelterRecipe(Consumer<FinishedRecipe> provider, int eut, MaterialStack output,
                                                   MaterialStack[] inputs) {
         GTRecipeTypes.ALLOY_SMELTER_RECIPES
-                .recipeBuilder(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
-                        output.material().getName() + "_ingots")
+                .recipeBuilder(FTECore.id(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
+                        output.material().getName() + "_ingots"))
                 .inputItems(ingot, inputs[0].material(), (int) inputs[0].amount())
                 .inputItems(ingot, inputs[1].material(), (int) inputs[1].amount())
                 .outputItems(ingot, output.material(), (int) output.amount())
                 .duration((int) output.amount() * 50).EUt(eut).save(provider);
 
         GTRecipeTypes.ALLOY_SMELTER_RECIPES
-                .recipeBuilder(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
-                        output.material().getName() + "_mixed")
+                .recipeBuilder(FTECore.id(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
+                        output.material().getName() + "_mixed"))
                 .inputItems(dust, inputs[0].material(), (int) inputs[0].amount())
                 .inputItems(ingot, inputs[1].material(), (int) inputs[1].amount())
                 .outputItems(ingot, output.material(), (int) output.amount())
                 .duration((int) output.amount() * 50).EUt(eut).save(provider);
 
         GTRecipeTypes.ALLOY_SMELTER_RECIPES
-                .recipeBuilder(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
-                        output.material().getName() + "_dusts")
+                .recipeBuilder(FTECore.id(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
+                        output.material().getName() + "_dusts"))
                 .inputItems(dust, inputs[0].material(), (int) inputs[0].amount())
                 .inputItems(dust, inputs[1].material(), (int) inputs[1].amount())
                 .outputItems(ingot, output.material(), (int) output.amount())
                 .duration((int) output.amount() * 50).EUt(eut).save(provider);
 
-        GTRecipeTypes.MIXER_RECIPES.recipeBuilder(output.material().getName() + "_mixer_alloying")
+        GTRecipeTypes.MIXER_RECIPES.recipeBuilder(FTECore.id(output.material().getName() + "_mixer_alloying"))
                 .inputItems(dust, inputs[0].material(), (int) inputs[0].amount())
                 .inputItems(dust, inputs[1].material(), (int) inputs[1].amount())
                 .outputItems(dust, output.material(), (int) output.amount())
@@ -68,12 +69,12 @@ public class RecipeHelper {
 
         if (registerHandCrafting) {
             VanillaRecipeHelper.addShapelessRecipe(provider,
-                    output.material().getName() + "_by_hand",
+                    FTECore.id(output.material().getName() + "_by_hand"),
                     ChemicalHelper.get(dust, output.material(), (int) output.amount()),
                     shapelessInputResult.toArray());
         }
 
-        GTRecipeTypes.MIXER_RECIPES.recipeBuilder(output.material().getName() + "_mixing")
+        GTRecipeTypes.MIXER_RECIPES.recipeBuilder(FTECore.id(output.material().getName() + "_mixing"))
                 .inputItems(mixerInputResult.toArray(new ItemStack[0])).circuitMeta(circuit)
                 .outputItems(dust, output.material(), (int) output.amount())
                 .EUt(eut).duration((int) (output.amount() * 50)).save(provider);
@@ -82,7 +83,7 @@ public class RecipeHelper {
     public static void registerAlchemicalCrucibleRecipe(Consumer<FinishedRecipe> provider, String name, int minTemp,
                                                         int maxTemp, int eut, int duration, ItemStack input,
                                                         ItemStack output, FluidStack... inputAspects) {
-        FTERecipeTypes.ALCHEMICAL_CRUCIBLE_TYPE.recipeBuilder(name + "_alchemy")
+        FTERecipeTypes.ALCHEMICAL_CRUCIBLE_TYPE.recipeBuilder(FTECore.id(name + "_alchemy"))
                 .inputItems(input)
                 .inputFluids(inputAspects)
                 .outputItems(output)

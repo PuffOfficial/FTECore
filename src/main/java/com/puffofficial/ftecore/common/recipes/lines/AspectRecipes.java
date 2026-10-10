@@ -6,6 +6,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.common.data.GTItems;
 
+import com.puffofficial.ftecore.FTECore;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -33,12 +34,12 @@ public class AspectRecipes {
                     inputAspects.add(component.material().getFluid(50));
                 }
 
-                FTERecipeTypes.ALCHEMICAl_MIXER_TYPE.recipeBuilder(aspect.getName() + "_synthetyzing")
+                FTERecipeTypes.ALCHEMICAl_MIXER_TYPE.recipeBuilder(FTECore.id(aspect.getName() + "_synthetyzing"))
                         .inputFluids(inputAspects.toArray(new FluidStack[0]))
                         .outputFluids(aspect.getFluid(100))
                         .EUt(GTValues.VHA[GTValues.HV]).duration(100).save(provider);
 
-                FTERecipeTypes.ALCHEMICAL_SEPARATOR_TYPE.recipeBuilder(aspect.getName() + "_separation")
+                FTERecipeTypes.ALCHEMICAL_SEPARATOR_TYPE.recipeBuilder(FTECore.id(aspect.getName() + "_separation"))
                         .inputFluids(aspect.getFluid(100))
                         .outputFluids(inputAspects.toArray(new FluidStack[0]))
                         .EUt(GTValues.VHA[GTValues.HV]).duration(100).save(provider);

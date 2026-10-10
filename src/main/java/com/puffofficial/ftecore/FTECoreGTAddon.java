@@ -14,6 +14,7 @@ import com.puffofficial.ftecore.common.recipes.*;
 import com.puffofficial.ftecore.common.recipes.lines.AlloyRecipes;
 import com.puffofficial.ftecore.common.recipes.lines.AspectRecipes;
 import com.puffofficial.ftecore.common.recipes.lines.PrimitiveRecipes;
+import com.puffofficial.ftecore.common.recipes.lines.chemical.EthanolDehydrogenationLine;
 import com.puffofficial.ftecore.common.recipes.lines.chemical.PolylacticAcidLine;
 
 import java.util.function.Consumer;
@@ -44,6 +45,7 @@ public class FTECoreGTAddon implements IGTAddon {
         ReplacementRecipes.init(provider);
 
         PolylacticAcidLine.init(provider);
+        EthanolDehydrogenationLine.init(provider);
     }
 
     @Override
