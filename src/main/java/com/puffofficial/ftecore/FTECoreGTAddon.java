@@ -6,13 +6,15 @@ import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
 
 import com.puffofficial.ftecore.common.data.FTECovers;
 import com.puffofficial.ftecore.common.materials.FTEElements;
-import com.puffofficial.ftecore.common.recipes.AlloyRecipes;
-import com.puffofficial.ftecore.common.recipes.AspectRecipes;
-import com.puffofficial.ftecore.common.recipes.FTERecipes;
-import com.puffofficial.ftecore.common.recipes.ULVRecipes;
+import com.puffofficial.ftecore.common.recipes.*;
+import com.puffofficial.ftecore.common.recipes.lines.AlloyRecipes;
+import com.puffofficial.ftecore.common.recipes.lines.AspectRecipes;
+import com.puffofficial.ftecore.common.recipes.lines.PrimitiveRecipes;
+import com.puffofficial.ftecore.common.recipes.lines.chemical.PolylacticAcidLine;
 
 import java.util.function.Consumer;
 
@@ -35,10 +37,18 @@ public class FTECoreGTAddon implements IGTAddon {
 
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
-        ULVRecipes.init(provider);
+        PrimitiveRecipes.init(provider);
         FTERecipes.init(provider);
         AlloyRecipes.init(provider);
         AspectRecipes.init(provider);
+        ReplacementRecipes.init(provider);
+
+        PolylacticAcidLine.init(provider);
+    }
+
+    @Override
+    public void removeRecipes(Consumer<ResourceLocation> consumer) {
+        RemovedRecipes.init(consumer);
     }
 
     @Override

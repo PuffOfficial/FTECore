@@ -10,7 +10,7 @@ import com.puffofficial.ftecore.api.render.ColorHandler;
 
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = FTECore.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class ClientSubscribe {
+public class ClientEvents {
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {

@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.common.recipes;
+package com.puffofficial.ftecore.common.recipes.lines;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;

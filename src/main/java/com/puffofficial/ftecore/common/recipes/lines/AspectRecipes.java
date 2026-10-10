@@ -1,12 +1,15 @@
-package com.puffofficial.ftecore.common.recipes;
+package com.puffofficial.ftecore.common.recipes.lines;
 
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
+import com.gregtechceu.gtceu.common.data.GTItems;
 
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraftforge.fluids.FluidStack;
 
+import com.puffofficial.ftecore.api.helpers.RecipeHelper;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
 import com.puffofficial.ftecore.common.materials.lines.AspectMaterials;
 
@@ -42,12 +45,36 @@ public class AspectRecipes {
             }
         }
 
-        FTERecipeTypes.ALCHEMICAL_CRUCIBLE_TYPE.recipeBuilder("thaumium_ingot")
-                .inputItems(ingot, TungstenSteel)
-                .inputFluids(Praecantatio.getFluid(100), Vitreus.getFluid(50))
-                .outputItems(ingot, Thaumium)
-                .addData("min_temp", 3000)
-                .addData("max_temp", 6400)
-                .duration(300).EUt(GTValues.VHA[GTValues.EV]).save(provider);
+        RecipeHelper.registerAlchemicalCrucibleRecipe(provider, "thaumium",
+                3200, 5400,
+                GTValues.EV, 400,
+                ChemicalHelper.get(ingot, TungstenSteel, 1),
+                ChemicalHelper.get(ingot, Thaumium, 1),
+                Praecantatio.getFluid(100), Metallum.getFluid(50));
+        RecipeHelper.registerAlchemicalCrucibleRecipe(provider, "alchemical_bronze",
+                1200, 2000,
+                GTValues.MV, 200,
+                ChemicalHelper.get(ingot, Bronze, 1),
+                ChemicalHelper.get(ingot, AlchemicalBronze, 1),
+                Praecantatio.getFluid(100), Vitreus.getFluid(50));
+        RecipeHelper.registerAlchemicalCrucibleRecipe(provider, "void_metal",
+                3000, 4200,
+                GTValues.IV, 1000,
+                ChemicalHelper.get(ingot, Thaumium, 1),
+                ChemicalHelper.get(ingot, VoidMetal, 1),
+                Tenebrae.getFluid(150), Vitium.getFluid(100));
+
+        RecipeHelper.registerAlchemicalCrucibleRecipe(provider, "crystal_cpu",
+                5800, 6900,
+                GTValues.IV, 1200,
+                GTItems.ENGRAVED_CRYSTAL_CHIP.asStack(1),
+                GTItems.CRYSTAL_CENTRAL_PROCESSING_UNIT.asStack(1),
+                Venenum.getFluid(250), Limus.getFluid(150), Lucrum.getFluid(50));
+        RecipeHelper.registerAlchemicalCrucibleRecipe(provider, "crystal_soc",
+                6800, 9600,
+                GTValues.ZPM, 2400,
+                GTItems.CRYSTAL_CENTRAL_PROCESSING_UNIT.asStack(1),
+                GTItems.CRYSTAL_SYSTEM_ON_CHIP.asStack(1),
+                Instrumentum.getFluid(250), Sensus.getFluid(150), Lucrum.getFluid(50));
     }
 }

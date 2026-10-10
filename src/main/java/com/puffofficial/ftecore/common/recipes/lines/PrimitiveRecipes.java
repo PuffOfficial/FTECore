@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.common.recipes;
+package com.puffofficial.ftecore.common.recipes.lines;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialEntry;
@@ -20,7 +20,7 @@ import java.util.function.Consumer;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
-public class ULVRecipes {
+public class PrimitiveRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
         // ULV Components

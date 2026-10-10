@@ -1,5 +1,6 @@
 package com.puffofficial.ftecore.api.helpers;
 
+import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialEntry;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
@@ -8,6 +9,9 @@ import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,5 +77,17 @@ public class RecipeHelper {
                 .inputItems(mixerInputResult.toArray(new ItemStack[0])).circuitMeta(circuit)
                 .outputItems(dust, output.material(), (int) output.amount())
                 .EUt(eut).duration((int) (output.amount() * 50)).save(provider);
+    }
+
+    public static void registerAlchemicalCrucibleRecipe(Consumer<FinishedRecipe> provider, String name, int minTemp,
+                                                        int maxTemp, int eut, int duration, ItemStack input,
+                                                        ItemStack output, FluidStack... inputAspects) {
+        FTERecipeTypes.ALCHEMICAL_CRUCIBLE_TYPE.recipeBuilder(name + "_alchemy")
+                .inputItems(input)
+                .inputFluids(inputAspects)
+                .outputItems(output)
+                .addData("min_temp", minTemp)
+                .addData("max_temp", maxTemp)
+                .EUt(GTValues.VHA[eut]).duration(duration).save(provider);
     }
 }

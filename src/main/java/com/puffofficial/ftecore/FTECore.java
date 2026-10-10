@@ -38,7 +38,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(FTECore.MOD_ID)
-@SuppressWarnings("removal")
+@SuppressWarnings({ "removal", "unused" })
 public class FTECore {
 
     public static final String MOD_ID = "ftecore";

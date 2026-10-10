@@ -27,9 +27,12 @@ public class FTELangHandler {
         provider.add("fte.components.display.error_temp_high", "Temperature too high");
         // Recipe Data
         provider.add("fte.components.data.temperature_range",
-                "Temp: <grad from=#5fff54 to=#d0e864 hue uni>%s</grad>K - <grad from=#ff8254 to=#9e1818 hue sp=5.0 uni>%s</grad>K");
+                "Temp: <grad from=#5fff54 to=#d0e864 sp=5.0>%s</grad>K - <grad from=#ff8254 to=#9e1818 sp=5.0>%s</grad>K");
         // Recipes
         provider.add("gtceu.hydrokinetic_dynamo", "Hydrokinetic Dynamo");
+        provider.add("gtceu.alchemical_crucible", "Alchemical Crucible");
+        provider.add("gtceu.alchemical_mixer", "Alchemical Mixer");
+        provider.add("gtceu.alchemical_separator", "Alchemical Separator");
         // Tagprefixes
         provider.add("tagprefix.fuel_rod", "%s Fuel Rod");
     }
