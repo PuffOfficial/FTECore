@@ -16,7 +16,7 @@ public class ChemistryMaterials {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }
 
-    public static Material Acetaldehyde, MaleicAnhydride, DiethylSuccinate, VanadiumPentoxide, MolybdenumTrioxide;
+    public static Material Acetaldehyde, MaleicAnhydride, SuccinicAnhydride, VanadiumPentoxide, MolybdenumTrioxide;
     public static Material CavumTenebraeAir, UnitasAir, AbydosAir, ChulakAir, RimaAir;
     public static Material PolysulfideRubber, DichlorodiethylFormal, EthyleneChlorohydrin, PolysulfideHermetic,
             SodiumDisulfide, Soot;
@@ -37,7 +37,7 @@ public class ChemistryMaterials {
         // Ethanol Dehydrogrenation
         Acetaldehyde = registerFluidChemical("acetaldehyde", "C2H4O", 0xcbcbcb);
         MaleicAnhydride = registerFluidChemical("maleic_anhydride", "C4H2O3", 0xbbffff);
-        DiethylSuccinate = registerFluidChemical("diethyl_succinate", "C8H14O4", 0xb6adad);
+        SuccinicAnhydride = registerFluidChemical("succinic_anhydride", "C4H4O3", 0xb6adad);
 
         VanadiumPentoxide = registerDustChemical("vanadium_pentoxide", 0xff7d38, Vanadium, 2, Oxygen, 5);
         MolybdenumTrioxide = registerDustChemical("molybdenum_trioxide", 0xfeffa8, Molybdenum, 1, Oxygen, 3);
