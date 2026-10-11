@@ -4,18 +4,19 @@ import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 
 import net.minecraft.util.Mth;
 
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import vazkii.botania.client.core.handler.ClientTickHandler;
-import vazkii.botania.client.render.ColorHandler.BlockHandlerConsumer;
-import vazkii.botania.client.render.ColorHandler.ItemHandlerConsumer;
+
+import java.awt.*;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.puffofficial.ftecore.common.materials.lines.BotaniaMaterials.*;
 
 public class ColorHandler {
 
-    public static void colorGradientItems(ItemHandlerConsumer consumer) {
+    public static void colorGradientItems(RegisterColorHandlersEvent.Item consumer) {
         consumer.register(
-                (s, t) -> t == 0 ? Mth.hsvToRgb(ClientTickHandler.ticksInGame * 2 % 360 / 360F, 0.25F, 1F) : 1,
+                (pStack, pTintIndex) -> pTintIndex == 0 ? Mth.hsvToRgb(ClientTickHandler.ticksInGame * 2 % 360 / 360F, 0.25F, 1F) : 1,
                 () -> ChemicalHelper.get(plate, Gaia).getItem(),
                 () -> ChemicalHelper.get(plateDense, Gaia).getItem(),
                 () -> ChemicalHelper.get(plateDouble, Gaia).getItem(),
@@ -29,7 +30,7 @@ public class ColorHandler {
                 () -> ChemicalHelper.get(block, Gaia).getItem());
     }
 
-    public static void colorGradientBlocks(BlockHandlerConsumer consumer) {
+    public static void colorGradientBlocks(RegisterColorHandlersEvent.Block consumer) {
         consumer.register(
                 (state, world, pos, tintIndex) -> {
                     float time = ClientTickHandler.ticksInGame + ClientTickHandler.partialTicks;

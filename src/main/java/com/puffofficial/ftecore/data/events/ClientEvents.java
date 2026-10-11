@@ -14,11 +14,11 @@ public class ClientEvents {
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-        ColorHandler.colorGradientItems(event::register);
+        ColorHandler.colorGradientItems(event);
     }
 
     @SubscribeEvent
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
-        ColorHandler.colorGradientBlocks(event::register);
+        ColorHandler.colorGradientBlocks(event);
     }
 }
