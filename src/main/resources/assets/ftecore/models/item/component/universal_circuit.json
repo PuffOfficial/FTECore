@@ -1,0 +1,7 @@
+{
+    "parent":"item/generated",
+    "textures": {
+      "layer0":"ftecore:item/circuit/universal/base",
+      "layer1":"ftecore:item/circuit/universal/overlay"
+    }
+  }
