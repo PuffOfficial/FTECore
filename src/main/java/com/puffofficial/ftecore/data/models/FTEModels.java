@@ -34,7 +34,7 @@ public class FTEModels {
         };
     }
 
-    public static void createUniversalCircuitModel(DataGenContext<Item, ? extends Item> ctx,
+    public static void itemModelFromFile(DataGenContext<Item, ? extends Item> ctx,
                                                    RegistrateItemModelProvider prov, ResourceLocation model) {
         prov.withExistingParent(ctx.getName(), model);
     }
