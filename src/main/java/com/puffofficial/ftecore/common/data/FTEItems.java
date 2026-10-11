@@ -4,12 +4,11 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.item.ComponentItem;
 import com.gregtechceu.gtceu.api.item.IComponentItem;
 import com.gregtechceu.gtceu.api.item.component.IItemComponent;
-import com.gregtechceu.gtceu.common.cover.ConveyorCover;
 import com.gregtechceu.gtceu.common.item.CoverPlaceBehavior;
 import com.gregtechceu.gtceu.common.item.TooltipBehavior;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
-import com.gregtechceu.gtceu.utils.FormattingUtil;
 
+import com.puffofficial.ftecore.api.helpers.TooltipHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 
@@ -94,7 +93,7 @@ public class FTEItems {
             .onRegister(attach(new CoverPlaceBehavior(FTECovers.ULV_ROBOT_ARM)))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.robot.arm.tooltip"));
-                lines.add(itemRateTooltip(0));
+                lines.add(TooltipHelper.itemRateTooltip(0));
             })))
             .tag(CustomTags.ROBOT_ARMS)
             .register();
@@ -105,7 +104,7 @@ public class FTEItems {
             .onRegister(attach(new CoverPlaceBehavior(FTECovers.ULV_CONVEYOR)))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.conveyor.module.tooltip"));
-                lines.add(itemRateTooltip(0));
+                lines.add(TooltipHelper.itemRateTooltip(0));
             })))
             .tag(CustomTags.CONVEYOR_MODULES)
             .register();
@@ -116,7 +115,7 @@ public class FTEItems {
             .onRegister(attach(new CoverPlaceBehavior(FTECovers.ULV_PUMP)))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.electric.pump.tooltip"));
-                lines.add(ulvFluidRateTooltip());
+                lines.add(TooltipHelper.ulvFluidRateTooltip());
             })))
             .tag(CustomTags.ELECTRIC_PUMPS)
             .register();
@@ -151,18 +150,6 @@ public class FTEItems {
     public static ItemEntry<Item> INFINITY_DENSE_PLATE = makeMaterialItem("infinity_dense_plate",
             "Dense " + infinityName + " Plate");
 
-    private static Component itemRateTooltip(int tier) {
-        var itemsPerSecond = ConveyorCover.CONVEYOR_SCALING.applyAsInt(tier);
-        return itemsPerSecond > 64 ?
-                Component.translatable("gtceu.universal.tooltip.item_transfer_rate_stacks", itemsPerSecond / 64) :
-                Component.translatable("gtceu.universal.tooltip.item_transfer_rate", itemsPerSecond);
-    }
-
-    private static Component ulvFluidRateTooltip() {
-        return Component.translatable("gtceu.universal.tooltip.fluid_transfer_rate",
-                FormattingUtil.formatNumbers(32));
-    }
-
     private static ItemEntry<Item> makeMaterialItem(String name, String lang) {
         return FTECore.FTERegister
                 .item(name, Item::new)
@@ -176,7 +163,7 @@ public class FTEItems {
                 .item(GTValues.VN[tier].toLowerCase() + "_universal_circuit", Item::new)
                 .lang(GTValues.VNF[tier] + " Universal Circuit")
                 .tag(FTEValues.VCT[tier])
-                .model((ctx, prov) -> FTEModels.createUniversalCircuitModel(ctx, prov,
+                .model((ctx, prov) -> FTEModels.itemModelFromFile(ctx, prov,
                         FTECore.id("item/components/universal_circuit")))
                 .color(ColorHelper.itemTintFromHex(FTEValues.VC[tier], 1))
                 .register();

@@ -1,5 +1,7 @@
 package com.puffofficial.ftecore.api.helpers;
 
+import com.gregtechceu.gtceu.common.cover.ConveyorCover;
+import com.gregtechceu.gtceu.utils.FormattingUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -23,6 +25,18 @@ public class TooltipHelper {
         }
 
         return textComponent;
+    }
+
+    public static Component itemRateTooltip(int tier) {
+        var itemsPerSecond = ConveyorCover.CONVEYOR_SCALING.applyAsInt(tier);
+        return itemsPerSecond > 64 ?
+                Component.translatable("gtceu.universal.tooltip.item_transfer_rate_stacks", itemsPerSecond / 64) :
+                Component.translatable("gtceu.universal.tooltip.item_transfer_rate", itemsPerSecond);
+    }
+
+    public static Component ulvFluidRateTooltip() {
+        return Component.translatable("gtceu.universal.tooltip.fluid_transfer_rate",
+                FormattingUtil.formatNumbers(32));
     }
 
     public static List<Component> primitiveMultiblockTooltips(int parallelAmount) {
