@@ -3,9 +3,10 @@ package com.puffofficial.ftecore.common.recipes.lines.chemical;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 
-import com.puffofficial.ftecore.FTECore;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
+
+import com.puffofficial.ftecore.FTECore;
 
 import java.util.function.Consumer;
 

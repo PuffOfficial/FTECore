@@ -3,8 +3,8 @@ package com.puffofficial.ftecore.api.render;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 
 import net.minecraft.util.Mth;
-
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+
 import vazkii.botania.client.core.handler.ClientTickHandler;
 
 import java.awt.*;
@@ -16,7 +16,8 @@ public class ColorHandler {
 
     public static void colorGradientItems(RegisterColorHandlersEvent.Item consumer) {
         consumer.register(
-                (pStack, pTintIndex) -> pTintIndex == 0 ? Mth.hsvToRgb(ClientTickHandler.ticksInGame * 2 % 360 / 360F, 0.25F, 1F) : 1,
+                (pStack, pTintIndex) -> pTintIndex == 0 ?
+                        Mth.hsvToRgb(ClientTickHandler.ticksInGame * 2 % 360 / 360F, 0.25F, 1F) : 1,
                 () -> ChemicalHelper.get(plate, Gaia).getItem(),
                 () -> ChemicalHelper.get(plateDense, Gaia).getItem(),
                 () -> ChemicalHelper.get(plateDouble, Gaia).getItem(),

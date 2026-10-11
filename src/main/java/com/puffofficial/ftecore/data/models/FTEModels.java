@@ -5,11 +5,13 @@ import com.gregtechceu.gtceu.api.block.ActiveBlock;
 import com.gregtechceu.gtceu.api.block.property.GTBlockStateProperties;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ModelFile;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
+import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 
 public class FTEModels {
@@ -30,5 +32,10 @@ public class FTEModels {
                     .partialState().with(GTBlockStateProperties.ACTIVE, true)
                     .modelForState().modelFile(active).addModel();
         };
+    }
+
+    public static void createUniversalCircuitModel(DataGenContext<Item, ? extends Item> ctx,
+                                                   RegistrateItemModelProvider prov, ResourceLocation model) {
+        prov.withExistingParent(ctx.getName(), model);
     }
 }

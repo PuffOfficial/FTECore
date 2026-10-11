@@ -10,13 +10,13 @@ import com.gregtechceu.gtceu.common.item.TooltipBehavior;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
 
-import com.puffofficial.ftecore.api.helpers.ColorHelper;
-import com.puffofficial.ftecore.api.helpers.FTEValues;
-import com.puffofficial.ftecore.data.models.FTEModels;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 
 import com.puffofficial.ftecore.FTECore;
+import com.puffofficial.ftecore.api.helpers.ColorHelper;
+import com.puffofficial.ftecore.api.helpers.FTEValues;
+import com.puffofficial.ftecore.data.models.FTEModels;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
@@ -43,7 +43,8 @@ public class FTEItems {
     public static ItemEntry<Item> MESH_CHUNK = FTECore.FTERegister.item("mesh_chunk", Item::new)
             .lang("Mesh Chunk")
             .register();
-    public static ItemEntry<Item> COMPRESSED_PORCELAIN_CLAY = FTECore.FTERegister.item("compressed_porcelain_clay", Item::new)
+    public static ItemEntry<Item> COMPRESSED_PORCELAIN_CLAY = FTECore.FTERegister
+            .item("compressed_porcelain_clay", Item::new)
             .lang("Compressed Porcelain Clay")
             .register();
     public static ItemEntry<Item> PORCELAIN_BRICK = FTECore.FTERegister.item("porcelain_brick", Item::new)
@@ -67,7 +68,8 @@ public class FTEItems {
     public static ItemEntry<Item> STARGATE_CHEVRON = FTECore.FTERegister.item("stargate_chevron", Item::new)
             .lang("Stargate Chevron")
             .register();
-    public static ItemEntry<Item> STARGATE_COMPUTATION_MAINFRAME = FTECore.FTERegister.item("stargate_computation_mainframe", Item::new)
+    public static ItemEntry<Item> STARGATE_COMPUTATION_MAINFRAME = FTECore.FTERegister
+            .item("stargate_computation_mainframe", Item::new)
             .lang("Stargate Computation Mainframe")
             .properties(p -> p.stacksTo(1))
             .register();
@@ -127,7 +129,6 @@ public class FTEItems {
         }
     }
 
-
     public static <T extends IComponentItem> NonNullConsumer<T> attach(IItemComponent components) {
         return item -> item.attachComponents(components);
     }
@@ -175,7 +176,8 @@ public class FTEItems {
                 .item(GTValues.VN[tier].toLowerCase() + "_universal_circuit", Item::new)
                 .lang(GTValues.VNF[tier] + " Universal Circuit")
                 .tag(FTEValues.VCT[tier])
-                .model(FTEModels::createUniversalCircuitModel)
+                .model((ctx, prov) -> FTEModels.createUniversalCircuitModel(ctx, prov,
+                        FTECore.id("item/components/universal_circuit")))
                 .color(ColorHelper.itemTintFromHex(FTEValues.VC[tier], 1))
                 .register();
     }

@@ -2,8 +2,9 @@ package com.puffofficial.ftecore.common.recipes.lines.chemical;
 
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 
-import com.puffofficial.ftecore.FTECore;
 import net.minecraft.data.recipes.FinishedRecipe;
+
+import com.puffofficial.ftecore.FTECore;
 
 import java.util.function.Consumer;
 
@@ -20,7 +21,7 @@ public class EthanolDehydrogenationLine {
                 .inputFluids(Oxygen.getFluid(5000))
                 .outputItems(dust, VanadiumPentoxide)
                 .duration(300).EUt(VA[LV]).save(provider);
-        GTRecipeTypes.CHEMICAL_RECIPES.recipeBuilder(FTECore.id("molybdenum_trioxode"))
+        GTRecipeTypes.CHEMICAL_RECIPES.recipeBuilder(FTECore.id("molybdenum_trioxide"))
                 .inputItems(dust, Molybdenum)
                 .inputFluids(Oxygen.getFluid(3000))
                 .outputItems(dust, MolybdenumTrioxide, 4)

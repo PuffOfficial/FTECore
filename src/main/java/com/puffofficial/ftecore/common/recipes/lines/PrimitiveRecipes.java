@@ -7,12 +7,12 @@ import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 
-import com.puffofficial.ftecore.FTECore;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
+import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.data.FTEItems;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 
@@ -25,7 +25,8 @@ public class PrimitiveRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
         // ULV Components
-        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_electric_motor"), FTEItems.ELECTRIC_MOTOR_ULV.asStack(),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_electric_motor"),
+                FTEItems.ELECTRIC_MOTOR_ULV.asStack(),
                 "ABC",
                 "BDB",
                 "CBA",
@@ -42,7 +43,8 @@ public class PrimitiveRecipes {
                 .outputItems(FTEItems.ELECTRIC_MOTOR_ULV)
                 .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
 
-        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_electric_piston"), FTEItems.ELECTRIC_PISTON_ULV.asStack(),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_electric_piston"),
+                FTEItems.ELECTRIC_PISTON_ULV.asStack(),
                 "EEE",
                 "ADD",
                 "ABC",
@@ -61,7 +63,8 @@ public class PrimitiveRecipes {
                 .outputItems(FTEItems.ELECTRIC_PISTON_ULV)
                 .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
 
-        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_conveyor_module"), FTEItems.CONVEYOR_MODULE_ULV.asStack(),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_conveyor_module"),
+                FTEItems.CONVEYOR_MODULE_ULV.asStack(),
                 "CCC",
                 "BAB",
                 "CCC",
@@ -77,7 +80,8 @@ public class PrimitiveRecipes {
                 .outputItems(FTEItems.CONVEYOR_MODULE_ULV)
                 .duration(100).EUt(GTValues.VA[GTValues.ULV]).save(provider);
 
-        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_electric_pump"), FTEItems.ELECTRIC_PUMP_ULV.asStack(),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_electric_pump"),
+                FTEItems.ELECTRIC_PUMP_ULV.asStack(),
                 "EFB",
                 "sDw",
                 "BCA",
@@ -207,7 +211,8 @@ public class PrimitiveRecipes {
                 'B', new MaterialEntry(cableGtSingle, RedAlloy),
                 'C', new MaterialEntry(wireGtDouble, RedAlloy),
                 'D', new MaterialEntry(rod, Copper));
-        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_sifter"), FTEPrimitiveMachines.PRIMITIVE_SIFTER.asStack(),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_sifter"),
+                FTEPrimitiveMachines.PRIMITIVE_SIFTER.asStack(),
                 "ECE",
                 "DAD",
                 "BCB",
@@ -226,7 +231,8 @@ public class PrimitiveRecipes {
                 'C', new MaterialEntry(cableGtQuadruple, RedAlloy),
                 'D', new MaterialEntry(dust, Coal),
                 'E', new MaterialEntry(plate, WroughtIron));
-        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_extruder"), FTEPrimitiveMachines.PRIMITIVE_EXTRUDER.asStack(),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_extruder"),
+                FTEPrimitiveMachines.PRIMITIVE_EXTRUDER.asStack(),
                 "CCB",
                 "EAD",
                 "CCB",
@@ -235,7 +241,8 @@ public class PrimitiveRecipes {
                 'C', new MaterialEntry(wireGtQuadruple, RedAlloy),
                 'D', new MaterialEntry(pipeNormalFluid, Copper),
                 'E', FTEItems.ELECTRIC_PISTON_ULV);
-        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_wiremill"), FTEPrimitiveMachines.PRIMITIVE_WIREMILL.asStack(),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_wiremill"),
+                FTEPrimitiveMachines.PRIMITIVE_WIREMILL.asStack(),
                 "CDC",
                 "BAB",
                 "CDC",
@@ -255,7 +262,8 @@ public class PrimitiveRecipes {
                 'E', new MaterialEntry(cableGtSingle, RedAlloy),
                 'F', Tags.Blocks.GLASS);
         // Multiblocks
-        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_bender"), FTEPrimitiveMachines.PRIMITIVE_BENDER.asStack(),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("ulv_bender"),
+                FTEPrimitiveMachines.PRIMITIVE_BENDER.asStack(),
                 "CFC",
                 "BAB",
                 "DED",

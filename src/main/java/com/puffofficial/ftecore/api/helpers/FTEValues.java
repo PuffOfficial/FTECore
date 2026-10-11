@@ -1,11 +1,13 @@
 package com.puffofficial.ftecore.api.helpers;
 
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
+
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 @SuppressWarnings("unchecked")
 public class FTEValues {
+
     public static final TagKey<Item>[] VCT = new TagKey[] {
             CustomTags.ULV_CIRCUITS,
             CustomTags.LV_CIRCUITS,

@@ -6,10 +6,10 @@ import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.common.data.GTItems;
 
-import com.puffofficial.ftecore.FTECore;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraftforge.fluids.FluidStack;
 
+import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.api.helpers.RecipeHelper;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
 import com.puffofficial.ftecore.common.materials.lines.AspectMaterials;

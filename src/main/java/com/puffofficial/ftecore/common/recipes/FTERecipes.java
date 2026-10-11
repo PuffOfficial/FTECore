@@ -6,11 +6,11 @@ import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 
-import com.puffofficial.ftecore.FTECore;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
+import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.data.FTEBlocks;
 import com.puffofficial.ftecore.common.materials.lines.AspectMaterials;
 
@@ -53,7 +53,8 @@ public class FTERecipes {
                 .outputItems(FTEBlocks.SOLID_WROUGHT_IRON_CASING, 2)
                 .duration(50).EUt(GTValues.VH[GTValues.LV]).save(provider);
 
-        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("wrought_iron_firebox"), FTEBlocks.WROUGHT_IRON_FIREBOX.asStack(2),
+        VanillaRecipeHelper.addShapedRecipe(provider, FTECore.id("wrought_iron_firebox"),
+                FTEBlocks.WROUGHT_IRON_FIREBOX.asStack(2),
                 "BAB",
                 "ACA",
                 "BAB",

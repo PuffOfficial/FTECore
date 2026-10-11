@@ -7,11 +7,11 @@ import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 
-import com.puffofficial.ftecore.FTECore;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
+import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
 
 import java.util.ArrayList;
@@ -25,24 +25,27 @@ public class RecipeHelper {
     public static void registerAlloySmelterRecipe(Consumer<FinishedRecipe> provider, int eut, MaterialStack output,
                                                   MaterialStack[] inputs) {
         GTRecipeTypes.ALLOY_SMELTER_RECIPES
-                .recipeBuilder(FTECore.id(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
-                        output.material().getName() + "_ingots"))
+                .recipeBuilder(
+                        FTECore.id(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
+                                output.material().getName() + "_ingots"))
                 .inputItems(ingot, inputs[0].material(), (int) inputs[0].amount())
                 .inputItems(ingot, inputs[1].material(), (int) inputs[1].amount())
                 .outputItems(ingot, output.material(), (int) output.amount())
                 .duration((int) output.amount() * 50).EUt(eut).save(provider);
 
         GTRecipeTypes.ALLOY_SMELTER_RECIPES
-                .recipeBuilder(FTECore.id(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
-                        output.material().getName() + "_mixed"))
+                .recipeBuilder(
+                        FTECore.id(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
+                                output.material().getName() + "_mixed"))
                 .inputItems(dust, inputs[0].material(), (int) inputs[0].amount())
                 .inputItems(ingot, inputs[1].material(), (int) inputs[1].amount())
                 .outputItems(ingot, output.material(), (int) output.amount())
                 .duration((int) output.amount() * 50).EUt(eut).save(provider);
 
         GTRecipeTypes.ALLOY_SMELTER_RECIPES
-                .recipeBuilder(FTECore.id(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
-                        output.material().getName() + "_dusts"))
+                .recipeBuilder(
+                        FTECore.id(inputs[0].material().getName() + "_" + inputs[1].material().getName() + "_into_" +
+                                output.material().getName() + "_dusts"))
                 .inputItems(dust, inputs[0].material(), (int) inputs[0].amount())
                 .inputItems(dust, inputs[1].material(), (int) inputs[1].amount())
                 .outputItems(ingot, output.material(), (int) output.amount())
