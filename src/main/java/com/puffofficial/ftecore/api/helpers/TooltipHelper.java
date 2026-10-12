@@ -6,11 +6,17 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.puffofficial.ftecore.api.helpers.FTEValues.romanNumbers;
+
 public class TooltipHelper {
+
+    private static final Logger log = LoggerFactory.getLogger(TooltipHelper.class);
 
     public static Component defaultParallelTooltip(int parallelAmount, Boolean isWithEu) {
         MutableComponent formattedParallels = Component.literal(String.valueOf(parallelAmount))
@@ -46,5 +52,9 @@ public class TooltipHelper {
         components.add(Component.translatable("fte.components.ulv_multiblock_parallels", "§5" + parallelAmount));
 
         return components;
+    }
+
+    public static MutableComponent circuitTooltip(int tier, String type) {
+        return Component.literal(Component.translatable("fte.components.tooltip.circuit_type." + type, romanNumbers[tier]).getString()).withStyle(ChatFormatting.DARK_GRAY);
     }
 }

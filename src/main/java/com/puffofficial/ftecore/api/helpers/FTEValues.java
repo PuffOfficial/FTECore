@@ -43,4 +43,22 @@ public class FTEValues {
             0x5454FC,
             0xFC5454
     };
+
+    public static final String[] romanNumbers = {
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI",
+            "VII",
+            "VIII",
+            "IX",
+            "X",
+            "XI",
+            "XII",
+            "XIII",
+            "XIV",
+            "XV"
+    };
 }

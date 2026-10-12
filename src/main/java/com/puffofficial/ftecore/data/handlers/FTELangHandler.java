@@ -5,6 +5,8 @@ import com.tterrag.registrate.providers.RegistrateLangProvider;
 public class FTELangHandler {
 
     public static void init(RegistrateLangProvider provider) {
+        // Item Tooltips
+        provider.add("fte.components.tooltip.circuit_type.certus", "Tier %s Certus Circuit");
         // ULV tooltips
         provider.add("fte.components.ulv_machine", "§7It's a primitive machine, recipes take twice as long.");
         provider.add("fte.components.primitive_maintenance", "§7Simple hatch for Primitive multiblock maintenance.");
@@ -35,5 +37,31 @@ public class FTELangHandler {
         provider.add("gtceu.alchemical_separator", "Alchemical Separator");
         // Tagprefixes
         provider.add("tagprefix.fuel_rod", "%s Fuel Rod");
+        // Circuit tooltips
+        multilineLang(provider, "item.ftecore.certus_chip.tooltip", "§7No, it's not made out of C₆H₁₂N₄\n§bTier I Certus Circuit");
+        multilineLang(provider, "item.ftecore.basic_certus_circuit.tooltip", "§7Maybe can process something\n§bTier II Certus Circuit");
+        multilineLang(provider, "item.ftecore.good_certus_circuit.tooltip", "§7Can't run Doom\n§bTier III Certus Circuit");
+        multilineLang(provider, "item.ftecore.advanced_certus_circuit.tooltip", "§7Still can't run Doom\n§bTier IV Certus Circuit");
+
+        multilineLang(provider, "item.ftecore.fluix_chip.tooltip", "§7Same chip but with purple crystals now\n§5Tier II Certus Circuit");
+        multilineLang(provider, "item.ftecore.basic_fluix_circuit.tooltip", "§7Maybe can process something\n§5Tier III Certus Circuit");
+        multilineLang(provider, "item.ftecore.advanced_fluix_circuit.tooltip", "§7Can run Doom\n§5Tier IV Certus Circuit");
+        multilineLang(provider, "item.ftecore.fluix_mainframe.tooltip", "§7Computing Autocrafts\n§5Tier V Certus Circuit");
+
+    }
+
+    protected static String getSubKey(String key, int index) {
+        return key + "." + index;
+    }
+
+    protected static void multiLang(RegistrateLangProvider provider, String key, String... values) {
+        for (var i = 0; i < values.length; i++) {
+            provider.add(getSubKey(key, i), values[i]);
+        }
+    }
+
+    protected static void multilineLang(RegistrateLangProvider provider, String key, String multiline) {
+        var lines = multiline.split("\n");
+        multiLang(provider, key, lines);
     }
 }

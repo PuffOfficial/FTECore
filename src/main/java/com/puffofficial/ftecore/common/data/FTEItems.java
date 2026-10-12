@@ -9,6 +9,7 @@ import com.gregtechceu.gtceu.common.item.TooltipBehavior;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 
 import com.puffofficial.ftecore.api.helpers.TooltipHelper;
+import com.puffofficial.ftecore.api.tag.FTETags;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 
@@ -120,6 +121,7 @@ public class FTEItems {
             .tag(CustomTags.ELECTRIC_PUMPS)
             .register();
 
+    // Universal circuit stuff
     public static ItemEntry<Item>[] UNIVERSAL_CIRCUITS = new ItemEntry[GTValues.TIER_COUNT];
 
     static {
@@ -128,10 +130,60 @@ public class FTEItems {
         }
     }
 
-    public static <T extends IComponentItem> NonNullConsumer<T> attach(IItemComponent components) {
-        return item -> item.attachComponents(components);
-    }
+    // Circuit stuff
 
+    public static ItemEntry<Item> CERTUS_CHIP = FTECore.FTERegister
+            .item("certus_chip", Item::new)
+            .lang("Certus Chip")
+            .model(FTEModels.itemModelFromTexture(FTECore.id("item/circuit/certus/chip")))
+            .tag(FTETags.CERTUS_CIRCUIT[0])
+            .register();
+    public static ItemEntry<Item> BASIC_CERTUS_CIRCUIT = FTECore.FTERegister
+            .item("basic_certus_circuit", Item::new)
+            .lang("Basic Certus Circuit")
+            .model(FTEModels.itemModelFromTexture(FTECore.id("item/circuit/certus/basic")))
+            .tag(FTETags.CERTUS_CIRCUIT[1])
+            .register();
+    public static ItemEntry<Item> GOOD_CERTUS_CIRCUIT = FTECore.FTERegister
+            .item("good_certus_circuit", Item::new)
+            .lang("Good Certus Circuit")
+            .model(FTEModels.itemModelFromTexture(FTECore.id("item/circuit/certus/good")))
+            .tag(FTETags.CERTUS_CIRCUIT[2])
+            .register();
+    public static ItemEntry<Item> ADVANCED_CERTUS_CIRCUIT = FTECore.FTERegister
+            .item("advanced_certus_circuit", Item::new)
+            .lang("Advanced Certus Circuit")
+            .model(FTEModels.itemModelFromTexture(FTECore.id("item/circuit/certus/advanced")))
+            .tag(FTETags.CERTUS_CIRCUIT[3])
+            .register();
+
+    public static ItemEntry<Item> FLUIX_CHIP = FTECore.FTERegister
+            .item("fluix_chip", Item::new)
+            .lang("Fluix Chip")
+            .model(FTEModels.itemModelFromTexture(FTECore.id("item/circuit/fluix/chip")))
+            .tag(FTETags.CERTUS_CIRCUIT[1])
+            .register();
+    public static ItemEntry<Item> BASIC_FLUIX_CIRCUIT = FTECore.FTERegister
+            .item("basic_fluix_circuit", Item::new)
+            .lang("Basic Fluix Circuit")
+            .model(FTEModels.itemModelFromTexture(FTECore.id("item/circuit/fluix/basic")))
+            .tag(FTETags.CERTUS_CIRCUIT[2])
+            .register();
+    public static ItemEntry<Item> ADVANCED_FLUIX_CIRCUIT = FTECore.FTERegister
+            .item("advanced_fluix_circuit", Item::new)
+            .lang("Advanced Fluix Circuit")
+            .model(FTEModels.itemModelFromTexture(FTECore.id("item/circuit/fluix/advanced")))
+            .tag(FTETags.CERTUS_CIRCUIT[3])
+            .register();
+    public static ItemEntry<Item> FLUIX_MAINFRAME = FTECore.FTERegister
+            .item("fluix_mainframe", Item::new)
+            .lang("Fluix Mainframe")
+            .model(FTEModels.itemModelFromTexture(FTECore.id("item/circuit/fluix/mainframe")))
+            .tag(FTETags.CERTUS_CIRCUIT[4])
+            .register();
+    
+
+    // Crappy replacement for infinity materials
     public static ItemEntry<Item> INFINITY_PLATE = makeMaterialItem("infinity_plate", infinityName + " Plate");
     public static ItemEntry<Item> INFINITY_DOUBLE_PLATE = makeMaterialItem("infinity_double_plate",
             "Double " + infinityName + " Plate");
@@ -163,10 +215,14 @@ public class FTEItems {
                 .item(GTValues.VN[tier].toLowerCase() + "_universal_circuit", Item::new)
                 .lang(GTValues.VNF[tier] + " Universal Circuit")
                 .tag(FTEValues.VCT[tier])
-                .model((ctx, prov) -> FTEModels.itemModelFromFile(ctx, prov,
-                        FTECore.id("item/components/universal_circuit")))
+                .tag(CustomTags.CIRCUITS)
+                .model(FTEModels.itemModelFromFile(FTECore.id("item/components/universal_circuit")))
                 .color(ColorHelper.itemTintFromHex(FTEValues.VC[tier], 1))
                 .register();
+    }
+
+    public static <T extends IComponentItem> NonNullConsumer<T> attach(IItemComponent components) {
+        return item -> item.attachComponents(components);
     }
 
     public static void init() {}
