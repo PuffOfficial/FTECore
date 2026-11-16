@@ -1,7 +1,5 @@
 package com.puffofficial.ftecore.common.machine.multiblock.part;
 
-import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
 import com.gregtechceu.gtceu.api.gui.widget.SlotWidget;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
@@ -12,11 +10,11 @@ import com.gregtechceu.gtceu.api.machine.feature.IInteractedMachine;
 import com.gregtechceu.gtceu.api.machine.feature.IMachineLife;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMaintenanceMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.part.MultiblockPartMachine;
-import com.gregtechceu.gtceu.api.machine.multiblock.part.TieredPartMachine;
 import com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties;
 import com.gregtechceu.gtceu.api.machine.trait.NotifiableItemStackHandler;
 import com.gregtechceu.gtceu.client.model.machine.MachineRenderState;
 import com.gregtechceu.gtceu.common.data.GTItems;
+import com.gregtechceu.gtceu.common.machine.multiblock.part.MaintenanceHatchPartMachine;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
 
 import com.lowdragmc.lowdraglib.gui.texture.GuiTextureGroup;
@@ -46,8 +44,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.Nullable;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -58,28 +54,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 @SuppressWarnings("all")
-public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
+public class PrimitiveMaintenanceHatchPartMachine extends MaintenanceHatchPartMachine
                                                   implements IMachineLife, IMaintenanceMachine, IInteractedMachine {
 
-    @Override
-    public boolean isTaped() {
-        return isTaped;
-    }
-
-    @Override
-    public void setTimeActive(int timeActive) {
-        this.timeActive = timeActive;
-    }
-
-    @Override
-    public int getTimeActive() {
-        return timeActive;
-    }
-
-    @Override
-    public byte getMaintenanceProblems() {
-        return maintenanceProblems;
-    }
 
     protected static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(
             PrimitiveMaintenanceHatchPartMachine.class, MultiblockPartMachine.MANAGED_FIELD_HOLDER);
@@ -110,18 +87,11 @@ public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
     @Nullable
     protected TickableSubscription maintenanceSubs;
 
-    public PrimitiveMaintenanceHatchPartMachine(IMachineBlockEntity holder, boolean isConfigurable) {
-        super(holder, isConfigurable ? GTValues.HV : GTValues.ULV);
-        this.isConfigurable = isConfigurable;
+    public PrimitiveMaintenanceHatchPartMachine(IMachineBlockEntity holder) {
+        super(holder, false);
+        this.isConfigurable = false;
         this.itemStackHandler = createInventory();
         this.itemStackHandler.setFilter(itemStack -> itemStack.is(GTItems.BASIC_TAPE.get()));
-    }
-
-    //////////////////////////////////////
-    // ****** Initialization ******//
-    //////////////////////////////////////
-    protected NotifiableItemStackHandler createInventory() {
-        return new NotifiableItemStackHandler(this, 1, IO.BOTH, IO.BOTH);
     }
 
     @Override
@@ -139,15 +109,6 @@ public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
         return ALL_PROBLEMS;
     }
 
-    //////////////////////////////////////
-    // ********* Logic **********//
-    //////////////////////////////////////
-    @Override
-    public void setMaintenanceProblems(byte problems) {
-        this.maintenanceProblems = problems;
-        updateMaintenanceSubscription();
-    }
-
     @Override
     public void onLoad() {
         super.onLoad();
@@ -161,6 +122,33 @@ public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
                 setRenderState(renderState.setValue(GTMachineModelProperties.IS_TAPED, this.isTaped));
             }
         }
+    }
+
+    @Override
+    public void setMaintenanceProblems(byte problems) {
+        this.maintenanceProblems = problems;
+        updateMaintenanceSubscription();
+    }
+
+    @Override
+    public void setTaped(boolean isTaped) {
+        if (this.isTaped != isTaped) {
+            this.isTaped = isTaped;
+            setRenderState(getRenderState().setValue(GTMachineModelProperties.IS_TAPED, isTaped));
+        }
+    }
+
+    @Override
+    public InteractionResult onUse(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
+                                   BlockHitResult hit) {
+        if (hasMaintenanceProblems()) {
+            if (consumeDuctTape(player, hand)) {
+                fixAllMaintenanceProblems();
+                setTaped(true);
+                return InteractionResult.SUCCESS;
+            }
+        }
+        return InteractionResult.PASS;
     }
 
     protected void updateMaintenanceSubscription() {
@@ -315,52 +303,8 @@ public class PrimitiveMaintenanceHatchPartMachine extends TieredPartMachine
         setTaped(false);
     }
 
-    /**
-     * Fixes every maintenance problem of the controller
-     */
     public void fixAllMaintenanceProblems() {
         for (int i = 0; i < 6; i++) setMaintenanceFixed(i);
-    }
-
-    @Override
-    public boolean isFullAuto() {
-        return false;
-    }
-
-    @Override
-    public void setTaped(boolean isTaped) {
-        if (this.isTaped != isTaped) {
-            this.isTaped = isTaped;
-            setRenderState(getRenderState().setValue(GTMachineModelProperties.IS_TAPED, isTaped));
-        }
-    }
-
-    @Override
-    public float getTimeMultiplier() {
-        var result = 1f;
-        if (durationMultiplier < 1.0)
-            result = -20 * durationMultiplier + 21;
-        else
-            result = -8 * durationMultiplier + 9;
-        return BigDecimal.valueOf(result)
-                .setScale(2, RoundingMode.HALF_UP)
-                .floatValue();
-    }
-
-    //////////////////////////////////////
-    // ******* INTERACTION *******//
-    //////////////////////////////////////
-    @Override
-    public InteractionResult onUse(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
-                                   BlockHitResult hit) {
-        if (hasMaintenanceProblems()) {
-            if (consumeDuctTape(player, hand)) {
-                fixAllMaintenanceProblems();
-                setTaped(true);
-                return InteractionResult.SUCCESS;
-            }
-        }
-        return InteractionResult.PASS;
     }
 
     //////////////////////////////////////
