@@ -29,7 +29,7 @@ public class BlockHelper {
                         .strength(5.0f, 6.0f)
                         .requiresCorrectToolForDrops())
                 .blockstate((ctx, prov) -> prov.simpleBlock(ctx.getEntry(),
-                        prov.models().cubeAll(ctx.getName(), FTECore.id("block/casings/solid/" + texture))))
+                        prov.models().cubeAll(ctx.getName(), FTECore.id("block/casings/" + texture))))
                 .lang(name)
                 .item(func)
                 .build()

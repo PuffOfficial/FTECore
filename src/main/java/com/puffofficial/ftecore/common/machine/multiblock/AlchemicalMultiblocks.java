@@ -22,7 +22,7 @@ import net.minecraft.network.chat.Style;
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.api.helpers.TooltipHelper;
 import com.puffofficial.ftecore.api.machine.multiblock.FTEPartAbility;
-import com.puffofficial.ftecore.common.data.FTEBlocks;
+import com.puffofficial.ftecore.common.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTERecipeModifiers;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;

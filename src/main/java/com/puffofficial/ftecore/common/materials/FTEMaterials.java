@@ -8,9 +8,6 @@ import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
-import com.puffofficial.ftecore.common.data.FTEItems;
-import committee.nova.mods.avaritia.init.registry.ModBlocks;
-import committee.nova.mods.avaritia.init.registry.ModItems;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty.*;
@@ -25,7 +22,7 @@ public class FTEMaterials {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.MATERIALS);
     }
 
-    public static Material Ceramic, Nocturium, Infinity, ArtificialAmethyst, Unbreakium;
+    public static Material Ceramic, Nocturium, ArtificialAmethyst, Unbreakium;
     public static Material AndesiteAlloy, RadiationResistantAlloy, TitaniumNoctite, StargateAlloy, SiliconCarbide;
     public static Material Pyrotheum, Cryotheum, Aerotheum, Petrotheum;
     public static Material Thaumium, AlchemicalBronze, VoidMetal;
@@ -70,6 +67,7 @@ public class FTEMaterials {
                         .magnetic().unbreakable().build())
                 .buildAndRegister();
 
+        /*
         Infinity = new Material.Builder(FTECore.id("infinity"))
                 .ingot()
                 .iconSet(FTEIconsets.INFINITY)
@@ -91,6 +89,7 @@ public class FTEMaterials {
         screw.setIgnored(Infinity, () -> FTEItems.INFINITY_SCREW);
         ring.setIgnored(Infinity, () -> FTEItems.INFINITY_RING);
         plateDense.setIgnored(Infinity, () -> FTEItems.INFINITY_DENSE_PLATE);
+        */
 
         RadiationResistantAlloy = new Material.Builder(FTECore.id("radiation_resistant_alloy"))
                 .ingot()

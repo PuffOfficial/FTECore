@@ -11,7 +11,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
 import com.puffofficial.ftecore.FTECore;
-import com.puffofficial.ftecore.common.data.FTEBlocks;
+import com.puffofficial.ftecore.common.FTEBlocks;
 import com.puffofficial.ftecore.common.materials.lines.AspectMaterials;
 
 import java.util.function.Consumer;

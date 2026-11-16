@@ -58,5 +58,12 @@ public class FTERecipeTypes {
             .setProgressBar(GuiTextures.PROGRESS_BAR_MIXER, ProgressTexture.FillDirection.LEFT_TO_RIGHT)
             .setSound(GTSoundEntries.COOLING);
 
+    public static final GTRecipeType TERRESTRIAL_PLATE = GTRecipeTypes
+            .register("terrestrial_plate", GTRecipeTypes.MULTIBLOCK)
+            .setEUIO(IO.IN)
+            .setMaxIOSize(4, 1, 1, 0)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_MIXER, ProgressTexture.FillDirection.LEFT_TO_RIGHT)
+            .setSound(GTSoundEntries.ARC);
+
     public static void init() {}
 }

@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
 import com.puffofficial.ftecore.FTECore;
-import com.puffofficial.ftecore.common.data.FTEItems;
+import com.puffofficial.ftecore.common.FTEItems;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 
 import java.util.function.Consumer;

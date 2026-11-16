@@ -18,9 +18,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import com.puffofficial.ftecore.api.tag.FTETagPrefixes;
-import com.puffofficial.ftecore.common.data.FTEBlocks;
+import com.puffofficial.ftecore.common.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
-import com.puffofficial.ftecore.common.data.FTEItems;
+import com.puffofficial.ftecore.common.FTEItems;
 import com.puffofficial.ftecore.common.machine.FTEMachines;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;

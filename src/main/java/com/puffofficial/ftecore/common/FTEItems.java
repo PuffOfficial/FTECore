@@ -1,4 +1,4 @@
-package com.puffofficial.ftecore.common.data;
+package com.puffofficial.ftecore.common;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.item.ComponentItem;
@@ -10,6 +10,8 @@ import com.gregtechceu.gtceu.data.recipe.CustomTags;
 
 import com.puffofficial.ftecore.api.helpers.TooltipHelper;
 import com.puffofficial.ftecore.api.tag.FTETags;
+import com.puffofficial.ftecore.common.data.FTECovers;
+import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 
@@ -18,27 +20,17 @@ import com.puffofficial.ftecore.api.helpers.ColorHelper;
 import com.puffofficial.ftecore.api.helpers.FTEValues;
 import com.puffofficial.ftecore.data.models.FTEModels;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 
 @SuppressWarnings("unchecked")
 public class FTEItems {
 
-    private static final String infinityName = "<neon p=8 r=2 a=0.15><rainb>Infinity</rainb></neon>";
-
     static {
         FTECore.FTERegister.creativeModeTab(() -> FTECreativeModeTabs.ITEMS);
     }
 
-    public static ItemEntry<Item> STONE_STICK = FTECore.FTERegister.item("stone_stick", Item::new)
-            .lang("Stone Stick")
-            .register();
     public static ItemEntry<Item> P_CREDIT = FTECore.FTERegister.item("p_credit", Item::new)
             .lang("P-Credit")
-            .register();
-    public static ItemEntry<Item> KNITTING_KNIT = FTECore.FTERegister.item("knitting_kit", Item::new)
-            .lang("Knitting Kit")
-            .properties(p -> p.durability(9))
             .register();
     public static ItemEntry<Item> MESH_CHUNK = FTECore.FTERegister.item("mesh_chunk", Item::new)
             .lang("Mesh Chunk")
@@ -72,11 +64,6 @@ public class FTEItems {
             .item("stargate_computation_mainframe", Item::new)
             .lang("Stargate Computation Mainframe")
             .properties(p -> p.stacksTo(1))
-            .register();
-
-    public static ItemEntry<Item> STONE_SPADE = FTECore.FTERegister.item("stone_spade", Item::new)
-            .lang("Stone Spade")
-            .properties(p -> p.durability(64))
             .register();
 
     public static ItemEntry<Item> ELECTRIC_MOTOR_ULV = FTECore.FTERegister.item("ulv_electric_motor", Item::new)
@@ -181,34 +168,6 @@ public class FTEItems {
             .model(FTEModels.itemModelFromTexture(FTECore.id("item/circuit/fluix/mainframe")))
             .tag(FTETags.CERTUS_CIRCUIT[4])
             .register();
-    
-
-    // Crappy replacement for infinity materials
-    public static ItemEntry<Item> INFINITY_PLATE = makeMaterialItem("infinity_plate", infinityName + " Plate");
-    public static ItemEntry<Item> INFINITY_DOUBLE_PLATE = makeMaterialItem("infinity_double_plate",
-            "Double " + infinityName + " Plate");
-    public static ItemEntry<Item> INFINITY_ROD = makeMaterialItem("infinity_rod", infinityName + " Rod");
-    public static ItemEntry<Item> INFINITY_GEAR = makeMaterialItem("infinity_plate", infinityName + " Plate");
-    public static ItemEntry<Item> INFINITY_SMALL_GEAR = makeMaterialItem("infinity_small_gear",
-            "Small " + infinityName + " Gear");
-    public static ItemEntry<Item> INFINITY_BOLT = makeMaterialItem("infinity_bolt", infinityName + " Bolt");
-    public static ItemEntry<Item> INFINITY_SCREW = makeMaterialItem("infinity_screw", infinityName + " Screw");
-    public static ItemEntry<Item> INFINITY_DUST = makeMaterialItem("infinity_dust", infinityName + " Dust");
-    public static ItemEntry<Item> INFINITY_SMALL_DUST = makeMaterialItem("infinity_small_dust",
-            "Small Pile of " + infinityName + " Dust");
-    public static ItemEntry<Item> INFINITY_TINY_DUST = makeMaterialItem("infinity_tiny_dust",
-            "Tiny Pile of " + infinityName + " Dust");
-    public static ItemEntry<Item> INFINITY_RING = makeMaterialItem("infinity_ring", infinityName + " Ring");
-    public static ItemEntry<Item> INFINITY_DENSE_PLATE = makeMaterialItem("infinity_dense_plate",
-            "Dense " + infinityName + " Plate");
-
-    private static ItemEntry<Item> makeMaterialItem(String name, String lang) {
-        return FTECore.FTERegister
-                .item(name, Item::new)
-                .lang(lang)
-                .model(NonNullBiConsumer.noop())
-                .register();
-    }
 
     private static ItemEntry<Item> makeUniversalCircuit(int tier) {
         return FTECore.FTERegister

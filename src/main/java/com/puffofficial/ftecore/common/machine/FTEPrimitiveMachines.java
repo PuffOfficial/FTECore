@@ -23,7 +23,7 @@ import net.minecraft.world.level.block.Block;
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.api.helpers.TooltipHelper;
 import com.puffofficial.ftecore.api.machine.multiblock.FTEPartAbility;
-import com.puffofficial.ftecore.common.data.FTEBlocks;
+import com.puffofficial.ftecore.common.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.data.FTERecipeModifiers;
 import com.puffofficial.ftecore.common.machine.multiblock.part.PrimitiveMaintenanceHatchPartMachine;
@@ -106,7 +106,7 @@ public class FTEPrimitiveMachines {
 
     public static final MachineDefinition PRIMITIVE_MAINTENANCE_HATCH = FTECore.FTERegister
             .machine("primitive_maintenance_hatch",
-                    (blockEntity) -> new PrimitiveMaintenanceHatchPartMachine(blockEntity, true))
+                    PrimitiveMaintenanceHatchPartMachine::new)
             .langValue("§8Primitive Maintenance Hatch")
             .rotationState(RotationState.ALL)
             .abilities(FTEPartAbility.PRIMITIVE_MAINTENANCE)
