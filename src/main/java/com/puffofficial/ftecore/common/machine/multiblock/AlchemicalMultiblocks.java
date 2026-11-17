@@ -71,7 +71,7 @@ public class AlchemicalMultiblocks {
                     MutableComponent temp = Component.literal(FormattingUtil.formatNumbers(
                             coilMachine.getCoilType().getCoilTemperature() +
                                     (75 * Math.max(0, coilMachine.getTier() - GTValues.MV))))
-                            .setStyle(Style.EMPTY.withColor(ChatFormatting.RED));
+                            .setStyle(Style.EMPTY.withColor(ChatFormatting.DARK_RED));
 
                     components.add(Component.translatable("fte.components.display.temperature", temp));
                 }

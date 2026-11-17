@@ -1,7 +1,7 @@
 package com.puffofficial.ftecore.data.events;
 
 import com.gregtechceu.gtceu.data.lang.LangHandler;
-import com.puffofficial.ftecore.FTECore;
+
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -9,6 +9,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import com.puffofficial.ftecore.FTECore;
 
 import java.util.List;
 

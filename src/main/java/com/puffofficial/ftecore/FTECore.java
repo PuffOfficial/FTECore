@@ -19,8 +19,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import com.puffofficial.ftecore.api.tag.FTETagPrefixes;
 import com.puffofficial.ftecore.common.FTEBlocks;
-import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.FTEItems;
+import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.machine.FTEMachines;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
@@ -28,9 +28,7 @@ import com.puffofficial.ftecore.common.machine.multiblock.AlchemicalMultiblocks;
 import com.puffofficial.ftecore.common.machine.multiblock.FTEMultiblocks;
 import com.puffofficial.ftecore.common.materials.FTEMaterials;
 import com.puffofficial.ftecore.common.materials.lines.AspectMaterials;
-import com.puffofficial.ftecore.common.materials.lines.BotaniaMaterials;
 import com.puffofficial.ftecore.common.materials.lines.ChemistryMaterials;
-import com.puffofficial.ftecore.common.materials.lines.RootsMaterials;
 import com.puffofficial.ftecore.data.handlers.FTELangHandler;
 import com.puffofficial.ftecore.data.handlers.FTETagHandler;
 import com.tterrag.registrate.providers.ProviderType;
@@ -109,8 +107,6 @@ public class FTECore {
     private void addMaterials(MaterialEvent event) {
         AspectMaterials.init();
         ChemistryMaterials.init();
-        BotaniaMaterials.init();
-        RootsMaterials.init();
         FTEMaterials.init();
     }
 

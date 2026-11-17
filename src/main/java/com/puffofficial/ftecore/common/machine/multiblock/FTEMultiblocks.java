@@ -18,7 +18,6 @@ import com.puffofficial.ftecore.api.machine.multiblock.FTEPartAbility;
 import com.puffofficial.ftecore.common.FTEBlocks;
 import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.common.machine.FTERecipeTypes;
-import vazkii.botania.common.block.BotaniaBlocks;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -134,39 +133,6 @@ public class FTEMultiblocks {
                     GTMachineModels.createWorkableCasingMachineModel(
                             GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
                             FTECore.id("block/multiblock/daycycle_simulation_chamber")))
-            .register();
-
-    public static MultiblockMachineDefinition TERRESTRIAL_PLATE = FTECore.FTERegister
-            .multiblock("terrestrial_plate", WorkableElectricMultiblockMachine::new)
-            .langValue("Terrestrial Plate")
-            .recipeType(FTERecipeTypes.TERRESTRIAL_PLATE)
-            .recipeModifiers()
-            .rotationState(RotationState.NON_Y_AXIS)
-            .appearanceBlock(FTEBlocks.MANASTEEL_PLATED_LIVINGROCK_BRICKS)
-            .pattern(definition -> FactoryBlockPattern.start()
-                    .aisle("G###G", "P   P", "G   G", "  M  ")
-                    .aisle("#####", "  S  ", "     ", "     ")
-                    .aisle("#####", " SCS ", "     ", "M   M")
-                    .aisle("#####", "  S  ", "     ", "     ")
-                    .aisle("G###G", "P   P", "G   G", "  M  ")
-                    .where("C", Predicates.controller(Predicates.blocks(definition.get())))
-                    .where("#", Predicates.blocks(FTEBlocks.MANASTEEL_PLATED_LIVINGROCK_BRICKS.get())
-                            .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(1)
-                                    .setPreviewCount(1))
-                            .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(1)
-                                    .setPreviewCount(1))
-                            .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1)
-                                    .setPreviewCount(1)))
-                    .where("G", Predicates.blocks(Blocks.GOLD_BLOCK))
-                    .where("M", Predicates.blocks(BotaniaBlocks.manaPylon))
-                    .where("S", Predicates.blocks(BotaniaBlocks.livingrockBrickSlab))
-                    .where("P", Predicates.blocks(BotaniaBlocks.ALL_APOTHECARIES[2]))
-                    .where(" ", Predicates.air())
-                    .build())
-            .model(
-                    GTMachineModels.createWorkableCasingMachineModel(
-                            FTECore.id("block/casings/solid/manasteel_plated_livingrock_casing"),
-                            FTECore.id("block/multiblock/terrestrial_plate")))
             .register();
 
     public static void init() {}

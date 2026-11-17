@@ -8,16 +8,16 @@ import com.gregtechceu.gtceu.common.item.CoverPlaceBehavior;
 import com.gregtechceu.gtceu.common.item.TooltipBehavior;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 
-import com.puffofficial.ftecore.api.helpers.TooltipHelper;
-import com.puffofficial.ftecore.api.tag.FTETags;
-import com.puffofficial.ftecore.common.data.FTECovers;
-import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 
 import com.puffofficial.ftecore.FTECore;
 import com.puffofficial.ftecore.api.helpers.ColorHelper;
 import com.puffofficial.ftecore.api.helpers.FTEValues;
+import com.puffofficial.ftecore.api.helpers.TooltipHelper;
+import com.puffofficial.ftecore.api.tag.FTETags;
+import com.puffofficial.ftecore.common.data.FTECovers;
+import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.puffofficial.ftecore.data.models.FTEModels;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
@@ -41,9 +41,6 @@ public class FTEItems {
             .register();
     public static ItemEntry<Item> PORCELAIN_BRICK = FTECore.FTERegister.item("porcelain_brick", Item::new)
             .lang("Porcelain Brick")
-            .register();
-    public static ItemEntry<Item> ALFHEIM_RUNES = FTECore.FTERegister.item("alfheim_runes", Item::new)
-            .lang("Alfheim Runes")
             .register();
 
     public static ItemEntry<Item> RANDOM_ACCESS_MEMORY_STICK = FTECore.FTERegister.item("ram_stick", Item::new)

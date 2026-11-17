@@ -19,7 +19,6 @@ import java.util.function.Consumer;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.puffofficial.ftecore.common.materials.FTEMaterials.*;
-import static com.puffofficial.ftecore.common.materials.lines.BotaniaMaterials.*;
 
 public class FTERecipes {
 
@@ -72,7 +71,6 @@ public class FTERecipes {
         // Titanium Noctite
         GTRecipeTypes.ASSEMBLY_LINE_RECIPES.recipeBuilder(FTECore.id("titanium_noctium_casing"))
                 .inputItems(plate, TitaniumNoctite, 6)
-                .inputItems(rod, Gaia, 2)
                 .inputItems(screw, RhodiumPlatedPalladium, 24)
                 .inputItems(foil, StyreneButadieneRubber, 16)
                 .inputFluids(SolderingAlloy.getFluid(432))

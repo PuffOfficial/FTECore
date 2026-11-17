@@ -7,7 +7,7 @@ public class FTEIconsets {
     public static final MaterialIconSet PRIMAL = new MaterialIconSet("primal", MaterialIconSet.DULL);
 
     public static final MaterialIconSet CERAMIC = new MaterialIconSet("ceramic", MaterialIconSet.DULL);
-    //public static final MaterialIconSet INFINITY = new MaterialIconSet("infinity", MaterialIconSet.METALLIC);
+    // public static final MaterialIconSet INFINITY = new MaterialIconSet("infinity", MaterialIconSet.METALLIC);
 
     public static final MaterialIconSet MANASTEEL = new MaterialIconSet("manasteel", MaterialIconSet.METALLIC);
     public static final MaterialIconSet ELEMENTIUM = new MaterialIconSet("elementium", MaterialIconSet.METALLIC);

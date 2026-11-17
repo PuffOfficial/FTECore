@@ -2,10 +2,12 @@ package com.puffofficial.ftecore.api.helpers;
 
 import com.gregtechceu.gtceu.common.cover.ConveyorCover;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,6 +57,8 @@ public class TooltipHelper {
     }
 
     public static MutableComponent circuitTooltip(int tier, String type) {
-        return Component.literal(Component.translatable("fte.components.tooltip.circuit_type." + type, romanNumbers[tier]).getString()).withStyle(ChatFormatting.DARK_GRAY);
+        return Component.literal(
+                Component.translatable("fte.components.tooltip.circuit_type." + type, romanNumbers[tier]).getString())
+                .withStyle(ChatFormatting.DARK_GRAY);
     }
 }

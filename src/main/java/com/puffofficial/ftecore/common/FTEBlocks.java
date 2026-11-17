@@ -3,7 +3,6 @@ package com.puffofficial.ftecore.common;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.block.ActiveBlock;
 
-import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
@@ -11,6 +10,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.MapColor;
 
 import com.puffofficial.ftecore.FTECore;
+import com.puffofficial.ftecore.common.data.FTECreativeModeTabs;
 import com.tterrag.registrate.util.entry.BlockEntry;
 
 import static com.puffofficial.ftecore.api.helpers.BlockHelper.*;
@@ -34,13 +34,7 @@ public class FTEBlocks {
             BlockItem::new);
     public static final BlockEntry<Block> FRAMED_TREATED_WOOD_PLANKS = createSimpleCasing(
             "Framed Treated Wood Planks", "framed_treated_wood_planks", "wood/framed_treated_wood_planks_casing",
-            BlockItem::new);
-    public static final BlockEntry<Block> MANASTEEL_PLATED_LIVINGROCK_BRICKS = createSimpleCasing(
-            "Manasteel Plated Livingrock bricks", "manasteel_plated_livingstone_bricks", "solid/manasteel_plated_livingrock_casing",
-            BlockItem::new);
-    public static final BlockEntry<Block> TERRASTEEL_PLATED_LIVINGWOOD_PLANKS = createSimpleCasing(
-            "Terrasteel Plated Livingwood Planks", "terrasteel_plated_livingwood_planks", "wood/terrasteel_plated_livingwood_casing",
-            BlockItem::new);
+            BlockItem::new);;
 
     // Fireboxes
     public static final BlockEntry<ActiveBlock> WROUGHT_IRON_FIREBOX = createFirebox(

@@ -17,6 +17,8 @@ import java.util.function.BiFunction;
 
 // This horrible thing was made by Argx/Phoenixvine, I have NO idea how this works and why this works.
 
+// Update from 11/17/2026, I apparently understand it now
+
 public class MachineUtils {
 
     public static MultiblockMachineDefinition[] TieredMultis(String name,

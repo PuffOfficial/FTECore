@@ -3,8 +3,8 @@ package com.puffofficial.ftecore.data.models;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.block.ActiveBlock;
 import com.gregtechceu.gtceu.api.block.property.GTBlockStateProperties;
-
 import com.gregtechceu.gtceu.api.item.ComponentItem;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -46,6 +46,7 @@ public class FTEModels {
     public static NonNullBiConsumer<DataGenContext<Item, ComponentItem>, RegistrateItemModelProvider> componentItemModelFromFile(ResourceLocation model) {
         return (ctx, prov) -> prov.withExistingParent(ctx.getName(), model);
     }
+
     public static NonNullBiConsumer<DataGenContext<Item, ComponentItem>, RegistrateItemModelProvider> componentItemModelFromTexture(ResourceLocation texture) {
         return (ctx, prov) -> prov.generated(ctx, texture);
     }

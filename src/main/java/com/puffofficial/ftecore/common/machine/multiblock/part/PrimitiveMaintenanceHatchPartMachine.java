@@ -29,7 +29,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -56,7 +55,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @SuppressWarnings("all")
 public class PrimitiveMaintenanceHatchPartMachine extends MaintenanceHatchPartMachine
                                                   implements IMachineLife, IMaintenanceMachine, IInteractedMachine {
-
 
     protected static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(
             PrimitiveMaintenanceHatchPartMachine.class, MultiblockPartMachine.MANAGED_FIELD_HOLDER);
@@ -313,33 +311,7 @@ public class PrimitiveMaintenanceHatchPartMachine extends MaintenanceHatchPartMa
     @Override
     public Widget createUIWidget() {
         WidgetGroup group;
-        if (isConfigurable) {
-            group = new WidgetGroup(0, 0, 150, 70);
-            group.addWidget(new DraggableScrollableWidgetGroup(4, 4, 150 - 8, 70 - 8).setBackground(GuiTextures.DISPLAY)
-                    .addWidget(new ComponentPanelWidget(4, 5, list -> {
-                        list.add(getTextWidgetText("duration", this::getDurationMultiplier));
-                        list.add(getTextWidgetText("time", this::getTimeMultiplier));
-                        var buttonText = Component.translatable("gtceu.maintenance.configurable_duration.modify");
-                        buttonText.append(" ");
-                        buttonText.append(ComponentPanelWidget.withButton(Component.literal("[-]"), "sub"));
-                        buttonText.append(" ");
-                        buttonText.append(ComponentPanelWidget.withButton(Component.literal("[+]"), "add"));
-                        list.add(buttonText);
-                    }).setMaxWidthLimit(150 - 8 - 8 - 4).clickHandler((componentData, clickData) -> {
-                        if (!clickData.isRemote) {
-                            if (componentData.equals("sub")) {
-                                durationMultiplier = Mth.clamp(durationMultiplier - DURATION_ACTION_AMOUNT,
-                                        MIN_DURATION_MULTIPLIER, MAX_DURATION_MULTIPLIER);
-                            } else if (componentData.equals("add")) {
-                                durationMultiplier = Mth.clamp(durationMultiplier + DURATION_ACTION_AMOUNT,
-                                        MIN_DURATION_MULTIPLIER, MAX_DURATION_MULTIPLIER);
-                            }
-                        }
-                    })));
-
-        } else {
-            group = new WidgetGroup(0, 0, 8 + 18, 8 + 20 + 18);
-        }
+        group = new WidgetGroup(0, 0, 8 + 18, 8 + 20 + 18);
         group.addWidget(new SlotWidget(itemStackHandler, 0, group.getSize().width - 4 - 18, 4)
                 .setBackgroundTexture(new GuiTextureGroup(GuiTextures.SLOT, GuiTextures.DUCT_TAPE_OVERLAY))
                 .setHoverTooltips("gtceu.machine.maintenance_hatch_tape_slot.tooltip"));

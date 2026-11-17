@@ -5,11 +5,11 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs.*;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
-import com.puffofficial.ftecore.common.FTEBlocks;
-import com.puffofficial.ftecore.common.FTEItems;
 import net.minecraft.world.item.CreativeModeTab;
 
 import com.puffofficial.ftecore.FTECore;
+import com.puffofficial.ftecore.common.FTEBlocks;
+import com.puffofficial.ftecore.common.FTEItems;
 import com.puffofficial.ftecore.common.machine.FTEPrimitiveMachines;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 

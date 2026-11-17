@@ -14,7 +14,6 @@ import static com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastP
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.puffofficial.ftecore.api.materials.MaterialFlags.*;
-import static com.puffofficial.ftecore.common.materials.lines.BotaniaMaterials.*;
 
 public class FTEMaterials {
 
@@ -68,28 +67,28 @@ public class FTEMaterials {
                 .buildAndRegister();
 
         /*
-        Infinity = new Material.Builder(FTECore.id("infinity"))
-                .ingot()
-                .iconSet(FTEIconsets.INFINITY)
-                .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_FRAME, GENERATE_DENSE, GENERATE_GEAR, GENERATE_SMALL_GEAR)
-                .element(FTEElements.Infinity)
-                .buildAndRegister();
-        ingot.setIgnored(Infinity, ModItems.infinity_ingot);
-        nugget.setIgnored(Infinity, ModItems.infinity_nugget);
-        block.setIgnored(Infinity, ModBlocks.infinity);
-        plate.setIgnored(Infinity, () -> FTEItems.INFINITY_PLATE);
-        plateDouble.setIgnored(Infinity, () -> FTEItems.INFINITY_DOUBLE_PLATE);
-        rod.setIgnored(Infinity, () -> FTEItems.INFINITY_ROD);
-        gear.setIgnored(Infinity, () -> FTEItems.INFINITY_GEAR);
-        gearSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_GEAR);
-        dust.setIgnored(Infinity, () -> FTEItems.INFINITY_DUST);
-        dustSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_DUST);
-        dustTiny.setIgnored(Infinity, () -> FTEItems.INFINITY_TINY_DUST);
-        bolt.setIgnored(Infinity, () -> FTEItems.INFINITY_BOLT);
-        screw.setIgnored(Infinity, () -> FTEItems.INFINITY_SCREW);
-        ring.setIgnored(Infinity, () -> FTEItems.INFINITY_RING);
-        plateDense.setIgnored(Infinity, () -> FTEItems.INFINITY_DENSE_PLATE);
-        */
+         * Infinity = new Material.Builder(FTECore.id("infinity"))
+         * .ingot()
+         * .iconSet(FTEIconsets.INFINITY)
+         * .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_FRAME, GENERATE_DENSE, GENERATE_GEAR, GENERATE_SMALL_GEAR)
+         * .element(FTEElements.Infinity)
+         * .buildAndRegister();
+         * ingot.setIgnored(Infinity, ModItems.infinity_ingot);
+         * nugget.setIgnored(Infinity, ModItems.infinity_nugget);
+         * block.setIgnored(Infinity, ModBlocks.infinity);
+         * plate.setIgnored(Infinity, () -> FTEItems.INFINITY_PLATE);
+         * plateDouble.setIgnored(Infinity, () -> FTEItems.INFINITY_DOUBLE_PLATE);
+         * rod.setIgnored(Infinity, () -> FTEItems.INFINITY_ROD);
+         * gear.setIgnored(Infinity, () -> FTEItems.INFINITY_GEAR);
+         * gearSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_GEAR);
+         * dust.setIgnored(Infinity, () -> FTEItems.INFINITY_DUST);
+         * dustSmall.setIgnored(Infinity, () -> FTEItems.INFINITY_SMALL_DUST);
+         * dustTiny.setIgnored(Infinity, () -> FTEItems.INFINITY_TINY_DUST);
+         * bolt.setIgnored(Infinity, () -> FTEItems.INFINITY_BOLT);
+         * screw.setIgnored(Infinity, () -> FTEItems.INFINITY_SCREW);
+         * ring.setIgnored(Infinity, () -> FTEItems.INFINITY_RING);
+         * plateDense.setIgnored(Infinity, () -> FTEItems.INFINITY_DENSE_PLATE);
+         */
 
         RadiationResistantAlloy = new Material.Builder(FTECore.id("radiation_resistant_alloy"))
                 .ingot()
@@ -112,7 +111,7 @@ public class FTEMaterials {
                 .color(0x8eb2ba).secondaryColor(0x355e67).iconSet(MaterialIconSet.METALLIC)
                 .blastTemp(3600, GasTier.MID, GTValues.VA[GTValues.EV], 1300)
                 .flags(GENERATE_PLATE, GENERATE_FRAME, GENERATE_ROD, GENERATE_SMALL_GEAR, GENERATE_DENSE)
-                .components(Titanium, 2, Molybdenum, 1, Steel, 12, Manasteel, 2)
+                .components(Titanium, 2, Molybdenum, 1, Steel, 12)
                 .buildAndRegister();
         SiliconCarbide = new Material.Builder(FTECore.id("silicon_carbide"))
                 .ingot()

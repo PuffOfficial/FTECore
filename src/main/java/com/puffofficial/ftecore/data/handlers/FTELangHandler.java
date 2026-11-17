@@ -38,16 +38,23 @@ public class FTELangHandler {
         // Tagprefixes
         provider.add("tagprefix.fuel_rod", "%s Fuel Rod");
         // Circuit tooltips
-        multilineLang(provider, "item.ftecore.certus_chip.tooltip", "§7No, it's not made out of C₆H₁₂N₄\n§bTier I Certus Circuit");
-        multilineLang(provider, "item.ftecore.basic_certus_circuit.tooltip", "§7Maybe can process something\n§bTier II Certus Circuit");
-        multilineLang(provider, "item.ftecore.good_certus_circuit.tooltip", "§7Can't run Doom\n§bTier III Certus Circuit");
-        multilineLang(provider, "item.ftecore.advanced_certus_circuit.tooltip", "§7Still can't run Doom\n§bTier IV Certus Circuit");
+        multilineLang(provider, "item.ftecore.certus_chip.tooltip",
+                "§7No, it's not made out of C₆H₁₂N₄\n§bTier I Certus Circuit");
+        multilineLang(provider, "item.ftecore.basic_certus_circuit.tooltip",
+                "§7Maybe can process something\n§bTier II Certus Circuit");
+        multilineLang(provider, "item.ftecore.good_certus_circuit.tooltip",
+                "§7Can't run Doom\n§bTier III Certus Circuit");
+        multilineLang(provider, "item.ftecore.advanced_certus_circuit.tooltip",
+                "§7Still can't run Doom\n§bTier IV Certus Circuit");
 
-        multilineLang(provider, "item.ftecore.fluix_chip.tooltip", "§7Same chip but with purple crystals now\n§5Tier II Certus Circuit");
-        multilineLang(provider, "item.ftecore.basic_fluix_circuit.tooltip", "§7Maybe can process something\n§5Tier III Certus Circuit");
-        multilineLang(provider, "item.ftecore.advanced_fluix_circuit.tooltip", "§7Can run Doom\n§5Tier IV Certus Circuit");
-        multilineLang(provider, "item.ftecore.fluix_mainframe.tooltip", "§7Computing Autocrafts\n§5Tier V Certus Circuit");
-
+        multilineLang(provider, "item.ftecore.fluix_chip.tooltip",
+                "§7Same chip but with purple crystals now\n§5Tier II Certus Circuit");
+        multilineLang(provider, "item.ftecore.basic_fluix_circuit.tooltip",
+                "§7Maybe can process something\n§5Tier III Certus Circuit");
+        multilineLang(provider, "item.ftecore.advanced_fluix_circuit.tooltip",
+                "§7Can run Doom\n§5Tier IV Certus Circuit");
+        multilineLang(provider, "item.ftecore.fluix_mainframe.tooltip",
+                "§7Computing Autocrafts\n§5Tier V Certus Circuit");
     }
 
     protected static String getSubKey(String key, int index) {
